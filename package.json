@@ -1,0 +1,22 @@
+{
+  "name": "roommatefinder",
+  "version": "1.0.0",
+  "description": "Roommate finder app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aishwarya2/RoommateFinder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aishwarya2/RoommateFinder/issues"
+  },
+  "homepage": "https://github.com/Aishwarya2/RoommateFinder#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
