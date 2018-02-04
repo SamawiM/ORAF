@@ -21,6 +21,7 @@ app.get('/',(req,res)=>{
 
 // Edit-profile page
 app.get('/editprofile',(req,res)=>{
+
  res.render('editprofile');
 });
 
