@@ -17,4 +17,9 @@ app.get('/reviewroomie',(req,res)=>{
  res.render('reviewroomie');
 });
 
+//Add Signupform
+app.get('/users/signup',(req,res)=>{
+ res.render('/users/signup');
+});
+
 module.exports = router;

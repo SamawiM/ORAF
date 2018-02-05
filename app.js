@@ -18,27 +18,6 @@ mongoose.connect('mongodb://localhost/roommate-dev',{
 require('./models/users');
 const User=mongoose.model('users');
 
-//Add Signupform
-app.get('/users/signup',(req,res)=>{
- res.render('/users/signup');
-});
-
-// Index route-- homepage
-app.get('/',(req,res)=>{
-   res.render('helloworld');
-});
-
-// Edit-profile page
-app.get('/editprofile',(req,res)=>{
-
- res.render('editprofile');
-});
-
-// Review-roomie page
-app.get('/reviewroomie',(req,res)=>{
- res.render('reviewroomie');
-});
-
 const port=5000;
 app.listen(port,()=>{
   console.log('Server started on port'+ port);
