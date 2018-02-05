@@ -11,12 +11,21 @@ mongoose.Promise= global.Promise;
 
 // Connect to mongoDB
 mongoose.connect('mongodb://localhost/roommate-dev',{
-  useMongoClient: true
+  //useMongoClient: true
 }).then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
+
+// Load model Users
+require('./models/users');
+const User=mongoose.model('users');
+
+//Add Signupform
+app.get('/users/signup',(req,res)=>{
+ res.render('/users/signup');
+});
 
 // Index route-- homepage
 app.get('/',(req,res)=>{
- res.render('helloworld');
+   res.render('helloworld');
 });
 
 // Edit-profile page
