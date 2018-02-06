@@ -3,6 +3,7 @@ const exphbs=require('express-handlebars');
 const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 const app=express();
+var session = require('client-sessions');
 //Handlebars Middleware
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -23,11 +24,17 @@ mongoose.connect('mongodb://localhost/roommate-dev',{
 require('./models/users');
 const User=mongoose.model('users');
 
-
+app.use(session({
+  cookieName: 'session',
+  secret: 'highentropystring01010',
+  duration: 30*60*1000,
+  activeDuration: 5*60*1000,
+}))
 
 // Index route-- homepage
 app.get('/',(req,res)=>{
-   res.render('helloworld');
+   //res.render('helloworld');
+   res.redirect('users/signup');
 });
 
 //Add Signupform
@@ -35,6 +42,12 @@ app.get('/users/signup',(req,res)=>{
   res.render('users/signup');
  });
 
+ // Sign up successful view
+ app.get('/users/successful',(req,res)=>{
+  res.render('users/successful');
+ });
+
+ 
  //Process Signup form
  app.post('/users',(req,res)=>{
   let errors=[];
@@ -62,7 +75,8 @@ if(errors.length>0){
     password: req.body.password
   }
   new User(newUser).save()
-  console.log('ok');
+  //console.log('ok');
+  res.render('users/successful')
 }
  });
 
@@ -82,8 +96,9 @@ if(errors.length>0){
  console.log(req.body.password);
   User.find({email: req.body.email,password: req.body.password}, function (err, docs) {
     if (docs.length){
+      req.session.user=docs;
       res.render('signins/successful');
-        console.log('Signin successful');
+        console.log(req.session.user);
     }else{
       let errors=[];
       errors.push({text:'Invalid Credentials'});
