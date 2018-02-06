@@ -35,7 +35,7 @@ app.get('/users/signup',(req,res)=>{
   res.render('users/signup');
  });
 
- //Process form
+ //Process Signup form
  app.post('/users',(req,res)=>{
   let errors=[];
   if(!req.body.name){
@@ -64,6 +64,35 @@ if(errors.length>0){
   new User(newUser).save()
   console.log('ok');
 }
+ });
+
+ // Add signin form
+ app.get('/signins/signin',(req,res)=>{
+  res.render('signins/signin');
+ });
+
+ //Sign in successful view
+ app.get('/signins/successful',(req,res)=>{
+  res.render('signins/successful');
+ });
+
+ // Process signin form
+ app.post('/signins',(req,res)=>{
+ console.log(req.body.email);
+ console.log(req.body.password);
+  User.find({email: req.body.email,password: req.body.password}, function (err, docs) {
+    if (docs.length){
+      res.render('signins/successful');
+        console.log('Signin successful');
+    }else{
+      let errors=[];
+      errors.push({text:'Invalid Credentials'});
+      res.render('signins/signin',{
+        errors: errors
+      });
+      console.log('Signin failure');
+    }
+});
  });
 
 // Edit-profile page
