@@ -2,6 +2,7 @@ const express= require('express');
 const exphbs=require('express-handlebars');
 const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
+const mongodb=require('mongodb');
 const app=express();
 var session = require('client-sessions');
 //Handlebars Middleware
@@ -120,6 +121,14 @@ app.get('/editprofile',(req,res)=>{
 app.get('/reviewroomie',(req,res)=>{
  res.render('reviewroomie');
 });
+
+app.get('/signup',(req,res)=>{
+  res.render('signup');
+ });
+
+ app.get('/characteristics',(req,res)=>{
+  res.render('characteristics');
+ });
 
 const port=5000;
 app.listen(port,()=>{

@@ -19,9 +19,19 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "client-sessions": "^0.8.0",
+    "connect-flash": "*",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
+    "express-messages": "*",
+    "express-session": "^1.15.6",
+    "express-validator": "*",
+    "mongodb": "*",
     "mongoose": "^5.0.3",
-    "mongoose-type-email": "^1.0.5"
+    "mongoose-type-email": "^1.0.5",
+    "multer": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "save": "^2.3.2"
   }
 }
