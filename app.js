@@ -52,31 +52,51 @@ app.get('/users/signup',(req,res)=>{
  //Process Signup form
  app.post('/users',(req,res)=>{
   let errors=[];
-  if(!req.body.name){
-    errors.push({text: 'Please enter your name'});
+  if(!req.body.firstname){
+    errors.push({text: 'Please enter valid firstname'});
+  }
+  if(!req.body.lastname){
+    errors.push({text: 'Please enter valid lastname'});
+  }
+  if(!req.body.gender){
+    errors.push({text: 'Please enter a valid gender'});
   }
   if(!req.body.email){
     errors.push({text: 'Please enter a valid email'});
   }
+ 
+  if(!req.body.phno){
+    errors.push({text: 'Please enter a valid phone number'});
+  }
   if(!req.body.password){
     errors.push({text: 'Please enter a valid password'});
+  }
+  if((req.body.password != req.body.confirmpassword)|| (!req.body.confirmpassword)){
+    errors.push({text: 'Passwords don\'t match'});
   }
 
 if(errors.length>0){
   res.render('users/signup',{
     errors: errors,
-    name: req.body.name,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    gender: req.body.gender,
+    phno: req.body.phno,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    confirmpassword: req.body.confirmpassword
   });
 }else{
   const newUser={
-    name: req.body.name,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    gender: req.body.gender,
+    phno: req.body.phno,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    confirmpassword: req.body.confirmpassword
   }
-  new User(newUser).save()
-  //console.log('ok');
+  new User(newUser).save();
   res.render('users/successful')
 }
  });
