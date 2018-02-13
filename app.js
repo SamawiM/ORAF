@@ -32,10 +32,10 @@ app.use(session({
   activeDuration: 5*60*1000,
 }))
 
-// Index route-- homepage
+Index route-- homepage
 app.get('/',(req,res)=>{
-   //res.render('helloworld');
-   res.redirect('users/signup');
+   res.render('helloworld');
+   //res.redirect('users/signup');
 });
 
 //Add Signupform
@@ -122,9 +122,9 @@ app.get('/reviewroomie',(req,res)=>{
  res.render('reviewroomie');
 });
 
-app.get('/signup',(req,res)=>{
-  res.render('signup');
- });
+// app.get('/signup',(req,res)=>{
+//   res.render('signup');
+//  });
 
  app.get('/characteristics',(req,res)=>{
   res.render('characteristics');
