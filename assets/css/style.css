@@ -8,12 +8,16 @@
     white-space: nowrap;
     padding: 7px 20px 7px 0;
     margin: 5px 10px 0 0;
+    font-size: 0.8em;
 }
 .tagging-section .tagging .tag span {
 	background: none repeat scroll 0 0 #D66806;
     border-radius: 2px 0 0 2px;
     margin-right: 5px;
     padding: 4px 10px 5px;
+}
+.tagging-section .tagging > div {
+    padding-bottom: 10px;
 }
 .tagging-section .tagging .tag .tag-i {
     color: white;
