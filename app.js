@@ -30,12 +30,15 @@ app.use(session({
   secret: 'highentropystring01010',
   duration: 30*60*1000,
   activeDuration: 5*60*1000,
-}))
+}));
+
+// use css file
+app.use(express.static("assets"));
 
 //Index route-- homepage
 app.get('/',(req,res)=>{
-   res.render('helloworld');
-   //res.redirect('users/signup');
+   //res.render('helloworld');
+   res.redirect('users/signup');
 });
 
 app.get('/index',(req,res)=>{
@@ -187,15 +190,20 @@ app.get('/reviewroomie',(req,res)=>{
  res.render('reviewroomie');
 });
 
- app.get('/signup',(req,res)=>{
+app.get('/signup',(req,res)=>{
    res.render('signup');
-  });
+});
 
  app.get('/characteristics',(req,res)=>{
   res.render('characteristics');
  });
 
-const port=5020;
+const port=5000;
+
+app.get('/search/search',(req,res)=>{
+  res.render('search/search');
+});
+
 app.listen(port,()=>{
   console.log('Server started on port'+ port);
 });
