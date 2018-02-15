@@ -31,6 +31,40 @@ const UserSchema= new Schema({
   confirmpassword:{
     type: String,
     required: true
+  },
+  dietaryhabit:{
+    type: String,
+    required: true
+  },
+  smokinghabit:{
+    type: String,
+    required: true
+  },
+  alcoholichabit:{
+    type:String,
+    required: true
+  },
+  min_budget:{
+    type:Number,
+    required: true
+  },
+  max_budget:{
+    type: Number,
+    required: true
+  },
+  room_sharing:{
+    type: String,
+    required: true
+  },
+  earliest_move_in_date:{
+    type: String,
+    required: false
+  },
+  latest_move_in_date:{
+    type: String,
+    required: false
   }
+
+
 });
 mongoose.model('users',UserSchema);
