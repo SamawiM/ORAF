@@ -37,8 +37,7 @@ app.use(express.static("assets"));
 
 //Index route-- homepage
 app.get('/',(req,res)=>{
-   //res.render('helloworld');
-   res.redirect('users/signup');
+   res.render('helloworld');
 });
 
 app.get('/index',(req,res)=>{
