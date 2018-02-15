@@ -5,6 +5,7 @@ const mongoose=require('mongoose');
 const mongodb=require('mongodb');
 const app=express();
 var session = require('client-sessions');
+var js = require('./index.js');
 //Handlebars Middleware
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
