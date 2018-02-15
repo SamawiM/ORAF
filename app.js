@@ -38,10 +38,15 @@ app.get('/',(req,res)=>{
    //res.redirect('users/signup');
 });
 
+app.get('/index',(req,res)=>{
+  res.render('userProfile/index');
+  //res.redirect('users/signup');
+});
+
 //Add Signupform
-app.get('/users/signup',(req,res)=>{
-  res.render('users/signup');
- });
+//app.get('/users/signup',(req,res)=>{
+  //res.render('users/signup');
+ //});
 
  // Sign up successful view
  app.get('/users/successful',(req,res)=>{
@@ -74,9 +79,32 @@ app.get('/users/signup',(req,res)=>{
   if((req.body.password != req.body.confirmpassword)|| (!req.body.confirmpassword)){
     errors.push({text: 'Passwords don\'t match'});
   }
-
+  if(!req.body.dietaryhabit){
+    errors.push({text: 'Please enter your dietary habit'});
+  }
+  if(!req.body.smokinghabit){
+    errors.push({text: 'Please enter your smoking habit'});
+  }
+  if(!req.body.alcoholichabit){
+    errors.push({text: 'Please enter your alcoholic habit'});
+  }
+  if(!req.body.min_budget){
+    errors.push({text: 'Please enter valid minbudget'});
+  }
+  if(!req.body.max_budget){
+    errors.push({text: 'Please enter valid max budget'});
+  }
+  if(!req.body.room_sharing){
+    errors.push({text: 'Please enter your roomsharing preference'});
+  }
+  if(!req.body.earliest_move_in_date){
+    errors.push({text: 'Please enter your earliest move in date'});
+  }
+  if(!req.body.latest_move_in_date){
+    errors.push({text: 'Please enter your latest move-in date'});
+  }
 if(errors.length>0){
-  res.render('users/signup',{
+  res.render('/signup',{
     errors: errors,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
@@ -84,7 +112,15 @@ if(errors.length>0){
     phno: req.body.phno,
     email: req.body.email,
     password: req.body.password,
-    confirmpassword: req.body.confirmpassword
+    confirmpassword: req.body.confirmpassword,
+    dietaryhabit: req.body.dietaryhabit,
+    smokinghabit: req.body.smokinghabit,
+    alcoholichabit: req.body.alcoholichabit,
+    min_budget: req.body.min_budget,
+    max_budget: req.body.max_budget,
+    room_sharing: req.body.room_sharing,
+    earliest_move_in_date: req.body.earliest_move_in_date,
+    latest_move_in_date: req.body.latest_move_in_date
   });
 }else{
   const newUser={
@@ -94,22 +130,35 @@ if(errors.length>0){
     phno: req.body.phno,
     email: req.body.email,
     password: req.body.password,
-    confirmpassword: req.body.confirmpassword
+    confirmpassword: req.body.confirmpassword,
+    dietaryhabit: req.body.dietaryhabit,
+    smokinghabit: req.body.smokinghabit,
+    alcoholichabit: req.body.alcoholichabit,
+    min_budget: req.body.min_budget,
+    max_budget: req.body.max_budget,
+    room_sharing: req.body.room_sharing,
+    earliest_move_in_date: req.body.earliest_move_in_date,
+    latest_move_in_date: req.body.latest_move_in_date
   }
   new User(newUser).save();
   res.render('users/successful')
 }
  });
+// Edit-profile page
+//app.get('/userProfile/index',(req,res)=>{
+
+  //res.render('userProfile/index');
+ //});
 
  // Add signin form
- app.get('/signins/signin',(req,res)=>{
-  res.render('signins/signin');
- });
+ //app.get('/signins/signin',(req,res)=>{
+  //res.render('signins/signin');
+ //});
 
  //Sign in successful view
- app.get('/signins/successful',(req,res)=>{
-  res.render('signins/successful');
- });
+ //app.get('/signins/successful',(req,res)=>{
+ // res.render('signins/successful');
+ //});
 
  // Process signin form
  app.post('/signins',(req,res)=>{
@@ -131,11 +180,7 @@ if(errors.length>0){
 });
  });
 
-// Edit-profile page
-app.get('/editprofile',(req,res)=>{
 
- res.render('editprofile');
-});
 
 // Review-roomie page
 app.get('/reviewroomie',(req,res)=>{
@@ -150,7 +195,7 @@ app.get('/reviewroomie',(req,res)=>{
   res.render('characteristics');
  });
 
-const port=5000;
+const port=5020;
 app.listen(port,()=>{
   console.log('Server started on port'+ port);
 });
