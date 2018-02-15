@@ -198,7 +198,7 @@ app.get('/signup',(req,res)=>{
   res.render('characteristics');
  });
 
-const port=5000;
+const port=5020;
 
 app.get('/search/search',(req,res)=>{
   res.render('search/search');
