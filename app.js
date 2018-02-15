@@ -38,10 +38,15 @@ app.get('/',(req,res)=>{
    //res.redirect('users/signup');
 });
 
+app.get('/index',(req,res)=>{
+  res.render('userProfile/index');
+  //res.redirect('users/signup');
+});
+
 //Add Signupform
-app.get('/users/signup',(req,res)=>{
-  res.render('users/signup');
- });
+//app.get('/users/signup',(req,res)=>{
+  //res.render('users/signup');
+ //});
 
  // Sign up successful view
  app.get('/users/successful',(req,res)=>{
@@ -100,6 +105,11 @@ if(errors.length>0){
   res.render('users/successful')
 }
  });
+// Edit-profile page
+//app.get('/userProfile/index',(req,res)=>{
+
+  //res.render('userProfile/index');
+ //});
 
  // Add signin form
  app.get('/signins/signin',(req,res)=>{
@@ -131,11 +141,7 @@ if(errors.length>0){
 });
  });
 
-// Edit-profile page
-app.get('/editprofile',(req,res)=>{
 
- res.render('editprofile');
-});
 
 // Review-roomie page
 app.get('/reviewroomie',(req,res)=>{
