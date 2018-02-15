@@ -153,9 +153,10 @@ if(errors.length>0){
  //});
 
  // Add signin form
- //app.get('/signins/signin',(req,res)=>{
+ //app.get('/',(req,res)=>{
   //res.render('signins/signin');
  //});
+
 
  //Sign in successful view
  //app.get('/signins/successful',(req,res)=>{
@@ -163,18 +164,22 @@ if(errors.length>0){
  //});
 
  // Process signin form
- app.post('/signins',(req,res)=>{
+ app.get('/loginsuccess',(req,res)=>{
+ res.render('loginsuccess');
+ });
+
+ app.post('/',(req,res)=>{
  console.log(req.body.email);
  console.log(req.body.password);
   User.find({email: req.body.email,password: req.body.password}, function (err, docs) {
     if (docs.length){
       req.session.user=docs;
-      res.render('signins/successful');
+      res.render('loginsuccess');
         console.log(req.session.user);
     }else{
       let errors=[];
       errors.push({text:'Invalid Credentials'});
-      res.render('signins/signin',{
+      res.render('/',{
         errors: errors
       });
       console.log('Signin failure');
@@ -197,7 +202,7 @@ app.get('/signup',(req,res)=>{
   res.render('characteristics');
  });
 
-const port=5020;
+const port=5030;
 
 app.get('/search/search',(req,res)=>{
   res.render('search/search');
