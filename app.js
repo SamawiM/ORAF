@@ -42,20 +42,6 @@ app.get('/',(req,res)=>{
    res.render('helloworld');
 });
 
-
- // var result=mongodb.users.find({ //firstname: 'Amulya' });
- // res.render('userProfile/index',{results: result});
- // });
- // res.render('userProfile/index');
-
-  //res.redirect('users/signup');
-//});
-
-//Add Signupform
-//app.get('/users/signup',(req,res)=>{
-  //res.render('users/signup');
- //});
-
  // Sign up successful view
  app.get('/users/successful',(req,res)=>{
   res.render('users/successful');
@@ -63,14 +49,15 @@ app.get('/',(req,res)=>{
 
 //connect to userProfile/index
 app.get('/userProfile/index',(req,res)=>{
-  User.find({firstname: 'Amulya'},function(err,docs){
-     if(err) res.json(err);
-     else
-     {
-       console.log(docs[0]);
-     res.render('userProfile/index',{results: docs[0]})
-     }
-  });
+  //User.find({firstname: 'Amulya'},function(err,docs){
+ //    if(err) res.json(err);
+   //  else
+    // {
+     //  console.log(docs[0]);
+     res.render('userProfile/index');
+     //{results: docs[0]})
+    // }
+ // });
 //  res.render('userProfile/index');
  });
  
@@ -164,22 +151,7 @@ if(errors.length>0){
   res.render('users/successful')
 }
  });
-// Edit-profile page
-//app.get('/userProfile/index',(req,res)=>{
 
-  //res.render('userProfile/index');
- //});
-
- // Add signin form
- //app.get('/',(req,res)=>{
-  //res.render('signins/signin');
- //});
-
-
- //Sign in successful view
- //app.get('/signins/successful',(req,res)=>{
- // res.render('signins/successful');
- //});
 
  // Process signin form
  app.get('/loginsuccess',(req,res)=>{
@@ -192,7 +164,8 @@ if(errors.length>0){
   User.find({email: req.body.email,password: req.body.password}, function (err, docs) {
     if (docs.length){
       req.session.user=docs;
-      res.render('loginsuccess');
+ //     res.render('loginsuccess');
+        res.render('userProfile/index',{answer: docs[0]});
         console.log(req.session.user);
     }else{
       let errors=[];
