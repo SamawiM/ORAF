@@ -189,10 +189,19 @@ app.get('/signup',(req,res)=>{
    res.render('signup');
 });
 
+//logout
+app.get('/logout', function (req, res) {
+  req.session.reset();
+  res.render('logout');
+});
+
  app.get('/characteristics',(req,res)=>{
   res.render('characteristics');
  });
 
+ app.get('/editprofile',(req,res)=>{
+  res.render('editprofile');
+ });
 const port=5030;
 
 app.get('/search/search',(req,res)=>{
