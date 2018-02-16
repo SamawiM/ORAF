@@ -43,3 +43,17 @@
     padding: 20px;
     border-radius: 5px;
 }
+.card-deck .card-title {
+    margin: .76rem;
+    text-align: center;
+}
+.tagging-section .card-deck .card{
+    float: left;
+    display: block;
+    width: 25%;
+    flex: none;
+    margin-bottom: 20px;
+}
+.tagging-section .card .card-footer {
+    padding: .5rem 1rem;
+}
