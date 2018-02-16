@@ -179,8 +179,6 @@ if(errors.length>0){
 });
  });
 
-
-
 // Review-roomie page
 app.get('/reviewroomie',(req,res)=>{
  res.render('reviewroomie');
