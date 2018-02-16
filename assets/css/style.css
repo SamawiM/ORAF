@@ -57,3 +57,16 @@
 .tagging-section .card .card-footer {
     padding: .5rem 1rem;
 }
+
+.left-div {
+    float: left;
+    width: 200px;
+    /*height: 20px;*/
+    margin-right: 75px;
+    background-color: rgb(231, 230, 250);
+}
+.right-div {
+
+    margin-left: 50px;
+    background-color: rgb(255, 0, 43);
+}​​
