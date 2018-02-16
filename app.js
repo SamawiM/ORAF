@@ -163,7 +163,8 @@ if(errors.length>0){
  console.log(req.body.password);
   User.find({email: req.body.email,password: req.body.password}, function (err, docs) {
     if (docs.length){
-      req.session.user=docs;
+     // req.session.user=docs;
+     req.session.user=docs;
  //     res.render('loginsuccess');
         res.render('userProfile/index',{answer: docs[0]});
         console.log(req.session.user);
@@ -200,7 +201,7 @@ app.get('/logout', function (req, res) {
  });
 
  app.get('/editprofile',(req,res)=>{
-  res.render('editprofile');
+  res.render('editprofile',{results: req.session.user[0]});
  });
 const port=5030;
 
