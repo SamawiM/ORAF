@@ -1,31 +1,83 @@
 <div class="container tagging-section">
 	<div class="row">
 		<div class="col-sm-4">
-			<form>
+			<form action="" method="post" id="search-preference">
 			<h4 class="d-flex justify-content-between align-items-center mb-3">
 	            <span class="text-muted">Search & Refine</span>
 	            <span class="badge badge-secondary badge-pill">tag.count</span>
 	          </h4>
 	          <fieldset class="form-actions tagging mb-3">
 	          	<div class="smoking">
-	          		<div class="tag"><span>#</span> Smoker<input type="hidden" name="smoker" value="Smoker"><a role="button" class="tag-i">×</a></div>
-	          		<div class="tag"><span>#</span> Non-Smoker<input type="hidden" name="non-smoker" value="Non Smoker"><a role="button" class="tag-i">×</a></div>
+	          		<div class="tag"><span>#</span> Smoker<input class="smoking-habit" type="hidden" name="smoker" value="Smoker"><a role="button" class="tag-i">×</a></div>
+	          		<div class="tag"><span>#</span> Non-Smoker<input class="smoking-habit" type="hidden" name="non-smoker" value="Non Smoker"><a role="button" class="tag-i">×</a></div>
 	          	</div>
 	          	<div class="diet">
-	          		<div class="tag"><span>#</span> Vegeterian<input type="hidden" name="veg" value="Vegeterian"><a role="button" class="tag-i">×</a></div>
-	          		<div class="tag"><span>#</span> Non-Vegeterian<input type="hidden" name="nonveg" value="Non Vegeterian"><a role="button" class="tag-i">×</a></div>
+	          		<div class="tag"><span>#</span> Vegeterian<input class="dietary-habit" type="hidden" name="veg" value="Vegeterian"><a role="button" class="tag-i">×</a></div>
+	          		<div class="tag"><span>#</span> Non-Vegeterian<input class="dietary-habit" type="hidden" name="nonveg" value="Non Vegeterian"><a role="button" class="tag-i">×</a></div>
 	          	</div>
 	          	<div class="gender">
 	          		<div class="tag"><span>#</span> Female<input type="hidden" name="veg" value="Female"><a role="button" class="tag-i">×</a></div>
 	          		<div class="tag"><span>#</span> Male<input type="hidden" name="nonveg" value="Male"><a role="button" class="tag-i">×</a></div>
 	          	</div>
-		         
+	          	
+		        <p>
+				  <label for="amount">Price range:</label>
+				  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+				</p>
+				 
+				<div id="slider-range"></div>
 				</fieldset>
 				<input type="submit" name="Search" id="search" class="btn-primary btn center-block" value="Search">
 			</form>
 		</div>
 		<div class="col-sm-8">
-
+			<div class="card-deck">
+				<div class="card">
+				    <img class="card-img-top" src="../images/user.jpg" alt="Card image cap">
+				    <div class="card-block">
+				      <h6 class="card-title">Name</h6>
+			    	</div>
+				    <div class="card-footer">
+				      <small class="text-muted">Last updated 3 mins ago</small>
+				    </div>
+			    </div>
+			    <div class="card">
+				    <img class="card-img-top" src="../images/user.jpg" alt="Card image cap">
+				    <div class="card-block">
+				      <h6 class="card-title">Name</h6>
+			    	</div>
+				    <div class="card-footer">
+				      <small class="text-muted">Last updated 3 mins ago</small>
+				    </div>
+			    </div>
+			    <div class="card">
+				    <img class="card-img-top" src="../images/user.jpg" alt="Card image cap">
+				    <div class="card-block">
+				      <h6 class="card-title">Name</h6>
+			    	</div>
+				    <div class="card-footer">
+				      <small class="text-muted">Last updated 3 mins ago</small>
+				    </div>
+			    </div>
+			    <div class="card">
+				    <img class="card-img-top" src="../images/user.jpg" alt="Card image cap">
+				    <div class="card-block">
+				      <h6 class="card-title">Name</h6>
+			    	</div>
+				    <div class="card-footer">
+				      <small class="text-muted">Last updated 3 mins ago</small>
+				    </div>
+			    </div>
+			    <div class="card">
+				    <img class="card-img-top" src="../images/user.jpg" alt="Card image cap">
+				    <div class="card-block">
+				      <h6 class="card-title">Name</h6>
+			    	</div>
+				    <div class="card-footer">
+				      <small class="text-muted">Last updated 3 mins ago</small>
+				    </div>
+			    </div>
+			</div>
 		</div>
 	</div>
 </div>
