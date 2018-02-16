@@ -17,9 +17,8 @@ app.use(bodyParser.json())
 mongoose.Promise= global.Promise;
 
 // Connect to mongoDB
-mongoose.connect('mongodb://localhost/roommate-dev',{
-  //useMongoClient: true
-}).then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
+
+mongoose.connect('mongodb://localhost/roommate-dev').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
 
 // Load model Users
 require('./models/users');
@@ -32,6 +31,8 @@ app.use(session({
   activeDuration: 5*60*1000,
 }));
 
+
+
 // use css file
 app.use(express.static("assets"));
 
@@ -40,10 +41,14 @@ app.get('/',(req,res)=>{
    res.render('helloworld');
 });
 
-app.get('/index',(req,res)=>{
-  res.render('userProfile/index');
+
+ // var result=mongodb.users.find({ //firstname: 'Amulya' });
+ // res.render('userProfile/index',{results: result});
+ // });
+ // res.render('userProfile/index');
+
   //res.redirect('users/signup');
-});
+//});
 
 //Add Signupform
 //app.get('/users/signup',(req,res)=>{
@@ -55,6 +60,18 @@ app.get('/index',(req,res)=>{
   res.render('users/successful');
  });
 
+//connect to userProfile/index
+app.get('/userProfile/index',(req,res)=>{
+  User.find({firstname: 'Amulya'},function(err,docs){
+     if(err) res.json(err);
+     else
+     {
+       console.log(docs[0]);
+     res.render('userProfile/index',{results: docs[0]})
+     }
+  });
+//  res.render('userProfile/index');
+ });
  
  //Process Signup form
  app.post('/users',(req,res)=>{
@@ -108,7 +125,7 @@ app.get('/index',(req,res)=>{
 if(errors.length>0){
   res.render('/signup',{
     errors: errors,
-    firstname: req.body.firstname,
+    firstname: req.body.firstname, 
     lastname: req.body.lastname,
     gender: req.body.gender,
     phno: req.body.phno,
