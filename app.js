@@ -210,9 +210,9 @@ app.get('/users/signup',(req,res)=>{
 });
 
 //logout
-app.get('/logout', function (req, res) {
+app.get('/users/logout', function (req, res) {
   req.session.reset();
-  res.render('logout');
+  res.render('users/logout');
 });
 
  app.get('/characteristics',(req,res)=>{
