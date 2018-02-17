@@ -7,7 +7,19 @@ module.exports = {
     FEMALE : 'Female',
     SMOKING : 'Smoking',
     NON_SMOKING : 'Non-Smoking',
+    AC : 'Avery Close',
+    CA : 'Colonial Arms',
+    CC : 'Champions Court',
+    CI : 'The College Inn',
+    CR : 'Centennial Ridge',
     GC : 'Gorman Crossing',
-    AF : 'Avent Ferry',
-    CC : 'Champions Court'
+    GP : 'Gorman Place',
+    KC : 'Kings Court',
+    KP : 'Kensington Park',
+    MV : 'Mission Valley Garden',
+    PK : 'Pine Knoll',
+    PV : 'Parkwood Village',
+    UC : 'University Commons',
+    WM : 'Western Manor',
+    WR : 'Wolf Ridge'
 }
