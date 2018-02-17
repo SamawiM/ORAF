@@ -13,8 +13,6 @@ app.listen(port,()=>{
   console.log('Server started on port'+ port);
 });
 
-console.log("constant " + constant.NAME);
-
 //Handlebars Middleware
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -58,7 +56,7 @@ app.use(session({
 app.use(express.static("assets"));
 
 // ************************************************************************
- // Sign up successful view
+// Sign up successful view
  app.get('/users/successful',(req,res)=>{
   res.render('users/successful');
  });
