@@ -201,6 +201,10 @@ app.get('/logout', function (req, res) {
  app.get('/editprofile',(req,res)=>{
   res.render('editprofile',{results: req.session.user[0]});
  });
+
+
+  // Adding comment to app.js
+
 const port=5030;
 
 app.get('/search/search',(req,res)=>{
