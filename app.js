@@ -1,5 +1,5 @@
 const express= require('express');
-const exphbs=require('express-handlebars');
+console.markTimeline(); exphbs=require('express-handlebars');
 const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 const mongodb=require('mongodb');
@@ -7,10 +7,13 @@ const app=express();
 var session = require('client-sessions');
 const connection = connect();
 const port=5000;
+const constant = require('./constants');
 
 app.listen(port,()=>{
   console.log('Server started on port'+ port);
 });
+
+console.log("constant " + constant.NAME);
 
 //Handlebars Middleware
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -62,17 +65,8 @@ app.use(express.static("assets"));
 
 //connect to userProfile/index
 app.get('/userProfile/index',(req,res)=>{
-  //User.find({firstname: 'Amulya'},function(err,docs){
- //    if(err) res.json(err);
-   //  else
-    // {
-     //  console.log(docs[0]);
-     res.render('userProfile/index');
-     //{results: docs[0]})
-    // }
- // });
-//  res.render('userProfile/index');
- });
+  res.render('userProfile/index');
+});
  
  //Process Signup form
  app.post('/users',(req,res)=>{
@@ -89,7 +83,6 @@ app.get('/userProfile/index',(req,res)=>{
   if(!req.body.email){
     errors.push({text: 'Please enter a valid email'});
   }
- 
   if(!req.body.phno){
     errors.push({text: 'Please enter a valid phone number'});
   }
@@ -165,8 +158,6 @@ if(errors.length>0){
 }
  });
 
-
-
 //sending request
 
  //Process 
@@ -178,7 +169,6 @@ if(errors.length>0){
   new Request(newRequest).save();
   res.render('users/requestSuccessful')
 });
-
 
  // Process signin form
  app.get('/loginsuccess',(req,res)=>{
@@ -203,7 +193,7 @@ if(errors.length>0){
       });
       console.log('Signin failure');
     }
-});
+  });
  });
 
 // Review-roomie page
@@ -225,14 +215,14 @@ app.get('/users/logout', function (req, res) {
   res.render('users/logout');
 });
 
- app.get('/characteristics',(req,res)=>{
+app.get('/characteristics',(req,res)=>{
   res.render('characteristics');
- });
+});
 
 
- app.get('/userProfile/editprofile',(req,res)=>{
+app.get('/userProfile/editprofile',(req,res)=>{
   res.render('userProfile/editprofile',{results: req.session.user[0]});
- });
+});
 
 
 // Adding comment to app.js
