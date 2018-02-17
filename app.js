@@ -25,6 +25,9 @@ mongoose.connect('mongodb://localhost/roommate-dev').then(()=> console.log('Mong
 require('./models/users');
 const User=mongoose.model('users');
 
+require('./models/request');
+const Request=mongoose.model('request');
+
 app.use(session({
   cookieName: 'session',
   secret: 'highentropystring01010',
@@ -153,6 +156,20 @@ if(errors.length>0){
  });
 
 
+
+//sending request
+
+ //Process 
+ app.post('/request',(req,res)=>{
+  const newRequest={
+  senderID:1234,
+  receiverID:2345
+  }
+  new Request(newRequest).save();
+  res.render('users/requestSuccessful')
+});
+
+
  // Process signin form
  app.get('/loginsuccess',(req,res)=>{
  res.render('loginsuccess');
@@ -202,12 +219,13 @@ app.get('/logout', function (req, res) {
   res.render('characteristics');
  });
 
+
  app.get('/editprofile',(req,res)=>{
   res.render('editprofile',{results: req.session.user[0]});
  });
 
 
-  // Adding comment to app.js
+// Adding comment to app.js
 
 const port=5030;
 
