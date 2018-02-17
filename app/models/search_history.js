@@ -1,8 +1,13 @@
 const mongoose=require('mongoose');
-require('mongoose-type-email');
+var uniqueValidator = require('mongoose-unique-validator');
 
-// Create Search Schema
-const SearchSchema= new Schema({
+// Create Search History Schema
+const search_history= new Schema({
+  userId:{
+    type:Schema.Types.ObjectId, ref: 'users',
+    required: true,
+    unique: true
+  },
   location:[{
     type: Schema.Types.ObjectId, ref: 'locations',
     required: true
@@ -44,4 +49,4 @@ const SearchSchema= new Schema({
      required: false
   }
 });
-mongoose.model('search_history',SearchSchema);
+mongoose.model('search_history',search_history);

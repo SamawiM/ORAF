@@ -2,9 +2,10 @@ const mongoose=require('mongoose');
 require('mongoose-type-email');
 const Schema=mongoose.Schema;
 const constants = require('../../constants');
+var uniqueValidator = require('mongoose-unique-validator');
 
 // Create Schema
-const UserSchema= new Schema({
+const users= new Schema({
   email:{
     type: mongoose.SchemaTypes.Email,
     required: true,
@@ -72,4 +73,4 @@ const UserSchema= new Schema({
     default: constants.AVAILABLE
   }
 });
-mongoose.model('users',UserSchema);
+mongoose.model('users',users);
