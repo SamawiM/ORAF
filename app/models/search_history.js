@@ -1,25 +1,12 @@
 const mongoose=require('mongoose');
 require('mongoose-type-email');
-const Schema=mongoose.Schema;
 
 // Create Search Schema
 const SearchSchema= new Schema({
-  dietary_habit:{
-        type:String,
-        required: false
-  },
-  smoking_habit:{
-    type:String,
-    required: false
-  },
-  alcoholic_habit:{
-    type: mongoose.SchemaTypes.Email,
-     required: false
-  },
-  gender:{
-    type:String,
-    required:false
-  },
+  location:[{
+    type: Schema.Types.ObjectId, ref: 'locations',
+    required: true
+  }],
   min_budget:{
     type:Number,
     required:false
@@ -39,6 +26,22 @@ const SearchSchema= new Schema({
   latest_move_in_date:{
     type: Date,
     required: false
+  },
+  gender:{
+    type:String,
+    required:false
+  },
+  dietary_habit:{
+        type:String,
+        required: false
+  },
+  smoking_habit:{
+    type:String,
+    required: false
+  },
+  alcoholic_habit:{
+    type: String,
+     required: false
   }
 });
-mongoose.model('users',SearchSchema);
+mongoose.model('search_history',SearchSchema);

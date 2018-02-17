@@ -1,14 +1,20 @@
 const mongoose=require('mongoose');
 require('mongoose-type-email');
 const Schema=mongoose.Schema;
+const constants = require('../../constants');
 
 // Create Schema
 const UserSchema= new Schema({
-  firstname:{
+  email:{
+    type: mongoose.SchemaTypes.Email,
+    required: true,
+    unique: true
+  },
+  first_name:{
     type:String,
     required: true
   },
-  lastname:{
+  last_name:{
     type:String,
     required: true
   },
@@ -16,11 +22,7 @@ const UserSchema= new Schema({
     type:String,
     required:true
   },
-  email:{
-    type: mongoose.SchemaTypes.Email,
-     required: true
-  },
-  phno:{
+  phone_no:{
     type:String,
     required:true
   },
@@ -28,22 +30,10 @@ const UserSchema= new Schema({
     type: String,
     required: true
   },
-  confirmpassword:{
-    type: String,
+  location:[{
+    type: Schema.Types.ObjectId, ref: 'locations',
     required: true
-  },
-  dietaryhabit:{
-    type: String,
-    required: true
-  },
-  smokinghabit:{
-    type: String,
-    required: true
-  },
-  alcoholichabit:{
-    type:String,
-    required: true
-  },
+  }],
   min_budget:{
     type:Number,
     required: true
@@ -53,18 +43,33 @@ const UserSchema= new Schema({
     required: true
   },
   room_sharing:{
-    type: String,
+    type: Boolean,
     required: true
   },
   earliest_move_in_date:{
-    type: String,
-    required: false
+    type: Date,
+    required: true
   },
   latest_move_in_date:{
+    type: Date,
+    required: true
+  },
+  dietary_habit:{
     type: String,
-    required: false
+    required: true
+  },
+  smoking_habit:{
+    type: String,
+    required: true
+  },
+  alcoholic_habit:{
+    type:String,
+    required: true
+  },
+  status:{
+    type: String,
+    required: true,
+    default: constants.AVAILABLE
   }
-
-
 });
 mongoose.model('users',UserSchema);

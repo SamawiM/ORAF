@@ -1,4 +1,6 @@
 module.exports = {
+    AVAILABLE: "Available",
+    NOTAVAILABLE: "Not-Available",
     VEG  : 'Vegeterian',
     NON_VEG : 'Non-Vegeterian',
     MALE : 'Male',
