@@ -111,7 +111,7 @@ app.get('/userProfile/index',(req,res)=>{
     errors.push({text: 'Please enter your latest move-in date'});
   }
 if(errors.length>0){
-  res.render('/signup',{
+  res.render('users/signup',{
     errors: errors,
     firstname: req.body.firstname, 
     lastname: req.body.lastname,
@@ -184,8 +184,12 @@ app.get('/reviewroomie',(req,res)=>{
  res.render('reviewroomie');
 });
 
-app.get('/signup',(req,res)=>{
-   res.render('signup');
+//app.get('/signup',(req,res)=>{
+ //  res.render('signup');
+//});
+
+app.get('/users/signup',(req,res)=>{
+  res.render('users/signup');
 });
 
 //logout
