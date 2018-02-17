@@ -216,8 +216,13 @@ app.get('/logout', function (req, res) {
  });
 
 
+<<<<<<< HEAD
  app.get('/userProfile/editprofile',(req,res)=>{
   res.render('userProfile/editprofile',{results: req.session.user[0]});
+=======
+ app.get('/editprofile',(req,res)=>{
+  res.render('editprofile',{results: req.session.user[0]});
+>>>>>>> 88ffa2837c769d77f411607c543956c7d097e1aa
  });
 
 
