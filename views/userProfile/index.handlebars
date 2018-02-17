@@ -48,26 +48,49 @@
         <div class="row">
           <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
             <h4>
-              <strong>Responsive</strong>
+              <strong>Dietray Habits : {{answer.dietaryhabit}}</strong>
             </h4>
           </div>
           <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
             <h4>
-              <strong>Redesigned</strong>
+              <strong>Smoing Habits : {{answer.smokinghabit}}</strong>
             </h4>
           </div>
           <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
             <h4>
-              <strong>Favorited</strong>
+              <strong>Minimum Budget : {{answer.min_budget}}</strong>
             </h4>
-            
-          </div>
-          <div class="col-lg-3 col-md-6">
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
             <h4>
-              <strong>Question</strong>
+              <strong>Maximum Budget : {{answer.max_budget}}</strong>
             </h4>
-            
-          </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+            <h4>
+              <strong>Locality : ---</strong>
+            </h4>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+            <h4>
+              <strong>Alcoholic Habit : {{answer.alcoholichabit}}</strong>
+            </h4>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+            <h4>
+              <strong>Room Sharing : {{answer.room_sharing}}</strong>
+            </h4>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+            <h4>
+              <strong>Earliest Move in date : {{answer.earliest_move_in_date}}</strong>
+            </h4>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+            <h4>
+              <strong>Latest Move in date : {{answer.latest_move_in_date}}</strong>
+            </h4>
+            </div>
         </div>
       </div>
     </section>
@@ -77,10 +100,9 @@
     <!-- Call to Action -->
     <section class="content-section bg-primary text-white">
       <div class="container text-center">
-         <button type="submit" class="btn btn-xl btn-light mr-4">Edit Your Profile</button>
-+      <form action="/request" method="post">
-+        <button type="submit" class="btn btn-xl btn-light mr-4">Send Request</button>
-+      </form>
+         <form action="/request" method="post">
+         <button type="submit" class="btn btn-xl btn-light mr-4">Send Request</button>
+         </form>
       </div>
     </section>
 
