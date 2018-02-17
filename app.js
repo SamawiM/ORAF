@@ -5,6 +5,12 @@ const mongoose=require('mongoose');
 const mongodb=require('mongodb');
 const app=express();
 var session = require('client-sessions');
+const connection = connect();
+const port=5000;
+
+app.listen(port,()=>{
+  console.log('Server started on port'+ port);
+});
 
 //Handlebars Middleware
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -18,16 +24,26 @@ app.use(bodyParser.json())
 mongoose.Promise= global.Promise;
 
 // Connect to mongoDB
+function connect () {
+  mongoose.connect('mongodb://localhost/roommate-dev').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
+}
 
-mongoose.connect('mongodb://localhost/roommate-dev').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
+module.exports = {
+  app,
+  connect
+};
+require('./routes')(app);
+app.set('views', './app/views');
 
-// Load model Users
+
+// Load models
 require('./models/users');
 const User=mongoose.model('users');
 
 require('./models/request');
 const Request=mongoose.model('request');
 
+// session
 app.use(session({
   cookieName: 'session',
   secret: 'highentropystring01010',
@@ -35,16 +51,10 @@ app.use(session({
   activeDuration: 5*60*1000,
 }));
 
-
-
 // use css file
 app.use(express.static("assets"));
 
-//Index route-- homepage
-app.get('/',(req,res)=>{
-   res.render('helloworld');
-});
-
+// ************************************************************************
  // Sign up successful view
  app.get('/users/successful',(req,res)=>{
   res.render('users/successful');
@@ -227,12 +237,8 @@ app.get('/users/logout', function (req, res) {
 
 // Adding comment to app.js
 
-const port=5030;
+
 
 app.get('/search/search',(req,res)=>{
   res.render('search/search');
-});
-
-app.listen(port,()=>{
-  console.log('Server started on port'+ port);
 });
