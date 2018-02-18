@@ -71,10 +71,6 @@
     background-color: rgb(255, 0, 43);
 }
 
-.login-form {
-    margin-top: 75px;
-}
-
 .login-tab {
     padding: 1cm;
 }
@@ -95,6 +91,10 @@
     margin-top: 5px;
 }
 
+.sbmt-btn:hover {
+    background-color: royalblue;
+}
+
 .required-mark {
     color: red;
     font-weight: bold;
@@ -109,4 +109,31 @@
 
 .input-email {
     padding-right: 5px;
+}
+
+#loginContainer {
+    height: inherit;
+    width: inherit;
+    position: relative;
+    padding-top: 75px;
+    padding-bottom: 90px;
+    padding-left: 75px;
+    padding-right: 75px;
+}
+
+#loginContainer:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-image: url("/images/home.png");
+    opacity: 0.5;
+}
+
+.login-form {
+    z-index: 2;
+    position: relative;
 }

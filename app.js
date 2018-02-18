@@ -54,6 +54,7 @@ app.use(session({
 
 // use css file
 app.use(express.static("assets"));
+app.use(express.static("assets/images"));
 
 // ************************************************************************
 // Sign up successful view

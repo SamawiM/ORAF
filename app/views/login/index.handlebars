@@ -27,7 +27,8 @@
               <div class="form-group">
                 <label for="loginPassword">Password</label>
                 <span class="required-mark">*</span>
-                <input type="password" id="loginPassword" class="form-control" aria-describedby="passwordHelpInline" required>
+                <img class="info" src="/images/info.svg" alt="info" data-toggle="tooltip" data-placement="top" title="Password must have atleast one uppercase and lowercase letter, one number and one special character." />
+                <input type="password" id="loginPassword" class="form-control" aria-describedby="passwordHelpInline" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[!@#\$%\^&\*])(?=.*[A-Z]).{8,21}">
                 <small id="passwordHelpInline" class="text-muted">
                   Must be 8-20 characters long.
                 </small>
