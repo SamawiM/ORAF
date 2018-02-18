@@ -114,26 +114,8 @@
 #loginContainer {
     height: inherit;
     width: inherit;
-    position: relative;
     padding-top: 75px;
-    padding-bottom: 90px;
-    padding-left: 75px;
-    padding-right: 75px;
-}
-
-#loginContainer:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background-image: url("/images/home.png");
-    opacity: 0.5;
-}
-
-.login-form {
-    z-index: 2;
-    position: relative;
+    padding-bottom: 75px;
+    padding-left: 50px;
+    padding-right: 40px;
 }
