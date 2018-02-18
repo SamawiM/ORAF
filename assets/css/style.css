@@ -69,4 +69,40 @@
 
     margin-left: 50px;
     background-color: rgb(255, 0, 43);
-}​​
+}
+
+.login-form {
+    margin-top: 75px;
+}
+
+.login-tab {
+    padding: 1cm;
+}
+
+.tab-header {
+    margin-bottom:1rem;
+}
+
+.email-domain {
+    padding: 0px;
+}
+
+.ncsu-domain {
+    padding-top: 8px;
+}
+
+.sbmt-btn {
+    margin-top: 5px;
+}
+
+.required-mark {
+    color: red;
+    font-weight: bold;
+}
+
+.required-message {
+    font-style: oblique;
+    font-weight: normal;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
