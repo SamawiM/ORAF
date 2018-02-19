@@ -26,7 +26,7 @@ mongoose.Promise= global.Promise;
 
 // Connect to mongoDB
 function connect () {
-  mongoose.connect('mongodb://localhost/roommate-dev').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
+  mongoose.connect('mongodb://localhost/users').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
 }
 
 module.exports = {
@@ -37,11 +37,12 @@ module.exports = {
 
 
 // Load models
-require('./models/users');
+//require('./models/users');
+//const User=mongoose.model('users');
+require('./app/models/users');
 const User=mongoose.model('users');
 
-require('./routes')(app,User);
-app.set('views', './app/views');
+
 
 require('./models/request');
 const Request=mongoose.model('request');
@@ -58,6 +59,9 @@ app.use(session({
 app.use(express.static("assets"));
 app.use(express.static("assets/images"));
 
+//routes
+require('./routes')(app,User,mongoose,session);
+app.set('views', './app/views');
 // ************************************************************************
 // Sign up successful view
  app.get('/users/successful',(req,res)=>{

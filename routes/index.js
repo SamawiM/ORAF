@@ -1,7 +1,8 @@
 
 const login = require('../app/controllers/home');
-module.exports = function (app,User) {
+module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
+	
 	app.post('/',(req,res)=>{
 		console.log();
 		let errors=[];
@@ -37,4 +38,21 @@ module.exports = function (app,User) {
 		res.render('login/signupsuccess')
 	}
 	 });
+	 app.post('/signin',(req,res)=>{
+		console.log(req.body.loginEmail)
+		User.find({email: req.body.loginEmail}, function (err, docs) {
+			if (docs.length){
+			 req.session.user=docs;
+					res.render('login/signinsuccess',{answer: docs[0]});
+					console.log(req.session.user);
+			}else{
+				let errors=[];
+				errors.push({text:'Invalid Credentials'});
+				res.render('login/index',{
+					errors: errors
+				});
+				console.log('Signin failure');
+			}
+		});
+	})
 }
