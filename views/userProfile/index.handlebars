@@ -1,119 +1,155 @@
+
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <title>User Profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+div.container {
+    outline-style: solid;
+    outline-width: thick; 
+    padding-bottom: 20px;
+    padding-top: 10px;
+    width: 1000px;
+    height: 680px;
+}   
+</style>
+</head>
+<body>  
+<div class="container" style= "margin-top:50px";>
+<img src="test.jpg" class="img-thumbnail" alt="Cinque Terre" height="300" width="300">
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">BASIC DETAILS</a>
+  <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">CHARACTERISTICS</a>
+  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">SETTINGS</a>
+</div>
 
-  <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-  </head>
-
-  <body id="page-top">
+<div class="tab-content" id="v-pills-tabContent">
+  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
    
-
-    <!-- Header -->
-    <header class="masthead d-flex">
-      <div class="container text-center my-auto">
-        <h1 class="mb-1">User Profile</h1>
-      </div>
-      <div class="overlay"></div>
-    </header>
-
-    <!-- About -->
-    <section class="content-section bg-light" id="about">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-              <p><b>First Name: {{answer.firstname}} </b> </p>
-              <p><b>Last Name:{{answer.lastname}}</b> </p>
-              <p><b>Gender:{{answer.gender}}</b> </p>
-              <p><b>Email:{{answer.email}}</b> </p>
-              <p><b>Phone no:{{answer.phno}}</b> </p>
-              <p><b>Password:{{answer.password}}</b> </p>
-          </div>
+  <form>
+  <div class="col-lg-6">
+  <label for="exampleFormControlInput1">Username</label>
+    <div class="input-group">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Mr.</a>
+          <a class="dropdown-item" href="#">Ms.</a>
         </div>
       </div>
-    </section>
+      <input type="text" class="form-control" aria-label="Text input with dropdown button">
+    </div>
+  </div>
+
+
+  <div class="col-lg-6">
+  <label for="exampleFormControlInput1">Email</label>
+  <div class="input-group">
+   <div class="input-group-addon">
+   <i class="fa fa-envelope-o"></i> 
+   </div>
+   <input class="form-control" id="email" name="email" type="text"/>
+   </div> 
+  </div>
+
+  <div class="col-lg-6">
+  <label for="exampleFormControlInput1">Phone Number</label>
+  <div class="input-group">
+   <div class="input-group-addon">
+   <i class="fa fa-phone"></i> 
+   </div>
+   <input class="form-control" id="number" name="number" type="text"/>
+   </div> 
+  </div>
+
+
+  <div class="col-lg-6">
+  <label for="exampleFormControlInput1">Gender</label>
+  <div class="input-group">
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked><i class="fa fa-male"></i>
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> <i class="fa fa-female"></i>  
+  </label>
+  </div>
+  </div>
+  </div>
+
+<button type="button" class="btn btn-primary btn-lg pull-right">Update</button>
+</div>
 
 
 
+
+<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
     
-    <!-- Services -->
-    <section class="content-section bg-primary text-white text-center" id="services">
-      <div class="container">
-        <div class="content-section-heading">
-          <h2 class="mb-5">Characteristics</h2>
-        </div>
-        <div class="row">
-          <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-            <h4>
-              <strong>Dietray Habits : {{answer.dietaryhabit}}</strong>
-            </h4>
-          </div>
-          <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-            <h4>
-              <strong>Smoing Habits : {{answer.smokinghabit}}</strong>
-            </h4>
-          </div>
-          <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-            <h4>
-              <strong>Minimum Budget : {{answer.min_budget}}</strong>
-            </h4>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-            <h4>
-              <strong>Maximum Budget : {{answer.max_budget}}</strong>
-            </h4>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-            <h4>
-              <strong>Locality : ---</strong>
-            </h4>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-            <h4>
-              <strong>Alcoholic Habit : {{answer.alcoholichabit}}</strong>
-            </h4>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-            <h4>
-              <strong>Room Sharing : {{answer.room_sharing}}</strong>
-            </h4>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-            <h4>
-              <strong>Earliest Move in date : {{answer.earliest_move_in_date}}</strong>
-            </h4>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-            <h4>
-              <strong>Latest Move in date : {{answer.latest_move_in_date}}</strong>
-            </h4>
-            </div>
-        </div>
-      </div>
-    </section>
+<p>Dietray Habits : {{answer.dietaryhabit}}</p>
+<p>Smoing Habits : {{answer.smokinghabit}}</p>
+<p>Minimum Budget : {{answer.min_budget}}</p>
+<p>Maximum Budget : {{answer.max_budget}}</p>
+<p>Locality : ---</p>
+<p>Alcoholic Habit : {{answer.alcoholichabit}}</p>
+<p>Room Sharing : {{answer.room_sharing}}</p>
+<p>Earliest Move in date : {{answer.earliest_move_in_date}}</p>
+<p>Latest Move in date : {{answer.latest_move_in_date}}</p>
 
-    
-    
-    <!-- Call to Action -->
-    <section class="content-section bg-primary text-white">
-      <div class="container text-center">
-<<<<<<< HEAD
-         <form action="/request" method="post">
-         <button type="submit" class="btn btn-xl btn-light mr-4">Send Request</button>
-         </form>
-=======
-         <input type="button" class="btn btn-xl btn-light mr-4" onclick="location.href='/userProfile/editprofile';" value="Edit your profile" />
-        <!-- <button type="submit" class="btn btn-xl btn-light mr-4">Edit Your Profile</button>-->
-+      <form action="/request" method="post">
-+        <button type="submit" class="btn btn-xl btn-light mr-4">Send Request</button>
-+      </form>
->>>>>>> e5a7b1c098284b4f636af31e0dd50de4a5dbcab2
-      </div>
-    </section>
+<button type="button" class="btn btn-primary btn-lg pull-right">Update</button>
+</div>
 
-  </body>
+<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-messages-tab">
 
+  <div class="col-lg-6">
+  <label for="exampleFormControlInput1">Current Password</label>
+  <div class="input-group">
+   <div class="input-group-addon">
+   </div>
+   <input class="form-control" id="number" name="number" type="password"/>
+   </div> 
+  </div>
+
+  <div class="col-lg-6">
+  <label for="exampleFormControlInput1">New Password</label>
+  <div class="input-group">
+   <div class="input-group-addon">
+   </div>
+   <input class="form-control" id="number" name="number" type="password"/>
+   </div> 
+  </div>
+  
+  <div class="col-lg-6">
+  <label for="exampleFormControlInput1">Confirm Password</label>
+  <div class="input-group">
+   <div class="input-group-addon">
+   </div>
+   <input class="form-control" id="number" name="number" type="password"/>
+   </div> 
+  </div>
+  <button type="button" class="btn btn-primary btn-lg pull-right">Change</button>
+
+</div>
+</div>
+<br>
+<br>
+<br>
+<button type="button" class="btn btn-primary center-block">Send Request</button>
+</div>
+
+</body>
 </html>
+​
+
