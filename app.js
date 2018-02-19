@@ -6,7 +6,7 @@ const mongodb=require('mongodb');
 const app=express();
 var session = require('client-sessions');
 const connection = connect();
-const port=5000;
+const port=5040;
 const constant = require('./constants');
 
 app.listen(port,()=>{
@@ -33,13 +33,15 @@ module.exports = {
   app,
   connect
 };
-require('./routes')(app);
-app.set('views', './app/views');
+
 
 
 // Load models
 require('./models/users');
 const User=mongoose.model('users');
+
+require('./routes')(app,User);
+app.set('views', './app/views');
 
 require('./models/request');
 const Request=mongoose.model('request');
