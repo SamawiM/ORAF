@@ -31,6 +31,7 @@
     "mongoose-type-email": "^1.0.5",
     "mongoose-unique-validator": "^2.0.0",
     "multer": "*",
+    "nodemailer": "^4.4.2",
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*",
