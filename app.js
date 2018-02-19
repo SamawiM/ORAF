@@ -6,7 +6,7 @@ const mongodb=require('mongodb');
 const app=express();
 var session = require('client-sessions');
 const connection = connect();
-const port=5000;
+const port=5040;
 const constant = require('./constants');
 
 app.listen(port,()=>{
@@ -26,20 +26,23 @@ mongoose.Promise= global.Promise;
 
 // Connect to mongoDB
 function connect () {
-  mongoose.connect('mongodb://localhost/roommate-dev').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
+  mongoose.connect('mongodb://localhost/users').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
 }
 
 module.exports = {
   app,
   connect
 };
-require('./routes')(app);
-app.set('views', './app/views');
+
 
 
 // Load models
-require('./models/users');
+//require('./models/users');
+//const User=mongoose.model('users');
+require('./app/models/users');
 const User=mongoose.model('users');
+
+
 
 require('./models/request');
 const Request=mongoose.model('request');
@@ -56,6 +59,9 @@ app.use(session({
 app.use(express.static("assets"));
 app.use(express.static("assets/images"));
 
+//routes
+require('./routes')(app,User,mongoose,session);
+app.set('views', './app/views');
 // ************************************************************************
 // Sign up successful view
  app.get('/users/successful',(req,res)=>{
