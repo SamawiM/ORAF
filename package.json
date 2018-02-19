@@ -20,6 +20,7 @@
     "body-parser": "^1.18.2",
     "client-sessions": "^0.8.0",
     "connect-flash": "*",
+    "email-verification": "0.4.6",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "express-messages": "*",
@@ -28,11 +29,12 @@
     "mongodb": "^3.0.2",
     "mongoose": "^5.0.5",
     "mongoose-type-email": "^1.0.5",
+    "mongoose-unique-validator": "^2.0.0",
     "multer": "*",
+    "nodemailer": "^4.4.2",
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*",
-    "save": "^2.3.2",
-    "email-verification": "0.4.6"
+    "save": "^2.3.2"
   }
 }

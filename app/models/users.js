@@ -7,11 +7,12 @@ var uniqueValidator = require('mongoose-unique-validator');
 // Create Schema
 const users= new Schema({
   email:{
-    type: mongoose.SchemaTypes.Email,
+   // type: mongoose.SchemaTypes.Email,
+    type: String,
     required: true,
     unique: true
   },
-  first_name:{
+ /* first_name:{
     type:String,
     required: true
   },
@@ -71,6 +72,6 @@ const users= new Schema({
     type: String,
     required: true,
     default: constants.AVAILABLE
-  }
+  }*/
 });
 mongoose.model('users',users);
