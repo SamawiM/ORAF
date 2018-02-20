@@ -1,30 +1,114 @@
-<div id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="card">
-    <div class="card-header" role="tab" id="headingOne">
-      <h5 class="mb-0">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h5>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="card">
+            <div class="card-header" role="tab" id="headingOne">
+            <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Create Profile
+                </a>
+            </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+            <div class="card-block">
+                <form class="register-form">
+                    <div class="register-row form-row">
+                        <div class="register-label col-sm-4">
+                            <label for="firstName">First Name</label>
+                            <span class="required-mark">*</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="firstName" placeholder="Enter first name" required>
+                        </div>
+                    </div>
+                    <div class="register-row form-row">
+                        <div class="register-label col-sm-4">
+                            <label for="lastName">Last Name</label>
+                            <span class="required-mark">*</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="lastName" placeholder="Enter last name" required>
+                        </div>
+                    </div>
+                    <div class="register-row form-row">
+                        <div class="register-label gender col-sm-4">
+                            <label for="gender">Gender</label>
+                            <span class="required-mark">*</span>
+                        </div>
+                        <div class="form-check register-label col-sm-2">
+                            <input class="form-check-input" type="radio" name="genderRadio" id="maleRadio" value="male" required>
+                            <label class="form-check-label" for="maleRadio">Male</label>
+                        </div>
+                        <div class="form-check register-label col-sm-2">
+                            <input class="form-check-input" type="radio" name="genderRadio" id="femaleRadio" value="female" required>
+                            <label class="form-check-label" for="femaleRadio">Female</label>
+                        </div>
+                    </div>
+                    <div class="register-row form-row">
+                        <div class="register-label col-sm-4">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" readonly class="form-control" name="email" value="email@example.com">
+                        </div>
+                    </div>
+                    <div class="register-row form-row">
+                        <div class="register-label col-sm-4">
+                            <label for="phoneNumber">Phone Number</label>
+                            <span class="required-mark">*</span>
+                        </div>
+                        <div class="register-label country-code col-sm-1">
+                            <span>+1</span>
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="phoneNumber" placeholder="Enter phone number" required>
+                        </div>
+                    </div>
+                    <div class="register-row form-row">
+                        <div class="register-label col-sm-4">
+                            <label for="password">Password</label>
+                            <span class="required-mark">*</span>
+                            <img class="info" src="/images/info.svg" alt="info" data-toggle="tooltip" data-placement="top" title="Password must have atleast one uppercase and lowercase letter, one number and one special character."/>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" name="password" aria-describedby="passwordHelpInline" placeholder="Enter password" pattern="(?=.\d)(?=.[a-z])(?=.[!@#\$%\^&\])(?=.*[A-Z]).{8,21}" required>
+                        </div>
+                        <div class="col-sm-6 offset-sm-4">
+                            <small id="passwordHelpInline" class="text-muted">
+                                Must be 8-20 characters long.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="register-row form-row">
+                        <div class="register-label col-sm-4">
+                            <label for="comfirmPassword">Confirm Password</label>
+                            <span class="required-mark">*</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" name="confirPassword" placeholder="Confirm password" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" role="tab" id="headingTwo">
+            <h5 class="mb-0">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Tell us about yourself
+                </a>
+            </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="card-block">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="sbmt-btn btn btn-primary">Register</button>
+        </div>
     </div>
-    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-      <div class="card-block">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingTwo">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="card-block">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
 </div>

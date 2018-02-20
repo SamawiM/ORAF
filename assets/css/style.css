@@ -133,3 +133,23 @@ body {
     display:block;
     overflow:auto;
 }
+
+#accordion {
+    margin-top: 25px;
+}
+
+.register-form {
+    padding: 2%;
+}
+
+.register-row {
+    padding: 5px;
+}
+
+.register-label {
+    padding-top: 5px;
+}
+
+.gender {
+    margin-right: 20px;
+}
