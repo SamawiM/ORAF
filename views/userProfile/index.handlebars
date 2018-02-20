@@ -13,16 +13,43 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>
+
 <style>
 div.container {
     outline-style: solid;
     outline-width: thick; 
     padding-bottom: 20px;
     padding-top: 10px;
-    width: 1000px;
-    height: 400px;
-
+    margin: 0 auto; 
+    overflow: hidden;
 }   
+
+ @media (min-width: 1200px) {
+    .container {
+        width: 850px !important;
+        height: 550px;
+    }
+}
+    @media (min-width: 992px) {
+    .container {
+        width: 850px !important;
+        height: 550px;
+    }
+}
+    @media (min-width: 768px) {
+    .container {
+         width: 850px !important;
+         height: 550px;
+    }
+}
 </style>
 </head>
 <body> 
@@ -33,6 +60,7 @@ div.container {
 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style = "width:100%">
   <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">BASIC DETAILS</a>
   <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">CHARACTERISTICS</a>
+  <a class="nav-link" id="v-pills-update-tab" data-toggle="pill" href="#v-pills-update" role="tab" aria-controls="v-pills-update" aria-selected="true">UPDATE</a>
   <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">SETTINGS</a>
 </div>
 </div>
@@ -43,68 +71,52 @@ div.container {
   
   <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
   <div style="width: 200%">
-   
-  <div class="col-lg-6">
-  <label for="exampleFormControlInput1">Username</label>
-    <div class="input-group">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Mr.</a>
-          <a class="dropdown-item" href="#">Ms.</a>
-        </div>
-      </div>
-      <input type="text" class="form-control" aria-label="Text input with dropdown button">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">aaa</p>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">last Name</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">vvv</p>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Gender</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">female</p>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">a@v.in</p>
     </div>
   </div>
 
 
-  <div class="col-lg-6">
-  <label for="exampleFormControlInput1">Email</label>
-  <div class="input-group">
-   <div class="input-group-addon">
-   <i class="fa fa-envelope-o"></i> 
-   </div>
-   <input class="form-control" id="email" name="email" type="text"/>
-   </div> 
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Phone Number</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">+1 9199194567</p>
+    </div>
   </div>
+  
 
-  <div class="col-lg-6">
-  <label for="exampleFormControlInput1">Phone Number</label>
-  <div class="input-group">
-   <div class="input-group-addon">
-   <i class="fa fa-phone"></i> 
-   </div>
-   <input class="form-control" id="number" name="number" type="text"/>
-   </div> 
-  </div>
-
-
-  <div class="col-lg-6">
-  <label for="exampleFormControlInput1">Gender</label>
-  <div class="input-group">
-  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked><i class="fa fa-male"></i>
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option2" autocomplete="off"> <i class="fa fa-female"></i>  
-  </label>
-  </div>
-  </div>
-  </div>
   </div>
   <br>
-  <button type="button" class="btn btn-primary btn-lg pull-right">Update</button>
+  <!-- <button type="button" class="btn btn-primary btn-lg pull-right">Update</button> -->
 </div>
 
 
 
 
-
-<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style="height: 75%; width: 100%" >
+<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
 <div style="width: 200%">     
 <p>Dietray Habits : {{answer.dietaryhabit}}</p>
 <p>Smoing Habits : {{answer.smokinghabit}}</p>
@@ -116,13 +128,95 @@ div.container {
 <p>Earliest Move in date : {{answer.earliest_move_in_date}}</p>
 <p>Latest Move in date : {{answer.latest_move_in_date}}</p>
 </div>
-<button type="button" class="btn btn-primary btn-lg pull-right">Update</button>
+
 </div>
 
 
-<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-messages-tab" style="height: 75%; width: 100%">
-  <div style="width: 200%">
-  <div class="col-lg-6">
+<div class="tab-pane fade" id="v-pills-update" role="tabpanel" aria-labelledby="v-pills-update-tab">
+<div style="width: 100%">
+ <div class="col-lg-8">
+  <label for="exampleFormControlInput1">Locality</label>
+  <div class="input-group">
+  <select class="selectpicker" multiple>
+    <option>Avery Close</option>
+    <option>Colonial Arms</option>
+    <option>Champions Court</option>
+    <option>The College Inn</option>
+    <option>Centennial Ridge</option>
+    <option>Gorman Crossing</option>
+    <option>Gorman Place</option>
+    <option>Kings Court</option>
+    <option>Kensington Park</option>
+    <option>Mission Valley Garden</option>
+    <option>Pine Knoll</option>
+    <option>Parkwood Village</option>
+    <option>University Commons</option>
+    <option>Western Manor</option>
+    <option>Wolf Ridge</option>
+  </select> 
+</div>
+ </div> 
+
+<div class="col-lg-8">
+  <label for="exampleFormControlInput1">Budget</label>
+  <div class="input-group">
+   <input class="form-control" id="budget" name="budget" type="text"/>
+   </div> 
+ </div> 
+
+
+<div class="col-lg-8">
+  <label for="exampleFormControlInput1">Dietary Habits</label>
+  <div class="input-group">
+   <input class="form-control" id="dhabits" name="dhabits" type="text"/>
+   </div> 
+ </div> 
+
+<div class="col-lg-8">
+  <label for="exampleFormControlInput1">Smoking Habits</label>
+  <div class="input-group">
+   <input class="form-control" id="shabits" name="shabits" type="text"/>
+   </div> 
+ </div> 
+
+<div class="col-lg-8">
+  <label for="exampleFormControlInput1">Alcoholic Habits</label>
+  <div class="input-group">
+   <input class="form-control" id="ahabits" name="ahabits" type="text"/>
+   </div> 
+ </div> 
+
+<div class="col-lg-8">
+  <label for="exampleFormControlInput1">Room Sharing</label>
+  <div class="input-group">
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked>YES
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off">NO  
+  </label>
+  </div>
+  </div> 
+ </div> 
+
+ <div class="col-lg-8">
+  <label for="exampleFormControlInput1">Movein Date</label>
+  <div class="input-group">
+   <input class="form-control" id="date" name="date" type="text"/>
+   </div> 
+ </div> 
+ </div> 
+  <div>
+  <button type="button" class="btn btn-primary btn-lg pull-right">Update</button>
+ </div>
+</div>
+
+
+
+<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-messages-tab" style="height: 100%; width: 100%">
+  <div style="width: 100%">
+  <div class="col-lg-8">
   <label for="exampleFormControlInput1">Current Password</label>
   <div class="input-group">
    <div class="input-group-addon">
@@ -131,7 +225,7 @@ div.container {
    </div> 
   </div>
 
-  <div class="col-lg-6">
+  <div class="col-lg-8">
   <label for="exampleFormControlInput1">New Password</label>
   <div class="input-group">
    <div class="input-group-addon">
@@ -140,7 +234,7 @@ div.container {
    </div> 
   </div>
   
-  <div class="col-lg-6">
+  <div class="col-lg-8">
   <label for="exampleFormControlInput1">Confirm Password</label>
   <div class="input-group">
    <div class="input-group-addon">
@@ -156,8 +250,9 @@ div.container {
   <br>
 <button type="button" class="btn btn-primary btn-lg pull-right">Change</button>
 </div>
-</div>
 
+
+</div>
 </div>
 <button type="button" class="btn btn-primary center-block">Send Request</button>
 </body>
