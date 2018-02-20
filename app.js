@@ -26,7 +26,7 @@ mongoose.Promise= global.Promise;
 
 // Connect to mongoDB
 function connect () {
-  mongoose.connect('mongodb://localhost/users').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
+  mongoose.connect('mongodb://localhost/user-dev').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
 }
 
 module.exports = {
