@@ -109,3 +109,7 @@ else
 
 	})
 }
+
+module.exports = function (app){
+	app.get('/register', login.register);
+}
