@@ -9,6 +9,9 @@ var smtpTransport=nodemailer.createTransport({
 var rand,mailOptions,host,link;
 
 const login = require('../app/controllers/home');
+module.exports = function (app,User,mongoose,session){
+	app.get('/register', login.register);
+}
 module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
 	
@@ -100,6 +103,4 @@ else
 	})
 }
 
-module.exports = function (app){
-	app.get('/register', login.register);
-}
+
