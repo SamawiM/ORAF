@@ -9,9 +9,13 @@ const users= new Schema({
   email:{
    // type: mongoose.SchemaTypes.Email,
     type: String,
-    //required: true,
+    required: true,
     unique: true
   },
+  password:{
+    type: String,
+    required: false
+  }
  /* first_name:{
     type:String,
     required: true
