@@ -10,86 +10,94 @@
             </h5>
             </div>
             <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-            <div class="card-block">
-                <form class="register-form">
-                    <div class="register-row form-row">
-                        <div class="register-label col-sm-4">
-                            <label for="firstName">First Name</label>
-                            <span class="required-mark">*</span>
+                <div class="card-block">
+                    <form class="register-form">
+                        <div class="register-row form-row">
+                            <div class="register-label col-sm-4">
+                                <label for="firstName">First Name</label>
+                                <span class="required-mark">*</span>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="firstName" placeholder="Enter first name" required>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="firstName" placeholder="Enter first name" required>
+                        <div class="register-row form-row">
+                            <div class="register-label col-sm-4">
+                                <label for="lastName">Last Name</label>
+                                <span class="required-mark">*</span>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="lastName" placeholder="Enter last name" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="register-row form-row">
-                        <div class="register-label col-sm-4">
-                            <label for="lastName">Last Name</label>
-                            <span class="required-mark">*</span>
+                        <div class="register-row form-row">
+                            <div class="register-label gender col-sm-4">
+                                <label for="gender">Gender</label>
+                                <span class="required-mark">*</span>
+                            </div>
+                            <div class="form-check register-label col-sm-2">
+                                <input class="form-check-input" type="radio" name="genderRadio" id="maleRadio" value="male" required>
+                                <label class="form-check-label" for="maleRadio">Male</label>
+                            </div>
+                            <div class="form-check register-label col-sm-2">
+                                <input class="form-check-input" type="radio" name="genderRadio" id="femaleRadio" value="female" required>
+                                <label class="form-check-label" for="femaleRadio">Female</label>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="lastName" placeholder="Enter last name" required>
+                        <div class="register-row form-row">
+                            <div class="register-label col-sm-4">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" readonly class="form-control" name="email" value="email@example.com">
+                            </div>
                         </div>
-                    </div>
-                    <div class="register-row form-row">
-                        <div class="register-label gender col-sm-4">
-                            <label for="gender">Gender</label>
-                            <span class="required-mark">*</span>
+                        <div class="register-row form-row">
+                            <div class="register-label col-sm-4">
+                                <label for="phoneNumber">Phone Number</label>
+                                <span class="required-mark">*</span>
+                            </div>
+                            <div class="register-label country-code col-sm-1">
+                                <span>+1</span>
+                            </div>
+                            <div class="col-sm-5">
+                                <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" placeholder="Enter phone number" oninput="validatePhone(this)" maxlength="10" required>
+                            </div>
                         </div>
-                        <div class="form-check register-label col-sm-2">
-                            <input class="form-check-input" type="radio" name="genderRadio" id="maleRadio" value="male" required>
-                            <label class="form-check-label" for="maleRadio">Male</label>
+                        <div class="register-row form-row">
+                            <div class="register-label col-sm-4">
+                                <label for="password">Password</label>
+                                <span class="required-mark">*</span>
+                                <img class="info" src="/images/info.svg" alt="info" data-toggle="tooltip" data-placement="top" title="Password must have atleast one uppercase and lowercase letter, one number and one special character."/>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="password" id="password" class="form-control" name="password" aria-describedby="passwordHelpInline" placeholder="Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[!@#\$%\^&\*])(?=.*[A-Z]).{8,21}" required>
+                            </div>
+                            <div class="col-sm-6 offset-sm-4">
+                                <small id="passwordHelpInline" class="text-muted">
+                                    Must be 8-20 characters long.
+                                </small>
+                            </div>
                         </div>
-                        <div class="form-check register-label col-sm-2">
-                            <input class="form-check-input" type="radio" name="genderRadio" id="femaleRadio" value="female" required>
-                            <label class="form-check-label" for="femaleRadio">Female</label>
+                        <div class="register-row form-row">
+                            <div class="register-label col-sm-4">
+                                <label for="comfirmPassword">Confirm Password</label>
+                                <span class="required-mark">*</span>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="password" id="confirmPassword" class="form-control" name="confirmPassword" oninput="validatePassword(this)" placeholder="Confirm password" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="register-row form-row">
-                        <div class="register-label col-sm-4">
-                            <label for="email">Email</label>
+                        <div class="required-message">
+                            <span class="required-mark">*</span> Indicates required field.
                         </div>
-                        <div class="col-sm-6">
-                            <input type="text" readonly class="form-control" name="email" value="email@example.com">
+                        <div class="register-row form-row">
+                            <div class="text-right col-sm-12">
+                                <button type="submit" id="nextSubmit" class="sbmt-btn btn btn-primary">Next</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="register-row form-row">
-                        <div class="register-label col-sm-4">
-                            <label for="phoneNumber">Phone Number</label>
-                            <span class="required-mark">*</span>
-                        </div>
-                        <div class="register-label country-code col-sm-1">
-                            <span>+1</span>
-                        </div>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" name="phoneNumber" placeholder="Enter phone number" required>
-                        </div>
-                    </div>
-                    <div class="register-row form-row">
-                        <div class="register-label col-sm-4">
-                            <label for="password">Password</label>
-                            <span class="required-mark">*</span>
-                            <img class="info" src="/images/info.svg" alt="info" data-toggle="tooltip" data-placement="top" title="Password must have atleast one uppercase and lowercase letter, one number and one special character."/>
-                        </div>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control" name="password" aria-describedby="passwordHelpInline" placeholder="Enter password" pattern="(?=.\d)(?=.[a-z])(?=.[!@#\$%\^&\])(?=.*[A-Z]).{8,21}" required>
-                        </div>
-                        <div class="col-sm-6 offset-sm-4">
-                            <small id="passwordHelpInline" class="text-muted">
-                                Must be 8-20 characters long.
-                            </small>
-                        </div>
-                    </div>
-                    <div class="register-row form-row">
-                        <div class="register-label col-sm-4">
-                            <label for="comfirmPassword">Confirm Password</label>
-                            <span class="required-mark">*</span>
-                        </div>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control" name="confirPassword" placeholder="Confirm password" required>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="card">

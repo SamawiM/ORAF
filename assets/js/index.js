@@ -44,4 +44,34 @@ $(function(){
     $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
       " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
+    $("#nextSubmit").on("submit",function(){
+        console.log("In JS");
+        var collapseOne = $("#collapseOne");
+        var collapseTwo = $("#collapseTwo");
+        console.log("First ",collapseOne," Second ",collapseTwo);
+    });
 });
+
+function validatePhone(phoneNumber) {
+    var numbers = "[0-9]";
+    var phoneNo = phoneNumber.value;
+    if(phoneNo.length < 10){
+        phoneNumber.setCustomValidity('Phone Number must be of 10 digits.');
+    }else{
+        if(!phoneNumber.value.match(numbers)){
+            phoneNumber.setCustomValidity('Only numbers are allowed in this field.');
+        }else{
+            phoneNumber.setCustomValidity('');
+        }
+    }
+}
+
+function validatePassword(passwordField) {
+    var password = document.getElementById("password");
+    if (passwordField.value != password.value) {
+        passwordField.setCustomValidity('Both passwords must match.');
+    } else {
+        // input is valid -- reset the error message
+        passwordField.setCustomValidity('');
+    }
+}
