@@ -78,8 +78,12 @@ module.exports = function (app,User,mongoose,session) {
 		User.find({email: req.body.loginEmail,password: req.body.loginPassword}, function (err, docs) {
 			if (docs.length){
 			 req.session.user=docs;
+			 console.log(docs[0].first_name);
 					//res.render('login/signinsuccess',{answer: docs[0]});
+					if(!docs[0].first_name)
 					res.render('login/register',{emailer: req.body.signupEmail,userid: req.session.user[0] })
+					else
+					res.render('userProfile/index',{usersession: req.session.user[0]})
 					console.log(req.session.user);
 			}else{
 				let errors=[];
@@ -109,6 +113,7 @@ module.exports = function (app,User,mongoose,session) {
 		}
 	});
 
+	//Register user
 	app.get('/register', login.register);
 	app.post('/register',(req,res)=>{
 		let errors=[];
@@ -143,16 +148,53 @@ module.exports = function (app,User,mongoose,session) {
 				gender: req.body.genderRadio,
 				phone_no: req.body.phoneNumber
 			}
-			User.update({email: req.session.user[0].email},newUser,function(err,docs){
+			User.update({email: req.session.user[0]},newUser,function(err,docs){
 				if(err)
 				 throw err;
-       res.render('userProfile/registersuccess');
+			 //res.render('userProfile/registersuccess');
+			 res.render('userProfile/index',{usersession: req.session.user[0]});
 			})
 		
 		}
 	})
 	 
-	app.get('/index',(req,res)=>{
+	app.get('/index',userProfile.index);
+/*	app.get('/index',(req,res)=>{
 		res.render('userProfile/index',{usersession: req.session.user[0]})
-	});
+	});*/
+
+	//app.get('/registersuccess',userProfile.registersuccess);
+	//Update password
+	app.post('/index',(req,res)=>{
+		console.log('Hello')
+		let errs=[]
+		if(!req.body.oldpassword)
+		 errs.push({updater: "Enter a password"})
+		 if(req.body.newpassword != req.body.confirmnewpassword)
+		 errs.push({updater: "Passwords don't match"})
+		 if(errs.length>0)
+		 {
+			res.render('userProfile/index',{
+				errs: errs,
+				
+			});
+		 }
+		 
+		User.find({email: "asundar2",password: req.body.oldpassword},(err,docs)=>{
+			if(err)
+			{
+			 throw err;	
+			 errs.push({updater: "Old password is wrong"})
+			 //res.render('/index',{errs: errs});
+			}
+			else{
+			 const user1={password: req.body.newpassword};
+			 User.update({email: "asundar2"},user1,(err,docs)=>{
+				 if(err)
+					throw err;
+					console.log('Updated password');
+			 })
+			}	})
+	
+	})
 }

@@ -95,7 +95,7 @@ div.container {
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <p class="form-control-static">{{usersession.email}}</p>
+      <p class="form-control-static" name="emailsession">{{usersession.email}}</p>
     </div>
   </div>
 
@@ -217,17 +217,23 @@ div.container {
 
 
 </div>
+{{#each errs}}
+  <div class="alert alert-danger">{{updater}}</div>
+{{else}}
 
+{{/each}}
 
 
 <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-messages-tab" style="height: 100%; width: 100%">
+ 
   <div style="width: 100%">
+     <form action='/index' method='post'>
   <div class="col-lg-8">
   <label for="exampleFormControlInput1">Current Password</label>
   <div class="input-group">
    <div class="input-group-addon">
    </div>
-   <input class="form-control" id="number" name="number" type="password"/>
+   <input class="form-control" name="oldpassword" type="password" required/>
    </div> 
   </div>
 
@@ -236,7 +242,7 @@ div.container {
   <div class="input-group">
    <div class="input-group-addon">
    </div>
-   <input class="form-control" id="number" name="number" type="password"/>
+   <input class="form-control" name="newpassword" type="password" required/>
    </div> 
   </div>
   
@@ -245,13 +251,14 @@ div.container {
   <div class="input-group">
    <div class="input-group-addon">
    </div>
-   <input class="form-control" id="number" name="number" type="password"/>
+   <input class="form-control" name="confirmnewpassword" type="password" required/>
    </div> 
   </div>
   
   <div class="col-lg-8">
   <label for="exampleFormControlInput1"></label>
-  <button type="button" class="btn btn-primary center-block">Change</button>
+  <button type="submit" class="btn btn-primary center-block">Change</button>
+  </form>
   </div> 
 
   </div>
@@ -265,7 +272,7 @@ div.container {
 
 </div>
 </div>
-<button type="button" class="btn btn-primary center-block">Send Request</button>
+<button type="submit" class="btn btn-primary center-block">Send Request</button>
 </body>
 </html>
 ​

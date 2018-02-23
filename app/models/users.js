@@ -25,7 +25,7 @@ const users= new Schema({
     required: false
   },
   gender:{
-    type:String,
+    type:Boolean,
     required:false
   },
   phone_no:{
