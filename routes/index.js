@@ -67,7 +67,7 @@ module.exports = function (app,User,mongoose,session) {
 				console.log(error);
 				res.end("error"); 
 			}else{
-				console.log("Message sent:"+response.message);
+				console.log("Message sent:"+res.message);
 				res.end("sent");
 			}
 		});
