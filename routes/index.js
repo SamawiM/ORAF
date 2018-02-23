@@ -9,7 +9,7 @@ var smtpTransport=nodemailer.createTransport({
 var rand,mailOptions,host,link;
 
 const login = require('../app/controllers/home');
-
+const userProfile=require('../app/controllers/profile');
 module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
 	
@@ -110,4 +110,47 @@ module.exports = function (app,User,mongoose,session) {
 	});
 
 	app.get('/register', login.register);
+	app.post('/register',(req,res)=>{
+		let errors=[];
+		if(!req.body.firstName){
+			errors.push({text: 'Please enter valid firstname'});
+
+		}
+		if(!req.body.lastName)
+		{
+			errors.push({text: "Please enter a valid lastname"});
+		}
+		if(!req.body.genderRadio)
+		{
+			errors.push({text: "Please select a valid gender"});
+		}
+		if(!req.body.phoneNumber)
+		{
+			errors.push({text: "Please enter a valid phone number"})
+		}
+
+	
+		if(errors.length>0){
+			res.render('userProfile/register',{
+				errors: errors
+			});
+		}
+		else{
+			console.log('registration successful signup')
+			const newUser={
+				first_name: req.body.firstName,
+				last_name: req.body.lastName,
+				gender: req.body.genderRadio,
+				phone_no: req.body.phoneNumber
+			}
+			User.update({email: req.session.user[0].email},newUser,function(err,docs){
+				if(err)
+				 throw err;
+       res.render('userProfile/registersuccess');
+			})
+		
+		}
+	})
+	 
+//	app.get('/index',userProfile.index,{usersession: req.session.user[0]});
 }

@@ -14,29 +14,25 @@ const users= new Schema({
   },
   password:{
     type: String,
-    required: false
-  }
- /* first_name:{
-    type:String,
     required: true
+  },
+ first_name:{
+    type:String,
+    required: false
   },
   last_name:{
     type:String,
-    required: true
+    required: false
   },
   gender:{
     type:String,
-    required:true
+    required:false
   },
   phone_no:{
     type:String,
-    required:true
-  },
-  password:{
-    type: String,
-    required: true
-  },
-  location:[{
+    required:false
+  }
+  /*location:[{
     type: Schema.Types.ObjectId, ref: 'locations',
     required: true
   }],

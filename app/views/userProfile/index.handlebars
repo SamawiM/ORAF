@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User Profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>
+
+<style>
+div.container {
+    outline-style: solid;
+    outline-width: thick; 
+    padding-bottom: 20px;
+    padding-top: 10px;
+    margin: 0 auto; 
+    overflow: hidden;
+}   
+
+ @media (min-width: 1200px) {
+    .container {
+        width: 850px !important;
+        height: 550px;
+    }
+}
+    @media (min-width: 992px) {
+    .container {
+        width: 850px !important;
+        height: 550px;
+    }
+}
+    @media (min-width: 768px) {
+    .container {
+         width: 850px !important;
+         height: 550px;
+    }
+}
+</style>
+</head>
+<body> 
+<h1 align="center">USER PROFILE</h1> 
+<div class="container" style= "margin-top:50px";>
+<div class="col-sm-4" style="height: 95%">
+<img src="profile.png" class="img-thumbnail" alt="Cinque Terre" height="250" width=100%>
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style = "width:100%">
+  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">BASIC DETAILS</a>
+  <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">CHARACTERISTICS</a>
+  <a class="nav-link" id="v-pills-update-tab" data-toggle="pill" href="#v-pills-update" role="tab" aria-controls="v-pills-update" aria-selected="true">UPDATE</a>
+  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">SETTINGS</a>
+</div>
+</div>
+
+
+<div class="col-sm-8" style="height: 95%">
+<div class="tab-content" id="v-pills-tabContent" >
+  
+  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+  <div style="width: 200%">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">aaa</p>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">last Name</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">vvv</p>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Gender</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">female</p>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">a@v.in</p>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Phone Number</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">+1 9199194567</p>
+    </div>
+  </div>
+  
+
+  </div>
+  <br>
+  <!-- <button type="button" class="btn btn-primary btn-lg pull-right">Update</button> -->
+</div>
+
+
+
+
+<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+<div style="width: 200%">     
+<p>Dietray Habits : {{answer.dietaryhabit}}</p>
+<p>Smoing Habits : {{answer.smokinghabit}}</p>
+<p>Minimum Budget : {{answer.min_budget}}</p>
+<p>Maximum Budget : {{answer.max_budget}}</p>
+<p>Locality : ---</p>
+<p>Alcoholic Habit : {{answer.alcoholichabit}}</p>
+<p>Room Sharing : {{answer.room_sharing}}</p>
+<p>Earliest Move in date : {{answer.earliest_move_in_date}}</p>
+<p>Latest Move in date : {{answer.latest_move_in_date}}</p>
+</div>
+
+</div>
+
+
+<div class="tab-pane fade" id="v-pills-update" role="tabpanel" aria-labelledby="v-pills-update-tab">
+<div style="width: 100%">
+ <div class="col-lg-8">
+  <label for="exampleFormControlInput1">Locality</label>
+  <div class="input-group">
+  <select class="selectpicker" multiple>
+    <option>Avery Close</option>
+    <option>Colonial Arms</option>
+    <option>Champions Court</option>
+    <option>The College Inn</option>
+    <option>Centennial Ridge</option>
+    <option>Gorman Crossing</option>
+    <option>Gorman Place</option>
+    <option>Kings Court</option>
+    <option>Kensington Park</option>
+    <option>Mission Valley Garden</option>
+    <option>Pine Knoll</option>
+    <option>Parkwood Village</option>
+    <option>University Commons</option>
+    <option>Western Manor</option>
+    <option>Wolf Ridge</option>
+  </select> 
+</div>
+ </div> 
+
+<div class="col-lg-8">
+  <label for="exampleFormControlInput1">Budget</label>
+  <div class="input-group">
+   <input class="form-control" id="budget" name="budget" type="text"/>
+   </div> 
+ </div> 
+
+
+<div class="col-lg-8">
+  <label for="exampleFormControlInput1">Dietary Habits</label>
+  <div class="input-group">
+   <input class="form-control" id="dhabits" name="dhabits" type="text"/>
+   </div> 
+ </div> 
+
+<div class="col-lg-8">
+  <label for="exampleFormControlInput1">Smoking Habits</label>
+  <div class="input-group">
+   <input class="form-control" id="shabits" name="shabits" type="text"/>
+   </div> 
+ </div> 
+
+<div class="col-lg-8">
+  <label for="exampleFormControlInput1">Alcoholic Habits</label>
+  <div class="input-group">
+   <input class="form-control" id="ahabits" name="ahabits" type="text"/>
+   </div> 
+ </div> 
+
+<div class="col-lg-8">
+  <label for="exampleFormControlInput1">Room Sharing</label>
+  <div class="input-group">
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked>YES
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off">NO  
+  </label>
+  </div>
+  </div> 
+ </div> 
+
+ <div class="col-lg-8">
+  <label for="exampleFormControlInput1">Movein Date</label>
+  <div class="input-group">
+   <input class="form-control" id="date" name="date" type="text"/>
+   </div> 
+ </div> 
+
+ <div class="col-lg-8">
+  <label for="exampleFormControlInput1"></label>
+  <button type="button" class="btn btn-primary center-block">Update</button>
+ </div> 
+
+  </div> 
+    
+
+
+</div>
+
+
+
+<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-messages-tab" style="height: 100%; width: 100%">
+  <div style="width: 100%">
+  <div class="col-lg-8">
+  <label for="exampleFormControlInput1">Current Password</label>
+  <div class="input-group">
+   <div class="input-group-addon">
+   </div>
+   <input class="form-control" id="number" name="number" type="password"/>
+   </div> 
+  </div>
+
+  <div class="col-lg-8">
+  <label for="exampleFormControlInput1">New Password</label>
+  <div class="input-group">
+   <div class="input-group-addon">
+   </div>
+   <input class="form-control" id="number" name="number" type="password"/>
+   </div> 
+  </div>
+  
+  <div class="col-lg-8">
+  <label for="exampleFormControlInput1">Confirm Password</label>
+  <div class="input-group">
+   <div class="input-group-addon">
+   </div>
+   <input class="form-control" id="number" name="number" type="password"/>
+   </div> 
+  </div>
+  
+  <div class="col-lg-8">
+  <label for="exampleFormControlInput1"></label>
+  <button type="button" class="btn btn-primary center-block">Change</button>
+  </div> 
+
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+
+</div>
+
+
+</div>
+</div>
+<button type="button" class="btn btn-primary center-block">Send Request</button>
+</body>
+</html>
+​
+
