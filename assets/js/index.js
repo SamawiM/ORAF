@@ -4,12 +4,13 @@ $(function(){
 
 	// toggle selected tags in a group
 	$(".tag").on("click", function() {
-		var element = $(this);
+        var value = $(this).val();
 		$(this).toggleClass('active');
 		if($(this).siblings('.tag').hasClass('active') && $(this).hasClass('active')) 
 			$(this).siblings('.tag').removeClass('active');
 
 		$('.badge').text($('.active').length);
+        $(this).parent('div').find('input:hidden').val(value);
 	});
 
 	// search with selected tags
