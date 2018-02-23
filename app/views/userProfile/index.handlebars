@@ -1,6 +1,6 @@
 
-<div class="container user-profile" style= "margin-top:50px";>
-<div class="col-sm-4" style="height: 95%">
+<div class="container user-profile" >
+<div class="col-sm-4">
 <img src="../images/profile.png" class="img-thumbnail" alt="Cinque Terre" height="250" width=100%>
 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style = "width:100%">
   <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">BASIC DETAILS</a>
@@ -11,7 +11,7 @@
 </div>
 
 
-<div class="col-sm-8" style="height: 95%">
+<div class="col-sm-8">
 <div class="tab-content" id="v-pills-tabContent" >
   
   <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -54,6 +54,7 @@
   
 
   </div>
+  <button type="submit" class="btn btn-primary center-block">Send Request</button>
   <br>
   <!-- <button type="button" class="btn btn-primary btn-lg pull-right">Update</button> -->
 </div>
@@ -63,8 +64,8 @@
 
 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
 <div style="width: 200%">     
-<p>Dietray Habits : {{answer.dietaryhabit}}</p>
-<p>Smoing Habits : {{answer.smokinghabit}}</p>
+<p>Dietary Habits : {{answer.dietaryhabit}}</p>
+<p>Smoking Habits : {{answer.smokinghabit}}</p>
 <p>Minimum Budget : {{answer.min_budget}}</p>
 <p>Maximum Budget : {{answer.max_budget}}</p>
 <p>Locality : ---</p>
@@ -79,55 +80,62 @@
 
 <div class="tab-pane fade" id="v-pills-update" role="tabpanel" aria-labelledby="v-pills-update-tab">
 <div style="width: 100%">
+  <form action="/updatedetails" method="post">
  <div class="col-lg-8">
   <label for="exampleFormControlInput1">Locality</label>
   <div class="input-group">
-  <select class="selectpicker" multiple>
-    <option>Avery Close</option>
-    <option>Colonial Arms</option>
-    <option>Champions Court</option>
-    <option>The College Inn</option>
-    <option>Centennial Ridge</option>
-    <option>Gorman Crossing</option>
-    <option>Gorman Place</option>
-    <option>Kings Court</option>
-    <option>Kensington Park</option>
-    <option>Mission Valley Garden</option>
-    <option>Pine Knoll</option>
-    <option>Parkwood Village</option>
-    <option>University Commons</option>
-    <option>Western Manor</option>
-    <option>Wolf Ridge</option>
-  </select> 
-</div>
+    <select class="selectpicker" multiple name="location"> 
+      <option>Avery Close</option>
+      <option>Colonial Arms</option>
+      <option>Champions Court</option>
+      <option>The College Inn</option>
+      <option>Centennial Ridge</option>
+      <option>Gorman Crossing</option>
+      <option>Gorman Place</option>
+      <option>Kings Court</option>
+      <option>Kensington Park</option>
+      <option>Mission Valley Garden</option>
+      <option>Pine Knoll</option>
+      <option>Parkwood Village</option>
+      <option>University Commons</option>
+      <option>Western Manor</option>
+      <option>Wolf Ridge</option>
+    </select> 
+  </div>
  </div> 
 
 <div class="col-lg-8">
-  <label for="exampleFormControlInput1">Budget</label>
+  <label for="exampleFormControlInput1">MinBudget</label>
   <div class="input-group">
-   <input class="form-control" id="budget" name="budget" type="text"/>
+   <input class="form-control" id="minbudget" name="minbudget" type="number"/>
    </div> 
  </div> 
 
+<div class="col-lg-8">
+  <label for="exampleFormControlInput1">MaxBudget</label>
+  <div class="input-group">
+   <input class="form-control" id="maxbudget" name="maxbudget" type="number"/>
+   </div> 
+ </div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">Dietary Habits</label>
   <div class="input-group">
-   <input class="form-control" id="dhabits" name="dhabits" type="text"/>
+   <input class="form-control" id="dhabits" name="dietary_habits" type="text"/>
    </div> 
  </div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">Smoking Habits</label>
   <div class="input-group">
-   <input class="form-control" id="shabits" name="shabits" type="text"/>
+   <input class="form-control" id="shabits" name="smoking_habits" type="text"/>
    </div> 
  </div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">Alcoholic Habits</label>
   <div class="input-group">
-   <input class="form-control" id="ahabits" name="ahabits" type="text"/>
+   <input class="form-control" id="ahabits" name="alcoholic_habits" type="text"/>
    </div> 
  </div> 
 
@@ -136,32 +144,45 @@
   <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked>YES
+    <input type="radio" name="room_sharing" id="option1" autocomplete="off" checked>YES
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option2" autocomplete="off">NO  
+    <input type="radio" name="room_sharing" id="option2" autocomplete="off">NO  
   </label>
   </div>
   </div> 
  </div> 
 
  <div class="col-lg-8">
-  <label for="exampleFormControlInput1">Movein Date</label>
+  <label for="exampleFormControlInput1">Early Movein Date</label>
   <div class="input-group">
-   <input class="form-control" id="date" name="date" type="text"/>
+   <input class="form-control" id="earlydate" name="earlydate" type="text"/>
+   </div> 
+ </div> 
+
+ <div class="col-lg-8">
+  <label for="exampleFormControlInput1">Latest Movein Date</label>
+  <div class="input-group">
+   <input class="form-control" id="latedate" name="latedate" type="text"/>
+   </div> 
+ </div> 
+
+  <div class="col-lg-8">
+  <label for="exampleFormControlInput1">Status</label>
+  <div class="input-group">
+   <input class="form-control" id="status" name="status" type="text"/>
    </div> 
  </div> 
 
  <div class="col-lg-8">
   <label for="exampleFormControlInput1"></label>
-  <button type="button" class="btn btn-primary center-block">Update</button>
+  <button type="submit" class="btn btn-primary right-block">Update</button>
  </div> 
-
+</form>
   </div> 
     
-
-
 </div>
+
 {{#each errs}}
   <div class="alert alert-danger">{{updater}}</div>
 {{else}}
@@ -169,10 +190,10 @@
 {{/each}}
 
 
-<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-messages-tab" style="height: 100%; width: 100%">
+<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-messages-tab">
  
   <div style="width: 100%">
-     <form action='/index' method='post'>
+<form action='/index' method='post'>
   <div class="col-lg-8">
   <label for="exampleFormControlInput1">Current Password</label>
   <div class="input-group">
@@ -207,18 +228,13 @@
   </div> 
 
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
 
 </div>
 
 
 </div>
+
 </div>
-<button type="submit" class="btn btn-primary center-block">Send Request</button>
-</body>
-</html>
+
 ​
 

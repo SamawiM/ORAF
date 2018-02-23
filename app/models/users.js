@@ -25,53 +25,53 @@ const users= new Schema({
     required: false
   },
   gender:{
-    type:Boolean,
+    type:String,
     required:false
   },
   phone_no:{
     type:String,
     required:false
-  }
+  },
   /*location:[{
     type: Schema.Types.ObjectId, ref: 'locations',
     required: true
-  }],
+  }],*/
   min_budget:{
     type:Number,
-    required: true
+    required: false
   },
   max_budget:{
     type: Number,
-    required: true
+    required: false
   },
   room_sharing:{
-    type: Boolean,
-    required: true
+    type: String,
+    required: false
   },
   earliest_move_in_date:{
-    type: Date,
-    required: true
+    type: String,
+    required: false
   },
   latest_move_in_date:{
-    type: Date,
-    required: true
+    type: String,
+    required: false
   },
   dietary_habit:{
     type: String,
-    required: true
+    required: false
   },
   smoking_habit:{
     type: String,
-    required: true
+    required: false
   },
   alcoholic_habit:{
     type:String,
-    required: true
+    required: false
   },
   status:{
     type: String,
-    required: true,
+    required: false,
     default: constants.AVAILABLE
-  }*/
+  }
 });
 mongoose.model('users',users);
