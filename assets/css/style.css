@@ -155,8 +155,6 @@ body {
 }
 
 div.user-profile {
-    outline-style: solid;
-    outline-width: thick; 
     padding-bottom: 20px;
     padding-top: 10px;
     margin: 0 auto; 
