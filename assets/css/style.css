@@ -155,12 +155,9 @@ body {
 }
 
 div.user-profile {
-    outline-style: solid;
-    outline-width: thick; 
     padding-bottom: 20px;
     padding-top: 10px;
     margin: 0 auto; 
-    overflow: hidden;
 }   
 
  @media (min-width: 1200px) {
@@ -181,3 +178,8 @@ div.user-profile {
          height: 550px;
     }
 }
+.fill{ 
+    height: 500px;
+    width: 100%;
+    margin: auto;
+  }
