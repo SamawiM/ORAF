@@ -197,4 +197,35 @@ module.exports = function (app,User,mongoose,session) {
 			}	})
 	
 	})
+
+	//Update characteristics such as dietary and smoking
+	app.post('/updatedetails',(req,res)=>{
+		console.log('Hello updating dietary and smoking')
+		let errs=[]
+		User.find({email: "asundar2"},(err,docs)=>{
+			if(err)
+			{
+			 throw err;	
+			 errs.push({updater: "Old password is wrong"})
+			 //res.render('/index',{errs: errs});
+			}
+			else{
+			 const user1={dietary_habit: req.body.newpassword,
+				smoking_habit: req.body.smoking_habit,
+				alcoholic_habit: req.body.alcoholic_habit,
+				min_budget: req.body.min_budget,
+				max_budget: req.body.max_budget,
+				room_sharing: req.body.room_sharing,
+				//status: req.body.status,
+				earliest_move_in_date: req.body.earlydate,
+				//latest_move_in_date: req.body.latedate
+			};
+			 User.update({email: "asundar2"},user1,(err,docs)=>{
+				 if(err)
+					throw err;
+					console.log('Updated characteristics');
+			 })
+			}	})
+		
+	})
 }
