@@ -74,28 +74,28 @@ div.container {
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">First Name</label>
     <div class="col-sm-10">
-      <p class="form-control-static">aaa</p>
+      <p class="form-control-static">{{usersession.first_name}}</p>
     </div>
   </div>
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">last Name</label>
     <div class="col-sm-10">
-      <p class="form-control-static">vvv</p>
+      <p class="form-control-static">{{usersession.last_name}}</p>
     </div>
   </div>
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Gender</label>
     <div class="col-sm-10">
-      <p class="form-control-static">female</p>
+      <p class="form-control-static">{{usersession.gender}}</p>
     </div>
   </div>
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <p class="form-control-static">a@v.in</p>
+      <p class="form-control-static">{{usersession.email}}</p>
     </div>
   </div>
 
@@ -103,7 +103,7 @@ div.container {
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Phone Number</label>
     <div class="col-sm-10">
-      <p class="form-control-static">+1 9199194567</p>
+      <p class="form-control-static">+1-{{usersession.phone_no}}</p>
     </div>
   </div>
   

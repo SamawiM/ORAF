@@ -152,5 +152,7 @@ module.exports = function (app,User,mongoose,session) {
 		}
 	})
 	 
-//	app.get('/index',userProfile.index,{usersession: req.session.user[0]});
+	app.get('/index',(req,res)=>{
+		res.render('userProfile/index',{usersession: req.session.user[0]})
+	});
 }
