@@ -14,7 +14,8 @@ app.listen(port,()=>{
 });
 
 //Handlebars Middleware
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('views', './app/views/');
+app.engine('handlebars', exphbs({defaultLayout: 'main', layoutsDir:'app/views/layouts', partialsDir:'app/views/partials'}));
 app.set('view engine', 'handlebars');
 
 //Body parser middleware
@@ -33,8 +34,6 @@ module.exports = {
   app,
   connect
 };
-
-
 
 // Load models
 //require('./models/users');
@@ -61,7 +60,7 @@ app.use(express.static("assets/images"));
 
 //routes
 require('./routes')(app,User,mongoose,session);
-app.set('views', './app/views');
+
 // ************************************************************************
 // Sign up successful view
  app.get('/users/successful',(req,res)=>{
@@ -228,11 +227,6 @@ app.get('/characteristics',(req,res)=>{
 app.get('/userProfile/editprofile',(req,res)=>{
   res.render('userProfile/editprofile',{results: req.session.user[0]});
 });
-
-
-// Adding comment to app.js
-
-
 
 app.get('/search/search',(req,res)=>{
   res.render('search/search');

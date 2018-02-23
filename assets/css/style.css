@@ -153,3 +153,31 @@ body {
 .gender {
     margin-right: 20px;
 }
+
+div.user-profile {
+    outline-style: solid;
+    outline-width: thick; 
+    padding-bottom: 20px;
+    padding-top: 10px;
+    margin: 0 auto; 
+    overflow: hidden;
+}   
+
+ @media (min-width: 1200px) {
+    .user-profile {
+        width: 850px !important;
+        height: 550px;
+    }
+}
+    @media (min-width: 992px) {
+    .user-profile {
+        width: 850px !important;
+        height: 550px;
+    }
+}
+    @media (min-width: 768px) {
+    .user-profile {
+         width: 850px !important;
+         height: 550px;
+    }
+}
