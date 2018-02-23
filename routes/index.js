@@ -10,6 +10,7 @@ var rand,mailOptions,host,link;
 
 const login = require('../app/controllers/home');
 const userProfile=require('../app/controllers/profile');
+const landing=require('../app/views/landing');
 module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
 	
@@ -159,6 +160,7 @@ module.exports = function (app,User,mongoose,session) {
 	})
 	 
 	app.get('/index',userProfile.index);
+	app.get('/landing',landing.landing);
 /*	app.get('/index',(req,res)=>{
 		res.render('userProfile/index',{usersession: req.session.user[0]})
 	});*/
