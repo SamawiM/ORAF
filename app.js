@@ -6,7 +6,7 @@ const mongodb=require('mongodb');
 const app=express();
 var session = require('client-sessions');
 const connection = connect();
-const port=5000;
+const port=5050;
 const constant = require('./constants');
 
 app.listen(port,()=>{

@@ -1,3 +1,8 @@
+{{#each errors}}
+  <div class="alert alert-danger">{{text}}</div>
+{{else}}
+
+{{/each}}
 <div id="loginContainer" class="container-fluid">
   <div class="login-form row align-items-center">
       <div class="login-tab col-md-4 offset-md-4 border border-primary rounded">
@@ -27,7 +32,7 @@
               <div class="form-group">
                 <label for="loginPassword">Password</label>
                 <span class="required-mark">*</span>
-                <input type="password" id="loginPassword" class="form-control" required placeholder="Enter password">
+                <input type="password" name="loginPassword" class="form-control" required placeholder="Enter password">
               </div>
               <div class="required-message">
                 <span class="required-mark">*</span> Indicates required field.
@@ -50,6 +55,13 @@
                 		<div class="ncsu-domain">@ncsu.edu</div>
                   </div>
                 </div>
+                <div class="row">
+                	<div class="input-password col-md-9">
+                  	<input type="text" class="form-control" name="signupPassword" placeholder="Enter password" required>
+                  </div>
+                </div>
+
+
               </div>
               <div class="required-message">
                 <span class="required-mark">*</span> Indicates required field.
