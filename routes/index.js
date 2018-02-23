@@ -77,15 +77,21 @@ module.exports = function (app,User,mongoose,session) {
 	
 	app.post('/signin',(req,res)=>{
 		console.log(req.body.loginEmail)
+		//Check if the user has already set his characteristics
+		
 		User.find({email: req.body.loginEmail,password: req.body.loginPassword}, function (err, docs) {
 			if (docs.length){
+			
 			 req.session.user=docs;
 			 console.log(docs[0].first_name);
 					//res.render('login/signinsuccess',{answer: docs[0]});
+				if(docs[0].dietary_habit)
+				 var updatedCharacteristics=true
+				 
 					if(!docs[0].first_name)
 					res.render('login/register',{emailer: req.body.signupEmail,userid: req.session.user[0] })
 					else
-					res.render('userProfile/index',{usersession: req.session.user[0]})
+					res.render('userProfile/index',{usersession: req.session.user[0],flag: updatedCharacteristics})
 					console.log(req.session.user);
 			}else{
 				let errors=[];
@@ -195,6 +201,7 @@ module.exports = function (app,User,mongoose,session) {
 			 User.update({email: "asundar2"},user1,(err,docs)=>{
 				 if(err)
 					throw err;
+					res.render('userProfile/index',{answer: docs[0]});
 					console.log('Updated password');
 			 })
 			}	})
@@ -212,8 +219,12 @@ module.exports = function (app,User,mongoose,session) {
 			 errs.push({updater: "Old password is wrong"})
 			 //res.render('/index',{errs: errs});
 			}
+			
 			else{
-			 const user1={dietary_habit: req.body.newpassword,
+				console.log("update details"+docs[0]);
+				if(docs[0].dietary_habit)
+				 var hasupdatedCharacteristics=true;
+			 const user1={dietary_habit: req.body.dietary_habit,
 				smoking_habit: req.body.smoking_habit,
 				alcoholic_habit: req.body.alcoholic_habit,
 				min_budget: req.body.min_budget,
@@ -227,6 +238,7 @@ module.exports = function (app,User,mongoose,session) {
 				 if(err)
 					throw err;
 					console.log('Updated characteristics');
+					res.render('userProfile/index',{answer: docs[0],flag: hasupdatedCharacteristics,usersession: docs[0]});
 			 })
 			}	})
 		
