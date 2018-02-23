@@ -159,3 +159,26 @@ div.user-profile {
     padding-top: 10px;
     margin: 0 auto; 
 }   
+
+ @media (min-width: 1200px) {
+    .user-profile {
+        width: 850px !important;
+        height: 550px;
+    }
+}
+    @media (min-width: 992px) {
+    .user-profile {
+        width: 850px !important;
+        height: 550px;
+    }
+}
+    @media (min-width: 768px) {
+    .user-profile {
+         width: 850px !important;
+         height: 550px;
+    }
+}
+.fill{ 
+    height: 100%;
+    width: 100%;
+  }
