@@ -1,144 +1,139 @@
 
 <div class="container user-profile" >
-<div class="col-sm-4">
-<img src="../images/profile.png" class="img-thumbnail" alt="Cinque Terre" height="250" width=100%>
-<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style = "width:100%">
-  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">BASIC DETAILS</a>
-  {{#if flag }}
-  <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">CHARACTERISTICS</a>
-  {{/if}}
-  <a class="nav-link" id="v-pills-update-tab" data-toggle="pill" href="#v-pills-update" role="tab" aria-controls="v-pills-update" aria-selected="true">UPDATE</a>
-  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">SETTINGS</a>
-</div>
-</div>
+ <div class="col-sm-4">
+  <img src="../images/profile.png" class="img-thumbnail" alt="Cinque Terre" height="250" width=100%>
+   <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style = "width:100%">
+     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">BASIC DETAILS</a>
+     {{#if flag }}
+     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">CHARACTERISTICS</a>
+     {{/if}}
+     <a class="nav-link" id="v-pills-update-tab" data-toggle="pill" href="#v-pills-update" role="tab" aria-controls="v-pills-update" aria-selected="true">UPDATE</a>
+     <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">SETTINGS</a>
+   </div>
+ </div>
 
 
 <div class="col-sm-8">
-<div class="tab-content" id="v-pills-tabContent" >
+  <div class="tab-content" id="v-pills-tabContent" >
   
-  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-  <div style="width: 200%">
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">First Name</label>
-    <div class="col-sm-10">
-      <p class="form-control-static">{{usersession.first_name}}</p>
-    </div>
-  </div>
+    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+      <div style="width: 200%">
+        <div class="form-group row">
+         <label class="col-sm-2 col-form-label">First Name</label>
+         <div class="col-sm-10">
+           <p class="form-control-static">{{usersession.first_name}}</p>
+         </div>
+       </div>
 
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">last Name</label>
-    <div class="col-sm-10">
-      <p class="form-control-static">{{usersession.last_name}}</p>
-    </div>
-  </div>
+        <div class="form-group row">
+         <label class="col-sm-2 col-form-label">last Name</label>
+         <div class="col-sm-10">
+           <p class="form-control-static">{{usersession.last_name}}</p>
+         </div>
+        </div>
 
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Gender</label>
-    <div class="col-sm-10">
-      <p class="form-control-static">{{usersession.gender}}</p>
-    </div>
-  </div>
+        <div class="form-group row">
+         <label class="col-sm-2 col-form-label">Gender</label>
+         <div class="col-sm-10">
+           <p class="form-control-static">{{usersession.gender}}</p>
+         </div>
+       </div>
 
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <p class="form-control-static" name="emailsession">{{usersession.email}}</p>
-    </div>
-  </div>
+        <div class="form-group row">
+         <label class="col-sm-2 col-form-label">Email</label>
+         <div class="col-sm-10">
+           <p class="form-control-static" name="emailsession">{{usersession.email}}</p>
+         </div>
+        </div>
 
 
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Phone Number</label>
-    <div class="col-sm-10">
-      <p class="form-control-static">+1-{{usersession.phone_no}}</p>
-    </div>
+        <div class="form-group row">
+         <label class="col-sm-2 col-form-label">Phone Number</label>
+         <div class="col-sm-10">
+           <p class="form-control-static">+1-{{usersession.phone_no}}</p>
+         </div>
+        </div>
   </div>
-  
-
-  </div>
-  <button type="submit" class="btn btn-primary center-block">Send Request</button>
-  <br>
-  <!-- <button type="button" class="btn btn-primary btn-lg pull-right">Update</button> -->
+   <button type="submit" class="btn btn-primary center-block">Send Request</button>
+   <br>
 </div>
 
 
 {{#if flag }}
 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-<div style="width: 200%">     
+   <div style="width: 200%">     
 
-<p>Dietary Habits : {{answer.dietaryhabit}}</p>
-<p>Smoking Habits : {{answer.smokinghabit}}</p>
-<p>Minimum Budget : {{answer.min_budget}}</p>
-<p>Maximum Budget : {{answer.max_budget}}</p>
-<p>Locality : ---</p>
-<p>Alcoholic Habit : {{answer.alcoholichabit}}</p>
-<p>Room Sharing : {{answer.room_sharing}}</p>
-<p>Earliest Move in date : {{answer.earliest_move_in_date}}</p>
-<p>Latest Move in date : {{answer.latest_move_in_date}}</p>
-  
+     <p>Dietary Habits : {{answer.dietaryhabit}}</p>
+     <p>Smoking Habits : {{answer.smokinghabit}}</p> 
+     <p>Minimum Budget : {{answer.min_budget}}</p>
+     <p>Maximum Budget : {{answer.max_budget}}</p>
+     <p>Locality : ---</p>
+     <p>Alcoholic Habit : {{answer.alcoholichabit}}</p>
+     <p>Room Sharing : {{answer.room_sharing}}</p>
+     <p>Earliest Move in date : {{answer.earliest_move_in_date}}</p>
+     <p>Latest Move in date : {{answer.latest_move_in_date}}</p>
+   </div>
 </div>
-
-</div>
-  {{/if}}
+{{/if}}
 
 <div class="tab-pane fade" id="v-pills-update" role="tabpanel" aria-labelledby="v-pills-update-tab">
-<div style="width: 100%">
-  <form action="/updatedetails" method="post">
- <div class="col-lg-8">
-  <label for="exampleFormControlInput1">Locality</label>
-  <div class="input-group">
-    <select class="selectpicker" multiple name="location"> 
-      <option>Avery Close</option>
-      <option>Colonial Arms</option>
-      <option>Champions Court</option>
-      <option>The College Inn</option>
-      <option>Centennial Ridge</option>
-      <option>Gorman Crossing</option>
-      <option>Gorman Place</option>
-      <option>Kings Court</option>
-      <option>Kensington Park</option>
-      <option>Mission Valley Garden</option>
-      <option>Pine Knoll</option>
-      <option>Parkwood Village</option>
-      <option>University Commons</option>
-      <option>Western Manor</option>
-      <option>Wolf Ridge</option>
-    </select> 
-  </div>
- </div> 
+  <div style="width: 100%">
+    <form action="/updatedetails" method="post">
+    <div class="col-lg-8">
+     <label for="exampleFormControlInput1">Locality</label>
+     <div class="input-group">
+        <select class="selectpicker" multiple name="location"> 
+        <option>Avery Close</option>
+        <option>Colonial Arms</option>
+        <option>Champions Court</option>
+        <option>The College Inn</option>
+        <option>Centennial Ridge</option>
+        <option>Gorman Crossing</option>
+        <option>Gorman Place</option>
+        <option>Kings Court</option>
+        <option>Kensington Park</option>
+        <option>Mission Valley Garden</option>
+        <option>Pine Knoll</option>
+        <option>Parkwood Village</option>
+        <option>University Commons</option>
+        <option>Western Manor</option>
+        <option>Wolf Ridge</option>
+        </select> 
+     </div>
+    </div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">MinBudget</label>
   <div class="input-group">
-   <input class="form-control" id="minbudget" name="min_budget" type="number"/>
+   <input class="form-control" id="minbudget" name="min_budget" type="number" required/>
    </div> 
  </div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">MaxBudget</label>
   <div class="input-group">
-   <input class="form-control" id="maxbudget" name="max_budget" type="number"/>
+   <input class="form-control" id="maxbudget" name="max_budget" type="number" required/>
    </div> 
  </div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">Dietary Habits</label>
   <div class="input-group">
-   <input class="form-control" id="dhabits" name="dietary_habit" type="text"/>
+   <input class="form-control" id="dhabits" name="dietary_habit" type="text" required/>
    </div> 
  </div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">Smoking Habits</label>
   <div class="input-group">
-   <input class="form-control" id="shabits" name="smoking_habit" type="text"/>
+   <input class="form-control" id="shabits" name="smoking_habit" type="text" required/>
    </div> 
  </div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">Alcoholic Habits</label>
   <div class="input-group">
-   <input class="form-control" id="ahabits" name="alcoholic_habit" type="text"/>
+   <input class="form-control" id="ahabits" name="alcoholic_habit" type="text" required/>
    </div> 
  </div> 
 
@@ -147,10 +142,10 @@
   <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="room_sharing" id="option1" autocomplete="off" checked>YES
+    <input type="radio" name="room_sharing" id="option1" autocomplete="off" checked required/>YES
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="room_sharing" id="option2" autocomplete="off">NO  
+    <input type="radio" name="room_sharing" id="option2" autocomplete="off" required/>NO  
   </label>
   </div>
   </div> 
@@ -159,21 +154,21 @@
  <div class="col-lg-8">
   <label for="exampleFormControlInput1">Early Movein Date</label>
   <div class="input-group">
-   <input class="form-control" id="earlydate" name="earlydate" type="text"/>
+   <input class="form-control" id="earlydate" name="earlydate" type="text" required/>
    </div> 
  </div> 
 
  <div class="col-lg-8">
   <label for="exampleFormControlInput1">Latest Movein Date</label>
   <div class="input-group">
-   <input class="form-control" id="latedate" name="latedate" type="text"/>
+   <input class="form-control" id="latedate" name="latedate" type="text" required/>
    </div> 
  </div> 
 
   <div class="col-lg-8">
   <label for="exampleFormControlInput1">Status</label>
   <div class="input-group">
-   <input class="form-control" id="status" name="status" type="text"/>
+   <input class="form-control" id="status" name="status" type="text" required/>
    </div> 
  </div> 
 
@@ -182,7 +177,7 @@
   <button type="submit" class="btn btn-primary right-block">Update</button>
  </div> 
 </form>
-  </div> 
+</div> 
     
 </div>
 
@@ -196,7 +191,7 @@
 <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-messages-tab">
  
   <div style="width: 100%">
-<form action='/index' method='post'>
+  <form action='/index' method='post'>
   <div class="col-lg-8">
   <label for="exampleFormControlInput1">Current Password</label>
   <div class="input-group">
