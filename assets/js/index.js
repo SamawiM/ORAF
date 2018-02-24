@@ -4,10 +4,11 @@ $(function(){
 
 	// toggle selected tags in a group
 	$(".tag").on("click", function() {
-        var value = $(this).val();
+        var value = $(this).text().split(" ")[1];
 		$(this).toggleClass('active');
-		if($(this).siblings('.tag').hasClass('active') && $(this).hasClass('active')) 
+		if($(this).siblings('.tag').hasClass('active') && $(this).hasClass('active')) {
 			$(this).siblings('.tag').removeClass('active');
+        }
 
 		$('.badge').text($('.active').length);
         $(this).parent('div').find('input:hidden').val(value);
@@ -33,7 +34,7 @@ $(function(){
 	});
 
 	// initialize price range slider
-    $( "#slider-range" ).slider({
+    $("#slider-range").slider({
       range: true,
       min: 100,
       max: 1000,
