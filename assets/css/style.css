@@ -179,7 +179,7 @@ div.user-profile {
     }
 }
 .fill{ 
-    height: 500px;
+    height: 100%;
     width: 100%;
-    margin: auto;
+    margin-top: -20;
   }
