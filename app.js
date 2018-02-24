@@ -3,8 +3,11 @@ console.markTimeline(); exphbs=require('express-handlebars');
 const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 const mongodb=require('mongodb');
+var cookieParser = require('cookie-parser');
 const app=express();
-var session = require('client-sessions');
+//var session = require('client-sessions');
+var session = require('express-session');
+var MemcachedStore = require('connect-memcached')(session);
 const connection = connect();
 const port=5050;
 const constant = require('./constants');
@@ -49,6 +52,8 @@ const Request=mongoose.model('request');
 // session
 app.use(session({
   cookieName: 'session',
+  resave: false,
+  saveUninitialized: true,
   secret: 'highentropystring01010',
   duration: 30*60*1000,
   activeDuration: 5*60*1000,
