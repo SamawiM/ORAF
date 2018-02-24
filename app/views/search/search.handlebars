@@ -8,20 +8,29 @@
 	          </h4>
 	          <fieldset class="form-actions tagging mb-3">
 	          	<div class="smoking">
-	          		<div class="tag"><span>#</span> Smoker<input class="smoking-habit" type="hidden" name="smoker" value="Smoker"><a role="button" class="tag-i">×</a></div>
-	          		<div class="tag"><span>#</span> Non-Smoker<input class="smoking-habit" type="hidden" name="non-smoker" value="Non Smoker"><a role="button" class="tag-i">×</a></div>
+	          		<div class="tag"><span>#</span> Smoker</div>
+	          		<div class="tag"><span>#</span> Non-Smoker</div>
+	          		<input class="smoking-habit" type="hidden" name="smoking_habit" value="">
 	          	</div>
 	          	<div class="diet">
-	          		<div class="tag"><span>#</span> Vegeterian<input class="dietary-habit" type="hidden" name="veg" value="Vegeterian"><a role="button" class="tag-i">×</a></div>
-	          		<div class="tag"><span>#</span> Non-Vegeterian<input class="dietary-habit" type="hidden" name="nonveg" value="Non Vegeterian"><a role="button" class="tag-i">×</a></div>
+	          		<div class="tag"><span>#</span> Vegeterian</div>
+	          		<div class="tag"><span>#</span> Non-Vegeterian</div>
+	          		<input class="smoking-habit" type="hidden" name="dietary_habit" value="">
 	          	</div>
 	          	<div class="gender">
-	          		<div class="tag"><span>#</span> Female<input type="hidden" name="veg" value="Female"><a role="button" class="tag-i">×</a></div>
-	          		<div class="tag"><span>#</span> Male<input type="hidden" name="nonveg" value="Male"><a role="button" class="tag-i">×</a></div>
+	          		<div class="tag"><span>#</span> Female</div>
+	          		<div class="tag"><span>#</span> Male</div>
+	          		<input type="hidden" name="gender" value="">
+	          	</div>
+
+	          	<div class="room">
+	          		<label for="room">Room Sharing : </label>
+	          		<input type="radio" name="room_sharing" value="yes" checked> Yes 
+	          		<input type="radio" name="room_sharing" value="no"> No
 	          	</div>
 
 		        <p>
-				  <label for="amount">Price range:</label>
+				  <label for="amount">Price range : </label>
 				  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
 				</p>
 				 
