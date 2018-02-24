@@ -10,7 +10,6 @@ var rand,mailOptions,host,link;
 
 const login = require('../app/controllers/home');
 const userProfile=require('../app/controllers/profile');
-const landing=require('../app/views/landing');
 module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
 	
@@ -82,6 +81,7 @@ module.exports = function (app,User,mongoose,session) {
 			if (docs.length){
 			
 			 req.session.user=docs;
+			 console.log('session id is'+req.sessionID)
 			 console.log(docs[0].first_name);
 					//res.render('login/signinsuccess',{answer: docs[0]});
 				if(docs[0].dietary_habit)
@@ -155,7 +155,7 @@ module.exports = function (app,User,mongoose,session) {
 				gender: req.body.genderRadio,
 				phone_no: req.body.phoneNumber
 			}
-			User.update({email: req.session.user[0]},newUser,function(err,docs){
+			User.update({email: req.session.user[0].email},newUser,function(err,docs){
 				if(err)
 				 throw err;
 			 //res.render('userProfile/registersuccess');
@@ -166,7 +166,6 @@ module.exports = function (app,User,mongoose,session) {
 	})
 	 
 	app.get('/index',userProfile.index);
-	app.get('/landing',landing.landing);
 /*	app.get('/index',(req,res)=>{
 		res.render('userProfile/index',{usersession: req.session.user[0]})
 	});*/
@@ -188,7 +187,7 @@ module.exports = function (app,User,mongoose,session) {
 			});
 		 }
 		 
-		User.find({email: "asundar2",password: req.body.oldpassword},(err,docs)=>{
+		User.find({email: req.session.user[0].email,password: req.body.oldpassword},(err,docs)=>{
 			if(err)
 			{
 			 throw err;	
@@ -197,7 +196,7 @@ module.exports = function (app,User,mongoose,session) {
 			}
 			else{
 			 const user1={password: req.body.newpassword};
-			 User.update({email: "asundar2"},user1,(err,docs)=>{
+			 User.update({email: req.session.user[0].email},user1,(err,docs)=>{
 				 if(err)
 					throw err;
 					res.render('userProfile/index',{answer: docs[0]});
@@ -211,7 +210,7 @@ module.exports = function (app,User,mongoose,session) {
 	app.post('/updatedetails',(req,res)=>{
 		console.log('Hello updating dietary and smoking')
 		let errs=[]
-		User.find({email: "asundar2"},(err,docs)=>{
+		User.find({email: req.session.user[0].email},(err,docs)=>{
 			if(err)
 			{
 			 throw err;	
@@ -233,11 +232,11 @@ module.exports = function (app,User,mongoose,session) {
 				earliest_move_in_date: req.body.earlydate,
 				//latest_move_in_date: req.body.latedate
 			};
-			 User.update({email: "asundar2"},user1,(err,docs)=>{
+			 User.update({email: req.session.user[0].email},user1,(err,docs)=>{
 				 if(err)
 					throw err;
 					console.log('Updated characteristics');
-					res.render('userProfile/index',{answer: docs[0],flag: hasupdatedCharacteristics,usersession: docs[0]});
+					res.render('userProfile/index',{answer: docs[0],flag1: hasupdatedCharacteristics,usersession: docs[0]});
 			 })
 			}	})
 		
