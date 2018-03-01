@@ -32,6 +32,10 @@ const users= new Schema({
     type:String,
     required:false
   },
+  location:{
+    type: String,
+    required: false
+  },
   /*location:[{
     type: Schema.Types.ObjectId, ref: 'locations',
     required: true

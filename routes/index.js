@@ -230,12 +230,13 @@ module.exports = function (app,User,mongoose,session) {
 			 const user1={dietary_habit: req.body.dietary_habit,
 				smoking_habit: req.body.smoking_habit,
 				alcoholic_habit: req.body.alcoholic_habit,
+				location: req.body.location,
 				min_budget: req.body.min_budget,
 				max_budget: req.body.max_budget,
 				room_sharing: req.body.room_sharing,
-				//status: req.body.status,
+				status: req.body.status,
 				earliest_move_in_date: req.body.earlydate,
-				//latest_move_in_date: req.body.latedate
+				latest_move_in_date: req.body.latedate
 			};
 			 User.update({email: req.session.user[0].email},user1,(err,docs)=>{
 				 if(err)
