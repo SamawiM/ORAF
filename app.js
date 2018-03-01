@@ -6,7 +6,7 @@ const mongodb=require('mongodb');
 var cookieParser = require('cookie-parser');
 const app=express();
 //var session = require('client-sessions');
-var session = require('express-session');
+const session = require('express-session');
 var MemcachedStore = require('connect-memcached')(session);
 const connection = connect();
 const port=5050;
@@ -41,6 +41,7 @@ module.exports = {
 // Load models
 //require('./models/users');
 //const User=mongoose.model('users');
+
 require('./app/models/users');
 const User=mongoose.model('users');
 
@@ -52,13 +53,18 @@ const Request=mongoose.model('request');
 // session
 app.use(session({
   cookieName: 'session',
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   secret: 'highentropystring01010',
-  duration: 30*60*1000,
-  activeDuration: 5*60*1000,
+  duration: 30*60*1000*1000,
+  activeDuration: 5*60*1000*1000,
 }));
 
+//app.use(function(req, res, next){
+  //const session = req.session;
+  //console.log(req.session);
+  //next();
+//});
 // use css file
 app.use(express.static("assets"));
 app.use(express.static("assets/images"));

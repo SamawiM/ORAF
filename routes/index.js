@@ -241,7 +241,16 @@ module.exports = function (app,User,mongoose,session) {
 				 if(err)
 					throw err;
 					console.log('Updated characteristics');
-					res.render('userProfile/index',{answer: docs[0],flag1: hasupdatedCharacteristics,usersession: docs[0]});
+					hasupdatedCharacteristics=true;
+					var emailsess=req.session.user[0].email
+					User.find({email: emailsess},(errs,resp)=>{
+						
+					
+						if(errs)
+						 throw errs;
+						res.render('userProfile/index',{flag: hasupdatedCharacteristics,usersession: resp[0]});
+					})
+					
 			 })
 			}	})
 		
