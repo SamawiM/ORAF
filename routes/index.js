@@ -19,11 +19,17 @@ module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
 
 	app.get('/search', (req, res)=>{
+		User.find({email: emailsess},(err,docs)=>{
+			if(err)
+			 throw err
+			 req.session.user=docs;
+     // res.render('search/search',{usersession: req.session.user[0],flag: true})
+		})
 		var currentUser = req.session.user[0];
 		var results = User.find({ location: currentUser.location, email: { $ne: currentUser.email} }, function (err, docs){
 			if(docs) {
 				console.log('search results ----' + docs);
-				res.render('search/search', {usersession: docs});
+				res.render('search/search', {usersession: req.session.user[0],flag: true});
 			} else {
 				let errors=[];
 				errors.push({text:'No results found'});
@@ -292,10 +298,7 @@ module.exports = function (app,User,mongoose,session) {
 		
 	})
 
-	//Search
-	app.get('/search',(req,res)=>{
-		res.render('search/search',{usersession: req.session.user[0]})
-	});
+
 
 	//Logout
 	app.get('/logout', function (req, res) {
