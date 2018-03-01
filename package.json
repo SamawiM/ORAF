@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/Aishwarya2/RoommateFinder/issues"
   },
+  "engines": {
+    "node": "8.9.4"
+  },
   "homepage": "https://github.com/Aishwarya2/RoommateFinder#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
