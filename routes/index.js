@@ -7,7 +7,9 @@ var smtpTransport=nodemailer.createTransport({
 	}
 });
 var rand,mailOptions,host,link;
-
+var updatedchar=false;
+var hasupdatedCharacteristics=false;
+var emailsess;
 const login = require('../app/controllers/home');
 const userProfile=require('../app/controllers/profile');
 const search = require('../app/controllers/search');
@@ -98,8 +100,12 @@ module.exports = function (app,User,mongoose,session) {
 					if(!docs[0].first_name)
 					res.render('login/register',{emailer: req.body.signupEmail,userid: req.session.user[0] })
 					else
+					{
+						emailsess=req.session.user[0].email;
 					res.render('userProfile/index',{usersession: req.session.user[0],flag: updatedCharacteristics})
+
 					console.log(req.session.user);
+					}
 			} else {
 				let errors=[];
 				errors.push({text:'Invalid Credentials'});
@@ -174,7 +180,13 @@ module.exports = function (app,User,mongoose,session) {
 	
 	
 	app.get('/index',(req,res)=>{
-		res.render('userProfile/index',{usersession: req.session.user[0],flag: true})
+		
+		User.find({email: emailsess},(err,docs)=>{
+			 if(err)
+				throw err;
+				req.session.user=docs;
+			res.render('userProfile/index',{usersession: req.session.user[0],flag: true})
+		})
 	});
 
 
@@ -234,7 +246,7 @@ module.exports = function (app,User,mongoose,session) {
 			else{
 				console.log("update details"+docs[0]);
 				if(docs[0].dietary_habit)
-				 var hasupdatedCharacteristics=true;
+				hasupdatedCharacteristics=true;
 			 const user1={dietary_habit: req.body.dietary_habit,
 				smoking_habit: req.body.smoking_habit,
 				alcoholic_habit: req.body.alcoholic_habit,
@@ -246,22 +258,23 @@ module.exports = function (app,User,mongoose,session) {
 				earliest_move_in_date: req.body.earlydate,
 				latest_move_in_date: req.body.latedate
 			};
-			 User.update({email: req.session.user[0].email},user1,(err,docs)=>{
+			 User.update({email: req.session.user[0].email},user1,(err,docs1)=>{
 				 if(err)
 					throw err;
 					console.log('Updated characteristics');
 					hasupdatedCharacteristics=true;
-					var emailsess=req.session.user[0].email
-					User.find({email: emailsess},(errs,resp)=>{
-						
-					
-						if(errs)
-						 throw errs;
-						 var updatedchar=true;
-						res.render('userProfile/index',{flag: hasupdatedCharacteristics,flagger: updatedchar,usersession: resp[0]});
-					})
 					
 			 })
+			 emailsess=req.session.user[0].email
+			 User.find({email: emailsess},(errs,resp)=>{
+				 
+			 console.log("resp is"+resp[0])
+				 if(errs)
+					throw errs;
+				 updatedchar=true;
+				 res.render('userProfile/index',{flag: hasupdatedCharacteristics,flagger: updatedchar,usersession: resp[0]});
+			 })
+
 			}	})
 		
 	})

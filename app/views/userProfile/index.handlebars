@@ -91,7 +91,8 @@
     <div class="col-lg-8">
      <label for="exampleFormControlInput1">Locality</label>
      <div class="input-group">
-        <select class="selectpicker" name="location" value={{usersession.location}}> 
+        <select class="selectpicker" name="location" >
+          <option value={{usersession.location}} selected>{{usersession.location}}</option>   
         <option>Avery Close</option>
         <option>Colonial Arms</option>
         <option>Champions Court</option>
