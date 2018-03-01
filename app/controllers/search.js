@@ -1,4 +1,4 @@
-exports.index = function (req, res) {
+exports.search = function (req, res) {
 
   res.render('search/search');
 };

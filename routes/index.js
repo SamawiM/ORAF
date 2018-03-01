@@ -16,7 +16,7 @@ const search = require('../app/controllers/search');
 module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
 
-	app.get('/search', search.index);
+	//app.get('/search', search.index);
 	
 	app.post('/',(req,res)=>{
 		console.log();
@@ -169,14 +169,13 @@ module.exports = function (app,User,mongoose,session) {
 		
 		}
 	})
-	 
-	app.get('/index',userProfile.index);
-/*	app.get('/index',(req,res)=>{
-		res.render('userProfile/index',{usersession: req.session.user[0]})
-	});*/
+	
+	
+	app.get('/index',(req,res)=>{
+		res.render('userProfile/index',{usersession: req.session.user[0],flag: true})
+	});
 
-	//app.get('/registersuccess',userProfile.registersuccess);
-	//Update password
+
 	app.post('/index',(req,res)=>{
 		console.log('Hello')
 		let errs=[]
@@ -204,7 +203,14 @@ module.exports = function (app,User,mongoose,session) {
 			 User.update({email: req.session.user[0].email},user1,(err,docs)=>{
 				 if(err)
 					throw err;
-					res.render('userProfile/index',{answer: docs[0]});
+					var emailsess=req.session.user[0].email
+					User.find({email: emailsess},(errs,resp)=>{
+						if(errs)
+						 throw errs;
+            updatedpassword=true
+						res.render('userProfile/index',{flagpass: updatedpassword,flag: true,usersession: resp[0]});
+					})
+				//	res.render('userProfile/index',{answer: docs[0]});
 					console.log('Updated password');
 			 })
 			}	})
@@ -249,11 +255,23 @@ module.exports = function (app,User,mongoose,session) {
 					
 						if(errs)
 						 throw errs;
-						res.render('userProfile/index',{flag: hasupdatedCharacteristics,usersession: resp[0]});
+						 var updatedchar=true;
+						res.render('userProfile/index',{flag: hasupdatedCharacteristics,flagger: updatedchar,usersession: resp[0]});
 					})
 					
 			 })
 			}	})
 		
 	})
+
+	//Search
+	app.get('/search',(req,res)=>{
+		res.render('search/search',{usersession: req.session.user[0]})
+	});
+
+	//Logout
+	app.get('/logout', function (req, res) {
+		req.session.destroy();
+		res.render('login/index');
+	});
 }

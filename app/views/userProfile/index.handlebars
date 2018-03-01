@@ -18,6 +18,14 @@
   
     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
       <div style="width: 200%">
+        {{#if flagpass}}
+         <p>Password updated successfully for your profile</p>
+        
+         {{/if}}
+    {{#if flagger}}
+      <p>Characteristics updated successfully</p>
+    
+     {{/if}}
         <div class="form-group row">
          <label class="col-sm-2 col-form-label">First Name</label>
          <div class="col-sm-10">
@@ -64,15 +72,15 @@
 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
    <div style="width: 200%">     
 
-     <p>Dietary Habits : {{usersession.dietary_habit}}</p>
-     <p>Smoking Habits : {{usersession.smoking_habit}}</p> 
-     <p>Minimum Budget : {{usersession.min_budget}}</p>
-     <p>Maximum Budget : {{usersession.max_budget}}</p>
-     <p>Locality : {{usersession.location}}</p>
-     <p>Alcoholic Habit : {{usersession.alcoholic_habit}}</p>
-     <p>Room Sharing : {{usersession.room_sharing}}</p>
-     <p>Earliest Move in date : {{usersession.earliest_move_in_date}}</p>
-     <p>Latest Move in date : {{usersession.latest_move_in_date}}</p>
+     <p>Dietary Habits :<b> {{usersession.dietary_habit}}</b></p>
+     <p>Smoking Habits :<b> {{usersession.smoking_habit}}</b></p> 
+     <p>Minimum Budget :<b> {{usersession.min_budget}}</b></p>
+     <p>Maximum Budget :<b> {{usersession.max_budget}}</b></p>
+     <p>Locality :<b> {{usersession.location}}</b></p>
+     <p>Alcoholic Habit :<b> {{usersession.alcoholic_habit}}</b></p>
+     <p>Room Sharing :<b> {{usersession.room_sharing}}</b></p>
+     <p>Earliest Move in date :<b> {{usersession.earliest_move_in_date}}</b></p>
+     <p>Latest Move in date :<b> {{usersession.latest_move_in_date}}</b></p>
    </div>
 </div>
 {{/if}}
@@ -106,14 +114,14 @@
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">MinBudget</label>
   <div class="input-group">
-   <input class="form-control" id="minbudget" name="min_budget" type="number" required/>
+   <input class="form-control" id="minbudget" name="min_budget" type="number" />
    </div> 
  </div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">MaxBudget</label>
   <div class="input-group">
-   <input class="form-control" id="maxbudget" name="max_budget" type="number" required/>
+   <input class="form-control" id="maxbudget" name="max_budget" type="number"/>
    </div> 
  </div> 
 
@@ -122,10 +130,10 @@
   <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="dietary_habit" id="option1" autocomplete="off" checked required/>Vegetarian
+    <input type="radio" name="dietary_habit" id="option1" autocomplete="off" checked />Vegetarian
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="dietary_habit" id="option2" autocomplete="off" required/>Non-vegetarian  
+    <input type="radio" name="dietary_habit" id="option2" autocomplete="off" />Non-vegetarian  
   </label>
   </div>
   </div> 
@@ -136,10 +144,10 @@
   <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="smoking_habit" id="option1" autocomplete="off" checked required/>Smoker
+    <input type="radio" name="smoking_habit" id="option1" autocomplete="off" checked/>Smoker
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="smoking_habit" id="option2" autocomplete="off" required/>Non-Smoker  
+    <input type="radio" name="smoking_habit" id="option2" autocomplete="off" />Non-Smoker  
   </label>
   </div>
   </div> 
@@ -150,10 +158,10 @@
   <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="alcoholic_habit" id="option1" autocomplete="off" checked required/>Alcoholic
+    <input type="radio" name="alcoholic_habit" id="option1" autocomplete="off" checked />Alcoholic
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="alcoholic_habit" id="option2" autocomplete="off" required/>Non-Alcoholic 
+    <input type="radio" name="alcoholic_habit" id="option2" autocomplete="off" />Non-Alcoholic 
   </label>
   </div>
   </div> 
@@ -165,10 +173,10 @@
   <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="room_sharing" id="option1" autocomplete="off" checked required/>YES
+    <input type="radio" name="room_sharing" id="option1" autocomplete="off" checked/>YES
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="room_sharing" id="option2" autocomplete="off" required/>NO  
+    <input type="radio" name="room_sharing" id="option2" autocomplete="off" />NO  
   </label>
   </div>
   </div> 
@@ -177,14 +185,14 @@
  <div class="col-lg-8">
   <label for="exampleFormControlInput1">Early Movein Date</label>
   <div class="input-group">
-   <input class="form-control" id="earlydate" name="earlydate" type="text" required/>
+   <input class="form-control" id="earlydate" name="earlydate" type="text" />
    </div> 
  </div> 
 
  <div class="col-lg-8">
   <label for="exampleFormControlInput1">Latest Movein Date</label>
   <div class="input-group">
-   <input class="form-control" id="latedate" name="latedate" type="text" required/>
+   <input class="form-control" id="latedate" name="latedate" type="text" />
    </div> 
  </div> 
 
