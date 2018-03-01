@@ -17,7 +17,7 @@
   <div class="tab-content" id="v-pills-tabContent" >
   
     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-      <div style="width: 200%">
+      <div>
         {{#if flagpass}}
          <p>Password updated successfully for your profile</p>
         
@@ -27,38 +27,38 @@
     
      {{/if}}
         <div class="form-group row">
-         <label class="col-sm-2 col-form-label">First Name</label>
-         <div class="col-sm-10">
+         <label class="col-sm-4 col-form-label">First Name</label>
+         <div class="col-sm-8">
            
            <p class="form-control-static">{{usersession.first_name}}</p>
          </div>
        </div>
 
         <div class="form-group row">
-         <label class="col-sm-2 col-form-label">last Name</label>
-         <div class="col-sm-10">
+         <label class="col-sm-4 col-form-label">last Name</label>
+         <div class="col-sm-8">
            <p class="form-control-static">{{usersession.last_name}}</p>
          </div>
         </div>
 
         <div class="form-group row">
-         <label class="col-sm-2 col-form-label">Gender</label>
-         <div class="col-sm-10">
+         <label class="col-sm-4 col-form-label">Gender</label>
+         <div class="col-sm-8">
            <p class="form-control-static">{{usersession.gender}}</p>
          </div>
        </div>
 
         <div class="form-group row">
-         <label class="col-sm-2 col-form-label">Email</label>
-         <div class="col-sm-10">
+         <label class="col-sm-4 col-form-label">Email</label>
+         <div class="col-sm-8">
            <p class="form-control-static" name="emailsession">{{usersession.email}}</p>
          </div>
         </div>
 
 
         <div class="form-group row">
-         <label class="col-sm-2 col-form-label">Phone Number</label>
-         <div class="col-sm-10">
+         <label class="col-sm-4 col-form-label">Phone Number</label>
+         <div class="col-sm-8">
            <p class="form-control-static">+1-{{usersession.phone_no}}</p>
          </div>
         </div>
@@ -70,7 +70,7 @@
 
 {{#if flag }}
 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-   <div style="width: 200%">     
+   <div>     
 
      <p>Dietary Habits :<b> {{usersession.dietary_habit}}</b></p>
      <p>Smoking Habits :<b> {{usersession.smoking_habit}}</b></p> 
@@ -85,8 +85,8 @@
 </div>
 {{/if}}
 
-<div class="tab-pane fade" id="v-pills-update" role="tabpanel" aria-labelledby="v-pills-update-tab">
-  <div style="width: 100%">
+<div class="tab-pane fade tagging-section" id="v-pills-update" role="tabpanel" aria-labelledby="v-pills-update-tab">
+  <div>
     <form action="/updatedetails" method="post">
     <div class="col-lg-8">
      <label for="exampleFormControlInput1">Locality</label>
@@ -129,18 +129,24 @@
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">Dietary Habits</label>
-  <div class="input-group">
-  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="dietary_habit" autocomplete="off" checked value={{usersession.dietary_habit}} />Vegetarian
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="dietary_habit" autocomplete="off" />Non-vegetarian  
-  </label>
+
+  <div class="diet">
+    <div class="tag"><span>#</span> Vegeterian</div>
+    <div class="tag"><span>#</span> Non-Vegeterian</div>
+    <input class="dietary_habit" type="hidden" name="dietary_habit" value="{{usersession.dietary_habit}}">
   </div>
 
+  <div class="input-group">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-secondary active">
+        <input type="radio" name="dietary_habit" autocomplete="off" checked value={{usersession.dietary_habit}} />Vegetarian
+      </label>
+      <label class="btn btn-secondary">
+        <input type="radio" name="dietary_habit" autocomplete="off" />Non-vegetarian  
+      </label>
+    </div>
   </div> 
- </div> 
+</div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">Smoking Habits</label>
@@ -231,7 +237,7 @@
 
 <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-messages-tab">
  
-  <div style="width: 100%">
+  <div>
   <form action='/index' method='post'>
   <div class="col-lg-8">
   <label for="exampleFormControlInput1">Current Password</label>
