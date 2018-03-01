@@ -19,8 +19,21 @@ module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
 
 	app.get('/search', (req, res)=>{
-		console.log("Hello!!!!!!" + User);
-		res.render('search/search', {User});
+		var currentUser = req.session.user[0];
+		var results = User.find({ location: currentUser.location, email: { $ne: currentUser.email} }, function (err, docs){
+			if(docs) {
+				console.log('search results ----' + docs);
+				res.render('search/search', {usersession: docs});
+			} else {
+				let errors=[];
+				errors.push({text:'No results found'});
+				res.render('search/search',{
+					errors: errors
+				});
+				console.log('No results found');
+			}
+		});
+		
 	});
 	
 	app.post('/',(req,res)=>{
