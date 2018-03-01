@@ -1,6 +1,9 @@
 $(function(){
 	// display number of selected tags
 	$('.badge').text($('.active').length);
+    $('.datepicker').datepicker({
+        minDate: 0
+    });
 
 	// toggle selected tags in a group
 	$(".tag").on("click", function() {

@@ -10,9 +10,13 @@ var rand,mailOptions,host,link;
 
 const login = require('../app/controllers/home');
 const userProfile=require('../app/controllers/profile');
+const search = require('../app/controllers/search');
+
 
 module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
+
+	app.get('/search', search.index);
 	
 	app.post('/',(req,res)=>{
 		console.log();

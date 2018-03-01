@@ -28,13 +28,20 @@
 	          		<input type="radio" name="room_sharing" value="yes" checked> Yes 
 	          		<input type="radio" name="room_sharing" value="no"> No
 	          	</div>
+	          	<div>
+			        <p>
+					  <label for="amount">Price range : </label>
+					  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+					</p>
+					 
+					<div id="slider-range"></div>
+				</div>
 
-		        <p>
-				  <label for="amount">Price range : </label>
-				  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-				</p>
-				 
-				<div id="slider-range"></div>
+				<div>
+					<label for="amount">Move-in Date : </label>
+					<input id="datepicker" size="30" class="datepicker" readonly="readonly" data-date-format="mm/dd/yyyy">
+				</div>
+
 				</fieldset>
 				<input type="submit" name="Search" id="search" class="btn-primary btn center-block" value="Search">
 			</form>
@@ -44,7 +51,7 @@
 				<div class="card">
 				    <img class="card-img-top" src="../images/user.jpg" alt="Card image cap">
 				    <div class="card-block">
-				      <h6 class="card-title">Name</h6>
+				      <h6 class="card-title">Name {{user.email}}</h6>
 			    	</div>
 				    <div class="card-footer">
 				      <small class="text-muted">Last updated 3 mins ago</small>
