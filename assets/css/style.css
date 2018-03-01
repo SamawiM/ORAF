@@ -160,7 +160,7 @@ div.user-profile {
     margin: 0 auto; 
 }   
 
- @media (min-width: 1200px) {
+ /* @media (min-width: 1200px) {
     .user-profile {
         width: 850px !important;
         height: 550px;
@@ -177,7 +177,7 @@ div.user-profile {
          width: 850px !important;
          height: 550px;
     }
-}
+} */
 .fill{ 
     height: 100%;
     width: 100%;

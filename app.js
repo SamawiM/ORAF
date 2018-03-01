@@ -73,7 +73,7 @@ app.use(express.static("assets/images"));
 require('./routes')(app,User,mongoose,session);
 
 // ************************************************************************
-// Sign up successful view
+//Sign up successful view
  app.get('/users/successful',(req,res)=>{
   res.render('users/successful');
  });
@@ -239,6 +239,6 @@ app.get('/userProfile/editprofile',(req,res)=>{
   res.render('userProfile/editprofile',{results: req.session.user[0]});
 });
 
-app.get('/search/search',(req,res)=>{
-  res.render('search/search');
-});
+// app.get('/search/search',(req,res)=>{
+//   res.render('search/search');
+// });

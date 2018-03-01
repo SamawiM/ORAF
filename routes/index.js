@@ -16,7 +16,10 @@ const search = require('../app/controllers/search');
 module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
 
-	//app.get('/search', search.index);
+	app.get('/search', (req, res)=>{
+		console.log("Hello!!!!!!" + User);
+		res.render('search/search', {User});
+	});
 	
 	app.post('/',(req,res)=>{
 		console.log();
@@ -97,7 +100,7 @@ module.exports = function (app,User,mongoose,session) {
 					else
 					res.render('userProfile/index',{usersession: req.session.user[0],flag: updatedCharacteristics})
 					console.log(req.session.user);
-			}else{
+			} else {
 				let errors=[];
 				errors.push({text:'Invalid Credentials'});
 				res.render('login/index',{
@@ -131,7 +134,6 @@ module.exports = function (app,User,mongoose,session) {
 		let errors=[];
 		if(!req.body.firstName){
 			errors.push({text: 'Please enter valid firstname'});
-
 		}
 		if(!req.body.lastName)
 		{

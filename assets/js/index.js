@@ -2,9 +2,12 @@ $(function(){
 	// display number of selected tags
 	$('.badge').text($('.active').length);
     $('.datepicker').datepicker({
-        minDate: 0
+        minDate: 0,
+        onSelect: function(selected) {
+             $("#datepicker2").datepicker("option",{ minDate: new Date(selected)});
+        }
     });
-
+    
 	// toggle selected tags in a group
 	$(".tag").on("click", function() {
         var value = $(this).text().split(" ")[1];
