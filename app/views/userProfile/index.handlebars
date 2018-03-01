@@ -91,7 +91,7 @@
     <div class="col-lg-8">
      <label for="exampleFormControlInput1">Locality</label>
      <div class="input-group">
-        <select class="selectpicker" multiple name="location"> 
+        <select class="selectpicker" name="location" value={{usersession.location}}> 
         <option>Avery Close</option>
         <option>Colonial Arms</option>
         <option>Champions Court</option>
@@ -107,6 +107,7 @@
         <option>University Commons</option>
         <option>Western Manor</option>
         <option>Wolf Ridge</option>
+        
         </select> 
      </div>
     </div> 
@@ -114,14 +115,14 @@
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">MinBudget</label>
   <div class="input-group">
-   <input class="form-control" id="minbudget" name="min_budget" type="number" />
+   <input class="form-control" id="minbudget" name="min_budget" type="number" value={{usersession.min_budget}} />
    </div> 
  </div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">MaxBudget</label>
   <div class="input-group">
-   <input class="form-control" id="maxbudget" name="max_budget" type="number"/>
+   <input class="form-control" id="maxbudget" name="max_budget" type="number" value={{usersession.max_budget}} />
    </div> 
  </div> 
 
@@ -130,7 +131,7 @@
   <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="dietary_habit" autocomplete="off" checked />Vegetarian
+    <input type="radio" name="dietary_habit" autocomplete="off" checked value={{usersession.dietary_habit}} />Vegetarian
   </label>
   <label class="btn btn-secondary">
     <input type="radio" name="dietary_habit" autocomplete="off" />Non-vegetarian  
@@ -145,7 +146,7 @@
   <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="smoking_habit" autocomplete="off" checked/>Smoker
+    <input type="radio" name="smoking_habit" autocomplete="off" checked value={{usersession.smoking_habit}} />Smoker
   </label>
   <label class="btn btn-secondary">
     <input type="radio" name="smoking_habit" autocomplete="off" />Non-Smoker  
@@ -159,7 +160,7 @@
   <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="alcoholic_habit" autocomplete="off" checked />Alcoholic
+    <input type="radio" name="alcoholic_habit" autocomplete="off" checked value={{usersession.alcoholic_habit}}  />Alcoholic
   </label>
   <label class="btn btn-secondary">
     <input type="radio" name="alcoholic_habit" autocomplete="off" />Non-Alcoholic 
@@ -174,7 +175,7 @@
   <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="room_sharing" autocomplete="off" checked/>YES
+    <input type="radio" name="room_sharing" autocomplete="off" checked value={{usersession.room_sharing}} />YES
   </label>
   <label class="btn btn-secondary">
     <input type="radio" name="room_sharing" autocomplete="off" />NO  
@@ -186,14 +187,14 @@
  <div class="col-lg-8">
   <label for="exampleFormControlInput1">Early Movein Date</label>
   <div class="input-group">
-    <input id="datepicker1" size="30" class="datepicker form-control" required name="earlydate" readonly="readonly" data-date-format="mm/dd/yyyy">
+    <input id="datepicker1" size="30" class="datepicker form-control" required name="earlydate" readonly="readonly" data-date-format="mm/dd/yyyy" value={{usersession.earliest_move_in_date}} /> 
    </div> 
  </div> 
 
  <div class="col-lg-8">
   <label for="exampleFormControlInput1">Latest Movein Date</label>
   <div class="input-group">
-   <input id="datepicker2" size="30" class="datepicker form-control" required name="latedate" readonly="readonly" data-date-format="mm/dd/yyyy">
+   <input id="datepicker2" size="30" class="datepicker form-control" required name="latedate" readonly="readonly" data-date-format="mm/dd/yyyy" value={{usersession.latest_move_in_date}} />
    </div> 
  </div> 
 
@@ -202,10 +203,10 @@
   <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="status" id="option1" autocomplete="off" checked required/>FOUND
+    <input type="radio" name="status" id="option1" autocomplete="off" checked value={{usersession.status}} />FOUND
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="status" id="option2" autocomplete="off" required/>NOT FOUND  
+    <input type="radio" name="status" id="option2" autocomplete="off" />NOT FOUND  
   </label>
   </div>
   </div>  
