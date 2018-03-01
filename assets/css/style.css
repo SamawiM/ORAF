@@ -1,7 +1,7 @@
 .tagging-section .tagging .tag {
-    background: none repeat scroll 0 0 #EE7407;
+    background: none repeat scroll 0 0 #53c9f7;
     border-radius: 2px;
-    color: white;
+    color: #0a0a0a;
     cursor: default;
     display: inline-block;
     position: relative;
@@ -12,9 +12,10 @@
 }
 .tagging-section .tagging .tag.active {
     background-color: #bb5d08;
+    color:  white;
 }
 .tagging-section .tagging .tag span {
-	background: none repeat scroll 0 0 #f1821f;
+	background: none repeat scroll 0 0 #3490b3;
     border-radius: 5px;
     margin-right: 2px;
     padding: 4px 10px 3px;
@@ -160,7 +161,9 @@ div.user-profile {
     padding-top: 10px;
     margin: 0 auto; 
 }   
-
+.error{
+    color: red;
+}
  /* @media (min-width: 1200px) {
     .user-profile {
         width: 850px !important;

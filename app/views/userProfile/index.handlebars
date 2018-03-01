@@ -87,7 +87,7 @@
 
 <div class="tab-pane fade tagging-section" id="v-pills-update" role="tabpanel" aria-labelledby="v-pills-update-tab">
   <div>
-    <form action="/updatedetails" method="post">
+    <form action="/updatedetails" method="post" class="tagging">
     <div class="col-lg-8">
      <label for="exampleFormControlInput1">Locality</label>
      <div class="input-group">
@@ -136,7 +136,7 @@
     <input class="dietary_habit" type="hidden" name="dietary_habit" value="{{usersession.dietary_habit}}">
   </div>
 
-  <div class="input-group">
+  {{!-- <div class="input-group">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
       <label class="btn btn-secondary active">
         <input type="radio" name="dietary_habit" autocomplete="off" checked value={{usersession.dietary_habit}} />Vegetarian
@@ -145,12 +145,19 @@
         <input type="radio" name="dietary_habit" autocomplete="off" />Non-vegetarian  
       </label>
     </div>
-  </div> 
+  </div>  --}}
 </div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">Smoking Habits</label>
-  <div class="input-group">
+
+  <div class="smoking">
+    <div class="tag"><span>#</span> Smoker</div>
+    <div class="tag"><span>#</span> Non-Smoker</div>
+    <input class="smoking-habit" type="hidden" name="smoking_habit" value="{{usersession.smoking_habit}}">
+  </div>
+
+  {{!-- <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
     <input type="radio" name="smoking_habit" autocomplete="off" checked value={{usersession.smoking_habit}} />Smoker
@@ -159,12 +166,18 @@
     <input type="radio" name="smoking_habit" autocomplete="off" />Non-Smoker  
   </label>
   </div>
-  </div> 
-  </div> 
+  </div>  --}}
+</div> 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">Alcoholic Habits</label>
-  <div class="input-group">
+
+  <div class="alcohol">
+    <div class="tag"><span>#</span> Alcoholic</div>
+    <div class="tag"><span>#</span> Non-Alcoholic</div>
+    <input class="alcoholic-habit" type="hidden" name="alcoholic_habit" value="{{usersession.alcoholic_habit}}">
+  </div>  
+  {{!-- <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
     <input type="radio" name="alcoholic_habit" autocomplete="off" checked value={{usersession.alcoholic_habit}}  />Alcoholic
@@ -173,13 +186,20 @@
     <input type="radio" name="alcoholic_habit" autocomplete="off" />Non-Alcoholic 
   </label>
   </div>
-  </div> 
-   </div>
+  </div>  --}}
+</div>
 
 
 <div class="col-lg-8">
   <label for="exampleFormControlInput1">Room Sharing</label>
-  <div class="input-group">
+
+  <div class="sharing">
+    <div class="tag"><span>#</span> Yes</div>
+    <div class="tag"><span>#</span> No</div>
+    <input class="room-sharing" type="hidden" name="room_sharing" value="{{usersession.room_sharing}}">
+  </div>
+
+  {{!-- <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
     <input type="radio" name="room_sharing" autocomplete="off" checked value={{usersession.room_sharing}} />YES
@@ -188,7 +208,7 @@
     <input type="radio" name="room_sharing" autocomplete="off" />NO  
   </label>
   </div>
-  </div> 
+  </div>  --}}
  </div> 
 
  <div class="col-lg-8">
@@ -205,7 +225,7 @@
    </div> 
  </div> 
 
-  <div class="col-lg-8">
+{{!--   <div class="col-lg-8">
   <label for="exampleFormControlInput1">Status</label>
   <div class="input-group">
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -217,7 +237,7 @@
   </label>
   </div>
   </div>  
- </div> 
+ </div>  --}}
 
  <div class="col-lg-8">
   <label for="exampleFormControlInput1"></label><br>

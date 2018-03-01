@@ -22,23 +22,36 @@ module.exports = function (app,User,mongoose,session) {
 		User.find({email: emailsess},(err,docs)=>{
 			if(err)
 			 throw err
-			 req.session.user=docs;
-     // res.render('search/search',{usersession: req.session.user[0],flag: true})
+			req.session.user=docs;
+			var results = User.find({ location: req.session.user[0].location, email: { $ne: req.session.user[0].email} }, function (errors, docs){
+				if(docs) {
+					if(docs.length == 0) {
+						let message = [];
+						message.push({text:'No results found'});
+						console.log('No results found');
+						res.render('search/search',{
+							message: message
+						});
+					} else {
+						res.render('search/search', {usersession: req.session.user[0], flag: true, results: docs});
+					}		
+				} else {
+					let errors=[];
+					errors.push({text:'Error in search'});
+					res.render('search/search',{
+						errors: errors
+					});
+					console.log('Error in search');
+				}
+				if(errors)
+					throw errors
+
+			});
 		})
-		var currentUser = req.session.user[0];
-		var results = User.find({ location: currentUser.location, email: { $ne: currentUser.email} }, function (err, docs){
-			if(docs) {
-				console.log('search results ----' + docs);
-				res.render('search/search', {usersession: req.session.user[0],flag: true});
-			} else {
-				let errors=[];
-				errors.push({text:'No results found'});
-				res.render('search/search',{
-					errors: errors
-				});
-				console.log('No results found');
-			}
-		});
+		//var currentUser = req.session.user[0];
+		console.log("session email : " + emailsess);
+		console.log("current user : " + req.session.user[0].email);
+		
 		
 	});
 	
