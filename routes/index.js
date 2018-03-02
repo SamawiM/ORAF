@@ -3,7 +3,7 @@ var smtpTransport=nodemailer.createTransport({
 	service: "gmail",
 	auth:{
 		user: "aishwaryassr@gmail.com",
-		pass: "Reddeogre.123"
+		pass: "Macrohard**123"
 	}
 });
 var rand,mailOptions,host,link;
@@ -200,6 +200,7 @@ module.exports = function (app,User,mongoose,session) {
 				gender: req.body.genderRadio,
 				phone_no: req.body.phoneNumber
 			}
+			
 			User.update({email: req.session.user[0].email},newUser,function(err,docs){
 				if(err)
 				 throw err;
