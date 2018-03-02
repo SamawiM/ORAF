@@ -12,7 +12,7 @@ const connection = connect();
 const port=5050;
 const constant = require('./constants');
 
-app.listen(port,()=>{
+app.listen(process.env.PORT,()=>{
   console.log('Server started on port'+ port);
 });
 
