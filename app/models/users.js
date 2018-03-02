@@ -76,6 +76,10 @@ const users= new Schema({
     type: String,
     required: false,
     default: constants.AVAILABLE
+  },
+  last_search:{
+  type: String,
+  required: false
   }
 });
 mongoose.model('users',users);

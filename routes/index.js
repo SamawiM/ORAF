@@ -20,6 +20,32 @@ module.exports = function (app,User,mongoose,session) {
 
 	app.post('/search', (req, res)=>{
 		console.log(req.body);
+		
+		var ans="";
+		if(req.body.smoking_habit)
+		 ans=ans.concat(req.body.smoking_habit,",");
+		if(req.body.dietary_habit)
+		 ans=ans.concat(req.body.dietary_habit,",");
+		if(req.body.gender)
+		ans=ans.concat(req.body.gender,",");
+		if(req.body.room_sharing)
+		ans=ans.concat(req.body.room_sharing,",");
+		if(req.body.earliest_move_in_date)
+		ans=ans.concat(req.body.earliest_move_in_date,",");
+		if(req.body.latest_move_in_date)
+		ans=ans.concat(req.body.latest_move_in_date,","); 
+		if(req.body.location)
+		ans=ans.concat(req.body.location);
+		console.log("previous search results"+ans);
+		const user11={
+			last_search: ans
+		}
+    User.update({email: req.session.user[0].email},user11,(er,ds)=>{
+			if(er)
+			 throw er;
+			 console.log("Previous search saved in DB");
+		})
+
 		var results = User.find({$or:[
 	        {location: req.body.location},
 	        {dietary_habit: req.body.dietary_habit},
