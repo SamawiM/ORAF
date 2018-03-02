@@ -30,7 +30,7 @@ mongoose.Promise= global.Promise;
 
 // Connect to mongoDB
 function connect () {
-  mongoose.connect('mongodb://asundar2:Qwerty123@ds129422.mlab.com:29422/user-dev').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
+  mongoose.connect('mongodb://asundar2:Qwerty123@ds155268.mlab.com:55268/users-dev').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
 }
 
 module.exports = {
