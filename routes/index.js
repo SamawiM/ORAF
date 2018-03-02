@@ -18,6 +18,19 @@ const search = require('../app/controllers/search');
 module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
 
+	app.post('/search', (req, res)=>{
+		console.log(req.body);
+		var results = User.find({$or:[
+	        {location: req.body.location},
+	        {dietary_habit: req.body.dietary_habit},
+	        {smoking_habit: req.body.smoking_habit}
+	    ]}, function(errors, docs){
+	    	console.log(docs);
+	    	res.render('search/search', {usersession: req.session.user[0], flag: true, results: docs});
+	    });
+		
+	});
+
 	app.get('/search', (req, res)=>{
 		User.find({email: emailsess},(err,docs)=>{
 			if(err)
@@ -30,9 +43,11 @@ module.exports = function (app,User,mongoose,session) {
 						message.push({text:'No results found'});
 						console.log('No results found');
 						res.render('search/search',{
-							message: message
+							message: message,
+							usersession: req.session.user[0]
 						});
 					} else {
+						console.log('Locality ' + req.session.user[0].location);
 						res.render('search/search', {usersession: req.session.user[0], flag: true, results: docs});
 					}		
 				} else {
@@ -50,9 +65,7 @@ module.exports = function (app,User,mongoose,session) {
 		})
 		//var currentUser = req.session.user[0];
 		console.log("session email : " + emailsess);
-		console.log("current user : " + req.session.user[0].email);
-		
-		
+		console.log("current user : " + req.session.user[0].email);		
 	});
 	
 	app.post('/',(req,res)=>{

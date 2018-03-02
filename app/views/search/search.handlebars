@@ -39,8 +39,34 @@
 				</div>
 
 				<div>
-					<label for="amount">Move-in Date : </label>
-					<input id="datepicker" size="30" class="datepicker" readonly="readonly" data-date-format="mm/dd/yyyy">
+					<label for="amount">Earloiest Move-in Date : </label>
+					<input id="datepicker" size="30" name="earliest_move_in_date" class="datepicker" readonly="readonly" data-date-format="mm/dd/yyyy">
+					<label for="amount">Latest Move-in Date : </label>
+					<input id="datepicker" size="30" name="latest_move_in_date" class="datepicker" readonly="readonly" data-date-format="mm/dd/yyyy">
+				</div>
+				<div>
+					<label for="exampleFormControlInput1">Locality</label>
+ 					<div class="input-group">
+ 						<select class="selectpicker" name="location" >
+ 							<option value={{usersession.location}} selected>{{usersession.location}}</option> 
+ 							<option>None</option>
+					        <option>Avery Close</option>
+					        <option>Colonial Arms</option>
+					        <option>Champions Court</option>
+					        <option>The College Inn</option>
+					        <option>Centennial Ridge</option>
+					        <option>Gorman Crossing</option>
+					        <option>Gorman Place</option>
+					        <option>Kings Court</option>
+					        <option>Kensington Park</option>
+					        <option>Mission Valley Garden</option>
+					        <option>Pine Knoll</option>
+					        <option>Parkwood Village</option>
+					        <option>University Commons</option>
+					        <option>Western Manor</option>
+					        <option>Wolf Ridge</option>
+					     </select> 
+				    </div>
 				</div>
 
 				</fieldset>
@@ -49,7 +75,7 @@
 		</div>
 		<div class="col-sm-8">
 			{{#if message}}
-	         	<p class='error'>No results match your search criteria. Please search for other preferences.</p>
+	         	<p class='message'>No results match your search criteria. Please search for other preferences.</p>
 	        {{/if}}
 			<div class="card-deck">
 				{{results}}

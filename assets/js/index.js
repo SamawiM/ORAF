@@ -21,23 +21,25 @@ $(function(){
 	});
 
 	// search with selected tags
-	$("#search-preference").on("submit", function(event) {
-		event.preventDefault();
-		$.ajax({
-            url: '/search',
-            method: 'POST',
-            dataType: 'json',
-            data: {
-                smokinghabit: $('.active .smoking-habit').val(),
-                dietaryhabit: $('.active .dietary-habit').val()
-            }
-        }).done(function(data) {
+	// $("#search-preference").on("submit", function(event) {
+	// 	event.preventDefault();
+ //        var data = $(this).serialize();
+ //        console.log(data);
+	// 	$.ajax({
+ //            url: '/search',
+ //            method: 'POST',
+ //            dataType: 'json',
+ //            data: data,
+ //            success: function(html) {
+ //                alert(html);
+ //            }
+ //        }).done(function(data) {
            
-            alert(data.message);
-        }).fail(function(error) {
-            alert(JSON.stringify(error));
-        });
-	});
+ //            alert(data.message);
+ //        }).fail(function(error) {
+ //            alert(JSON.stringify(error));
+ //        });
+	// });
 
 	// initialize price range slider
     $("#slider-range").slider({

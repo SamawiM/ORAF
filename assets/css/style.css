@@ -161,7 +161,7 @@ div.user-profile {
     padding-top: 10px;
     margin: 0 auto; 
 }   
-.error{
+.message{
     color: red;
 }
  /* @media (min-width: 1200px) {
