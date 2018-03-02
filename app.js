@@ -44,7 +44,12 @@ module.exports = {
 
 require('./app/models/users');
 const User=mongoose.model('users');
+User.find({email: asundar2,password: 'Qwerty@123'},(err,docs)=>{
+  if(err)
+   console.log("error")
+  console.log(docs) 
 
+})
 
 
 require('./models/request');
