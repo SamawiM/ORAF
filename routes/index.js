@@ -24,9 +24,30 @@ module.exports = function (app,User,mongoose,session) {
 	        {location: req.body.location},
 	        {dietary_habit: req.body.dietary_habit},
 	        {smoking_habit: req.body.smoking_habit}
-	    ]}, function(errors, docs){
-	    	console.log(docs);
-	    	res.render('search/search', {usersession: req.session.user[0], flag: true, results: docs});
+	    ], $and: [{ email: { $ne: req.session.user[0].email}}]}, function(errors, docs){
+	    	if(docs) {
+					if(docs.length == 0) {
+						let message = [];
+						message.push({text:'No results found'});
+						console.log('No results found');
+						res.render('search/search',{
+							message: message,
+							usersession: req.session.user[0]
+						});
+					} else {
+						console.log('Locality ' + req.session.user[0].location);
+						res.render('search/search', {usersession: req.session.user[0], flag: true, results: docs});
+					}		
+				} else {
+					let errors=[];
+					errors.push({text:'Error in search'});
+					res.render('search/search',{
+						errors: errors
+					});
+					console.log('Error in search');
+				}
+				if(errors)
+					throw errors
 	    });
 		
 	});
