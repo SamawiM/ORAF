@@ -3,7 +3,7 @@ var smtpTransport=nodemailer.createTransport({
 	service: "gmail",
 	auth:{
 		user: "aishwaryassr@gmail.com",
-		pass: "Reddeogre.123"
+		pass: "Macrohard**123"
 	}
 });
 var rand,mailOptions,host,link;
@@ -40,7 +40,7 @@ module.exports = function (app,User,mongoose,session) {
 		const user11={
 			last_search: ans
 		}
-    User.update({email: req.session.user[0].email},user11,(er,ds)=>{
+    User.update({email: emailsess},user11,(er,ds)=>{
 			if(er)
 			 throw er;
 			 console.log("Previous search saved in DB");
@@ -260,11 +260,16 @@ module.exports = function (app,User,mongoose,session) {
 				gender: req.body.genderRadio,
 				phone_no: req.body.phoneNumber
 			}
+			console.log("ACCOUNT SESSSSSION:"+req.session.user[0])
 			User.update({email: req.session.user[0].email},newUser,function(err,docs){
 				if(err)
 				 throw err;
-			 //res.render('userProfile/registersuccess');
-			 res.render('userProfile/index',{usersession: req.session.user[0]});
+			})
+			emailsess=req.session.user[0].email;
+			User.find({email: emailsess},(err,docs)=>{
+				 if(err)
+					throw err;
+					res.render('userProfile/index',{usersession: docs[0]})
 			})
 		
 		}
