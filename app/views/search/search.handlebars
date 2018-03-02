@@ -47,25 +47,27 @@
 				<div>
 					<label for="exampleFormControlInput1">Locality</label>
  					<div class="input-group">
- 						<select class="selectpicker" name="location" >
- 							<option value={{usersession.location}} selected>{{usersession.location}}</option> 
- 							<option>None</option>
+						 <div style="overflow:hidden;">
+                            <select class="selectpicker" multiple data-container="body" data-style="btn-primary" name="location" title="Select the location">
+							<option value={{usersession.location}} selected>{{usersession.location}}</option>
+                            <option>None</option>
 					        <option>Avery Close</option>
 					        <option>Colonial Arms</option>
 					        <option>Champions Court</option>
-					        <option>The College Inn</option>
+							<option>The College Inn</option>
 					        <option>Centennial Ridge</option>
 					        <option>Gorman Crossing</option>
 					        <option>Gorman Place</option>
-					        <option>Kings Court</option>
+							<option>Kings Court</option>
 					        <option>Kensington Park</option>
 					        <option>Mission Valley Garden</option>
-					        <option>Pine Knoll</option>
+							<option>Pine Knoll</option>
 					        <option>Parkwood Village</option>
 					        <option>University Commons</option>
 					        <option>Western Manor</option>
 					        <option>Wolf Ridge</option>
-					     </select> 
+                             </select>
+                         </div>
 				    </div>
 				</div>
 
