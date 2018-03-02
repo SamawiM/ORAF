@@ -168,7 +168,7 @@ module.exports = function (app,User,mongoose,session) {
 					else
 					{
 						emailsess=req.session.user[0].email;
-					res.render('userProfile/index',{usersession: req.session.user[0],flag: updatedCharacteristics})
+					res.render('landing/landing',{usersession: req.session.user[0],flag: updatedCharacteristics})
 
 					console.log(req.session.user);
 					}

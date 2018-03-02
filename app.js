@@ -79,9 +79,9 @@ require('./routes')(app,User,mongoose,session);
  });
 
 //connect to userProfile/index
-app.get('/userProfile/index',(req,res)=>{
-  res.render('userProfile/index');
-});
+// app.get('/userProfile/index',(req,res)=>{
+//   res.render('userProfile/index');
+// });
  
  //Process Signup form
  app.post('/users',(req,res)=>{
@@ -198,7 +198,7 @@ if(errors.length>0){
      // req.session.user=docs;
      req.session.user=docs;
  //     res.render('loginsuccess');
-        res.render('userProfile/index',{answer: docs[0]});
+        res.render('landing/landing',{answer: docs[0]});
         console.log(req.session.user);
     }else{
       let errors=[];
@@ -230,14 +230,14 @@ app.get('/users/logout', function (req, res) {
   res.render('users/logout');
 });
 
-app.get('/characteristics',(req,res)=>{
-  res.render('characteristics');
+app.get('/landing',(req,res)=>{
+  res.render('landing/landing');
 });
 
 
-app.get('/userProfile/editprofile',(req,res)=>{
-  res.render('userProfile/editprofile',{results: req.session.user[0]});
-});
+// app.get('/userProfile/editprofile',(req,res)=>{
+//   res.render('userProfile/editprofile',{results: req.session.user[0]});
+// });
 
 // app.get('/search/search',(req,res)=>{
 //   res.render('search/search');

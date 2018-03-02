@@ -6,6 +6,7 @@
     display: inline-block;
     position: relative;
     white-space: nowrap;
+    padding-top: 20px;
     padding: 7px 20px 7px 0;
     margin: 5px 5px 0 0;
     font-size: 0.8em;
@@ -158,32 +159,25 @@ body {
 
 div.user-profile {
     padding-bottom: 20px;
-    padding-top: 10px;
+    padding-top: 140px;
     margin: 0 auto; 
 }   
 .message{
     color: red;
 }
- /* @media (min-width: 1200px) {
-    .user-profile {
-        width: 850px !important;
-        height: 550px;
-    }
-}
-    @media (min-width: 992px) {
-    .user-profile {
-        width: 850px !important;
-        height: 550px;
-    }
-}
-    @media (min-width: 768px) {
-    .user-profile {
-         width: 850px !important;
-         height: 550px;
-    }
-} */
 .fill{ 
     height: 100%;
     width: 100%;
     margin-top: -20;
   }
+
+  div.search-section {
+    padding-bottom: 20px;
+    padding-top: 140px;
+    margin: 0 auto; 
+} 
+
+/* 
+.container{
+    padding-top: -100px;
+} */
