@@ -8,7 +8,7 @@ const app=express();
 //var session = require('client-sessions');
 const session = require('express-session');
 var MemcachedStore = require('connect-memcached')(session);
-const connection = connect();
+//const connection = connect();
 const port=5050;
 const constant = require('./constants');
 
@@ -29,9 +29,9 @@ app.use(bodyParser.json())
 mongoose.Promise= global.Promise;
 
 // Connect to mongoDB
-function connect () {
+//function connect () {
   mongoose.connect('mongodb://asundar2:Qwerty123@ds129422.mlab.com:29422/user-dev').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
-}
+//}
 
 module.exports = {
   app,
