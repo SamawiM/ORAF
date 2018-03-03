@@ -128,6 +128,10 @@ module.exports = function (app,User,mongoose,session) {
 		{
 			errors.push({text: "Please enter a valid password"});
 		}
+		if(req.body.signupPassword!=req.body.confirmPassword)
+		{
+			errors.push({text: 'Passwords don\'t match'})
+		}
 		User.find({email: req.body.signupEmail}, function (err, docs) {
 			if (docs.length){
 				errors.push({text: "User is already registered"})
