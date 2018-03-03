@@ -89,16 +89,16 @@ function validatePassword(passwordField) {
 function navigate(){
     var cardOne = document.getElementById("collapseOne");
     var cardTwo = document.getElementById("collapseTwo");
-    
+    console.log("In JS");
     if(cardOne.classList.contains("show"))
-        cardOne.classList.remove("show");
+        $('#collapseOne').collapse('hide');
     else
-        cardOne.classList.add("show");
+        $('#collapseOne').collapse('show');
 
     if(cardTwo.classList.contains("show"))
-        cardTwo.classList.remove("show");
+        $('#collapseTwo').collapse('hide');
     else
-        cardTwo.classList.add("show");
+        $('#collapseTwo').collapse('show');
     
     return false;
 }
