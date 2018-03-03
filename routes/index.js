@@ -276,12 +276,11 @@ module.exports = function (app,User,mongoose,session) {
 			console.log('registration successful signup')
 			const newUser={
 				first_name: req.body.firstName,
-				
 				last_name: req.body.lastName,
 				gender: req.body.genderRadio,
 				phone_no: req.body.phoneNumber
 			}
-			console.log("ACCOUNT SESSSSSION:"+req.session.user[0])
+			console.log("ACCOUNT SESSSSSION:"+req.session.user)
 			User.update({email: req.session.user[0].email},newUser,function(err,docs){
 				if(err)
 				 throw err;

@@ -85,3 +85,20 @@ function validatePassword(passwordField) {
         passwordField.setCustomValidity('');
     }
 }
+
+function navigate(){
+    var cardOne = document.getElementById("collapseOne");
+    var cardTwo = document.getElementById("collapseTwo");
+    console.log("In JS");
+    if(cardOne.classList.contains("show"))
+        $('#collapseOne').collapse('hide');
+    else
+        $('#collapseOne').collapse('show');
+
+    if(cardTwo.classList.contains("show"))
+        $('#collapseTwo').collapse('hide');
+    else
+        $('#collapseTwo').collapse('show');
+    
+    return false;
+}
