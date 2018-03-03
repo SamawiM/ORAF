@@ -10,6 +10,8 @@ var rand,mailOptions,host,link;
 var updatedchar=false;
 var hasupdatedCharacteristics=false;
 var emailsess;
+//var hasloggedin=false;
+//var logger=require('../app/views/partials')(hasloggedin);
 const login = require('../app/controllers/home');
 const userProfile=require('../app/controllers/profile');
 const search = require('../app/controllers/search');
@@ -256,6 +258,7 @@ module.exports = function (app,User,mongoose,session) {
 			console.log('registration successful signup')
 			const newUser={
 				first_name: req.body.firstName,
+				
 				last_name: req.body.lastName,
 				gender: req.body.genderRadio,
 				phone_no: req.body.phoneNumber
@@ -265,10 +268,11 @@ module.exports = function (app,User,mongoose,session) {
 				if(err)
 				 throw err;
 			})
-			emailsess=req.session.user[0].email;
+			//emailsess=req.session.user[0].email;
 			User.find({email: emailsess},(err,docs)=>{
 				 if(err)
 					throw err;
+					console.log("AMULYA VAROTE 12334566:"+docs[0])
 					res.render('userProfile/index',{usersession: docs[0]})
 			})
 		
@@ -314,7 +318,8 @@ module.exports = function (app,User,mongoose,session) {
 			 User.update({email: req.session.user[0].email},user1,(err,docs)=>{
 				 if(err)
 					throw err;
-					var emailsess=req.session.user[0].email
+					//var emailsess=req.session.user[0].email
+					emailsess=req.session.user[0].email;
 					User.find({email: emailsess},(errs,resp)=>{
 						if(errs)
 						 throw errs;
