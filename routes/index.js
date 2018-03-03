@@ -10,7 +10,7 @@ var rand,mailOptions,host,link;
 var updatedchar=false;
 var hasupdatedCharacteristics=false;
 var emailsess;
-//var hasloggedin=false;
+var hasloggedin=false;
 //var logger=require('../app/views/partials')(hasloggedin);
 const login = require('../app/controllers/home');
 const userProfile=require('../app/controllers/profile');
@@ -199,7 +199,8 @@ module.exports = function (app,User,mongoose,session) {
 		
 		User.find({email: req.body.loginEmail,password: req.body.loginPassword}, function (err, docs) {
 			if (docs.length){
-			
+			 hasloggedin=true;
+			 console.log(hasloggedin)
 			 req.session.user=docs;
 			 console.log('session id is'+req.sessionID)
 			 console.log(docs[0].first_name);
@@ -212,7 +213,7 @@ module.exports = function (app,User,mongoose,session) {
 					else
 					{
 						emailsess=req.session.user[0].email;
-					res.render('landing/landing',{usersession: req.session.user[0],flag: updatedCharacteristics})
+					res.render('landing/landing',{usersession: req.session.user[0],flag: updatedCharacteristics,hasloggedin :hasloggedin})
 
 					console.log(req.session.user);
 					}
