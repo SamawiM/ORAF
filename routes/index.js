@@ -62,17 +62,19 @@ module.exports = function (app,User,mongoose,session) {
 						console.log('No results found');
 						res.render('search/search',{
 							message: message,
-							usersession: req.session.user[0]
+							usersession: req.session.user[0],
+							hasloggedin: hasloggedin
 						});
 					} else {
 						console.log('Locality ' + req.session.user[0].location);
-						res.render('search/search', {usersession: req.session.user[0], flag: true, results: docs});
+						res.render('search/search', {hasloggedin: hasloggedin,usersession: req.session.user[0], flag: true, results: docs});
 					}		
 				} else {
 					let errors=[];
 					errors.push({text:'Error in search'});
 					res.render('search/search',{
-						errors: errors
+						errors: errors,
+						hasloggedin: hasloggedin
 					});
 					console.log('Error in search');
 				}
@@ -89,7 +91,7 @@ module.exports = function (app,User,mongoose,session) {
 			if(err)
 			 throw err;
 			 console.log("Arpita is"+docs[0])
-			res.render('search/displayprofile',{useris: docs[0]}); 
+			res.render('search/displayprofile',{useris: docs[0],hasloggedin: hasloggedin}); 
 		})
 	})
 	app.get('/search', (req, res)=>{
@@ -105,17 +107,19 @@ module.exports = function (app,User,mongoose,session) {
 						console.log('No results found');
 						res.render('search/search',{
 							message: message,
-							usersession: req.session.user[0]
+							usersession: req.session.user[0],
+							hasloggedin: hasloggedin
 						});
 					} else {
 						console.log('Locality ' + req.session.user[0].location);
-						res.render('search/search', {usersession: req.session.user[0], flag: true, results: docs});
+						res.render('search/search', {usersession: req.session.user[0],hasloggedin: hasloggedin, flag: true, results: docs});
 					}		
 				} else {
 					let errors=[];
 					errors.push({text:'Error in search'});
 					res.render('search/search',{
-						errors: errors
+						errors: errors,
+						hasloggedin: hasloggedin
 					});
 					console.log('Error in search');
 				}
@@ -274,6 +278,7 @@ module.exports = function (app,User,mongoose,session) {
 		}
 		else{
 			console.log('registration successful signup')
+			hasloggedin=true;
 			const newUser={
 				first_name: req.body.firstName,
 				last_name: req.body.lastName,
@@ -290,7 +295,7 @@ module.exports = function (app,User,mongoose,session) {
 				 if(err)
 					throw err;
 					console.log("AMULYA VAROTE 12334566:"+docs[0])
-					res.render('userProfile/index',{usersession: docs[0]})
+					res.render('userProfile/index',{usersession: docs[0],hasloggedin: hasloggedin})
 			})
 		
 		}
@@ -303,7 +308,7 @@ module.exports = function (app,User,mongoose,session) {
 			 if(err)
 				throw err;
 				req.session.user=docs;
-			res.render('userProfile/index',{usersession: req.session.user[0],flag: true})
+			res.render('userProfile/index',{usersession: req.session.user[0],flag: true,hasloggedin: hasloggedin})
 		})
 	});
 
@@ -341,7 +346,7 @@ module.exports = function (app,User,mongoose,session) {
 						if(errs)
 						 throw errs;
             updatedpassword=true
-						res.render('userProfile/index',{flagpass: updatedpassword,flag: true,usersession: resp[0]});
+						res.render('userProfile/index',{flagpass: updatedpassword,flag: true,usersession: resp[0],hasloggedin: hasloggedin});
 					})
 				//	res.render('userProfile/index',{answer: docs[0]});
 					console.log('Updated password');
@@ -391,7 +396,7 @@ module.exports = function (app,User,mongoose,session) {
 				 if(errs)
 					throw errs;
 				 updatedchar=true;
-				 res.render('userProfile/index',{flag: hasupdatedCharacteristics,flagger: updatedchar,usersession: resp[0]});
+				 res.render('userProfile/index',{flag: hasupdatedCharacteristics,flagger: updatedchar,hasloggedin: hasloggedin,usersession: resp[0]});
 			 })
 
 			}	})
