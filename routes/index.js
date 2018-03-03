@@ -51,7 +51,9 @@ module.exports = function (app,User,mongoose,session) {
 		var results = User.find({$or:[
 	        {location: req.body.location},
 	        {dietary_habit: req.body.dietary_habit},
-	        {smoking_habit: req.body.smoking_habit}
+					{smoking_habit: req.body.smoking_habit},
+					{gender: req.body.gender}
+					
 	    ], $and: [{ email: { $ne: req.session.user[0].email}}]}, function(errors, docs){
 	    	if(docs) {
 					if(docs.length == 0) {
