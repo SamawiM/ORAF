@@ -179,7 +179,7 @@ module.exports = function (app,User,mongoose,session) {
 			//smtp logic
 			rand=Math.floor((Math.random()*100)+54);
 			host=req.get('host');
-			link="http://"+req.get('host')+"/verify?id="+rand;
+			link="https://"+req.get('host')+"/verify?id="+rand;
 			mailOptions={
 				to: req.body.signupEmail+"@ncsu.edu",
 				subject: "Please confirm your email account",
