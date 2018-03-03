@@ -51,7 +51,9 @@ module.exports = function (app,User,mongoose,session) {
 		var results = User.find({$or:[
 	        {location: req.body.location},
 	        {dietary_habit: req.body.dietary_habit},
-	        {smoking_habit: req.body.smoking_habit}
+					{smoking_habit: req.body.smoking_habit},
+					{gender: req.body.gender}
+					
 	    ], $and: [{ email: { $ne: req.session.user[0].email}}]}, function(errors, docs){
 	    	if(docs) {
 					if(docs.length == 0) {
@@ -79,7 +81,17 @@ module.exports = function (app,User,mongoose,session) {
 	    });
 		
 	});
-
+ app.get('search/displayprofile',search.displayprofile);
+	app.post('/processprofile',(req,res)=>{
+		console.log("hello")
+		console.log(req.body.viewprofile);
+		User.find({email: req.body.viewprofile},(err,docs)=>{
+			if(err)
+			 throw err;
+			 console.log("Arpita is"+docs[0])
+			res.render('search/displayprofile',{useris: docs[0]}); 
+		})
+	})
 	app.get('/search', (req, res)=>{
 		User.find({email: emailsess},(err,docs)=>{
 			if(err)

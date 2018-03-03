@@ -82,20 +82,25 @@
 			{{#if message}}
 	         	<p class='message'>No results match your search criteria. Please search for other preferences.</p>
 	        {{/if}}
+			<form action="/processprofile" method="post">
 			<div class="card-deck">
 				{{results}}
 				{{#each results}}
+				
 				<div class="card">
 				    <img class="card-img-top" src="../images/user.jpg" alt="Card image cap">
 				    <div class="card-block">
-				      <h6 class="card-title"> {{first_name}}</h6>
+				      <!--<h6 class="card-title"> {{first_name}}</h6>-->
+					  <input class="card-title" type="submit" name="viewprofile" value="{{email}}" />
 			    	</div>
 				    <div class="card-footer">
 				      <small class="text-muted">Last updated 3 mins ago</small>
 				    </div>
-			    </div>
+					</div>
+					
 			    {{/each}}
 			</div>
+			</form>
 		</div>
 	</div>
 </div>
