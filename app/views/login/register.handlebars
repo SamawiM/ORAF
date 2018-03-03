@@ -66,30 +66,6 @@
                                 <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" placeholder="Enter phone number" oninput="validatePhone(this)" maxlength="10" required>
                             </div>
                         </div>
-                        <div class="register-row form-row">
-                            <div class="register-label col-sm-4">
-                                <label for="password">Password</label>
-                                <span class="required-mark">*</span>
-                                <img class="info" src="/images/info.svg" alt="info" data-toggle="tooltip" data-placement="top" title="Password must have atleast one uppercase and lowercase letter, one number and one special character."/>
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="password" id="password" class="form-control" name="password" aria-describedby="passwordHelpInline" placeholder="Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[!@#\$%\^&\*])(?=.*[A-Z]).{8,21}" required>
-                            </div>
-                            <div class="col-sm-6 offset-sm-4">
-                                <small id="passwordHelpInline" class="text-muted">
-                                    Must be 8-20 characters long.
-                                </small>
-                            </div>
-                        </div>
-                        <div class="register-row form-row">
-                            <div class="register-label col-sm-4">
-                                <label for="comfirmPassword">Confirm Password</label>
-                                <span class="required-mark">*</span>
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="password" id="confirmPassword" class="form-control" name="confirmPassword" oninput="validatePassword(this)" placeholder="Confirm password" required>
-                            </div>
-                        </div>
                         <div class="required-message">
                             <span class="required-mark">*</span> Indicates required field.
                         </div>
