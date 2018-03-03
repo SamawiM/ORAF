@@ -234,7 +234,7 @@ module.exports = function (app,User,mongoose,session) {
 	
 	app.get('/verify',(req,res)=>{
 		console.log(req.protocol+":/"+req.get('host'));
-		if((req.protocol+"://"+req.get('host'))==("http://"+host)){
+		if((req.protocol+"://"+req.get('host'))==("https://"+host)){
     		console.log("Domain is matched. Information is from Authentic email");
 			if(req.query.id==rand){
 				console.log("email is verified");
