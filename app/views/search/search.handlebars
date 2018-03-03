@@ -1,7 +1,10 @@
-<div class="container tagging-section">
+
+<div class="container tagging-section search-section">
+	<p><b>You previously searched for:{{usersession.last_search}}</b></p>
 	<div class="row">
 		<div class="col-sm-4">
 			<form action="" method="post" id="search-preference">
+				
 			<h4 class="d-flex justify-content-between align-items-center mb-3">
 	            <span class="text-muted">Search & Refine</span>
 	            <span class="badge badge-secondary badge-pill">tag.count</span>
@@ -39,8 +42,36 @@
 				</div>
 
 				<div>
-					<label for="amount">Move-in Date : </label>
-					<input id="datepicker" size="30" class="datepicker" readonly="readonly" data-date-format="mm/dd/yyyy">
+					<label for="amount">Earloiest Move-in Date : </label>
+					<input id="datepicker" size="30" name="earliest_move_in_date" class="datepicker" readonly="readonly" data-date-format="mm/dd/yyyy">
+					<label for="amount">Latest Move-in Date : </label>
+					<input id="datepicker2" size="30" name="latest_move_in_date" class="datepicker" readonly="readonly" data-date-format="mm/dd/yyyy">
+				</div>
+				<div>
+					<label for="exampleFormControlInput1">Locality</label>
+ 					<div class="input-group">
+						 <div style="overflow:hidden;">
+                            <select class="selectpicker" multiple data-container="body" data-style="btn-primary" name="location" title="Select the location">
+							<option value={{usersession.location}} selected>{{usersession.location}}</option>
+                            <option>None</option>
+					        <option>Avery Close</option>
+					        <option>Colonial Arms</option>
+					        <option>Champions Court</option>
+							<option>The College Inn</option>
+					        <option>Centennial Ridge</option>
+					        <option>Gorman Crossing</option>
+					        <option>Gorman Place</option>
+							<option>Kings Court</option>
+					        <option>Kensington Park</option>
+					        <option>Mission Valley Garden</option>
+							<option>Pine Knoll</option>
+					        <option>Parkwood Village</option>
+					        <option>University Commons</option>
+					        <option>Western Manor</option>
+					        <option>Wolf Ridge</option>
+                             </select>
+                         </div>
+				    </div>
 				</div>
 
 				</fieldset>
@@ -49,22 +80,27 @@
 		</div>
 		<div class="col-sm-8">
 			{{#if message}}
-	         	<p class='error'>No results match your search criteria. Please search for other preferences.</p>
+	         	<p class='message'>No results match your search criteria. Please search for other preferences.</p>
 	        {{/if}}
+			<form action="/processprofile" method="post">
 			<div class="card-deck">
 				{{results}}
 				{{#each results}}
+				
 				<div class="card">
 				    <img class="card-img-top" src="../images/user.jpg" alt="Card image cap">
 				    <div class="card-block">
-				      <h6 class="card-title"> {{first_name}}</h6>
+				      <!--<h6 class="card-title"> {{first_name}}</h6>-->
+					  <input class="card-title" type="submit" name="viewprofile" value="{{email}}" />
 			    	</div>
 				    <div class="card-footer">
 				      <small class="text-muted">Last updated 3 mins ago</small>
 				    </div>
-			    </div>
+					</div>
+					
 			    {{/each}}
 			</div>
+			</form>
 		</div>
 	</div>
 </div>

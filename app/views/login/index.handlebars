@@ -55,13 +55,22 @@
                 		<div class="ncsu-domain">@ncsu.edu</div>
                   </div>
                 </div>
-                <div class="row">
-                	<div class="input-password col-md-9">
-                  	<input type="text" class="form-control" name="signupPassword" placeholder="Enter password" required>
-                  </div>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <span class="required-mark">*</span>
+                <img class="info" src="/images/info.svg" alt="info" data-toggle="tooltip" data-placement="top" title="Password must have atleast one uppercase and lowercase letter, one number and one special character."/>
+                <input type="password" id="password" class="form-control" name="password" aria-describedby="passwordHelpInline" placeholder="Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[!@#\$%\^&\*])(?=.*[A-Z]).{8,21}" required>
+                <div>
+                    <small id="passwordHelpInline" class="text-muted">
+                        Must be 8-20 characters long.
+                    </small>
                 </div>
-
-
+              </div>
+              <div class="form-group">
+                <label for="comfirmPassword">Confirm Password</label>
+                <span class="required-mark">*</span>
+                <input type="password" id="confirmPassword" class="form-control" name="confirmPassword" oninput="validatePassword(this)" placeholder="Confirm password" required>
               </div>
               <div class="required-message">
                 <span class="required-mark">*</span> Indicates required field.

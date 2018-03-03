@@ -1,11 +1,15 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary navbar-fixed-top">
     <div class="container">
-  <a class="navbar-brand" href="/">RoommateFinder</a>
+  <label class="navbar-brand">RoommateFinder</label>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  {{#if hasloggedin}}
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/landing">Home</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/index">My Profile</a>
       </li>
@@ -18,4 +22,7 @@
     </ul>
   </div>
   </div>
+  {{/if}}
 </nav>
+
+{{!-- navbar-inverse navbar-fixed-top --}}

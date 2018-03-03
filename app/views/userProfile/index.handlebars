@@ -23,7 +23,7 @@
         
          {{/if}}
     {{#if flagger}}
-      <p>Characteristics updated successfully</p>
+      <p class='message'>Characteristics updated successfully.</p>
     
      {{/if}}
         <div class="form-group row">
@@ -91,25 +91,27 @@
     <div class="col-lg-8">
      <label for="exampleFormControlInput1">Locality</label>
      <div class="input-group">
-        <select class="selectpicker" name="location" >
-          <option value={{usersession.location}} selected>{{usersession.location}}</option>   
-        <option>Avery Close</option>
-        <option>Colonial Arms</option>
-        <option>Champions Court</option>
-        <option>The College Inn</option>
-        <option>Centennial Ridge</option>
-        <option>Gorman Crossing</option>
-        <option>Gorman Place</option>
-        <option>Kings Court</option>
-        <option>Kensington Park</option>
-        <option>Mission Valley Garden</option>
-        <option>Pine Knoll</option>
-        <option>Parkwood Village</option>
-        <option>University Commons</option>
-        <option>Western Manor</option>
-        <option>Wolf Ridge</option>
-        
-        </select> 
+        <div style="overflow:hidden;">
+              <select class="selectpicker" multiple data-container="body" data-style="btn-primary" name="location" title="Select the location">
+							<option value={{usersession.location}} selected>{{usersession.location}}</option>
+              <option>None</option>
+					    <option>Avery Close</option>
+					    <option>Colonial Arms</option>
+					    <option>Champions Court</option>
+							<option>The College Inn</option>
+					    <option>Centennial Ridge</option>
+					    <option>Gorman Crossing</option>
+			        <option>Gorman Place</option>
+							<option>Kings Court</option>
+		          <option>Kensington Park</option>
+			        <option>Mission Valley Garden</option>
+							<option>Pine Knoll</option>
+			        <option>Parkwood Village</option>
+			        <option>University Commons</option>
+			        <option>Western Manor</option>
+			        <option>Wolf Ridge</option>
+              </select>
+        </div>
      </div>
     </div> 
 
