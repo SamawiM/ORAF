@@ -20,6 +20,7 @@ app.listen(process.env.PORT,()=>{
 app.set('views', './app/views/');
 app.engine('handlebars', exphbs({defaultLayout: 'main', layoutsDir:'app/views/layouts', partialsDir:'app/views/partials'}));
 app.set('view engine', 'handlebars');
+//Demo of deploying via heroku
 
 //Body parser middleware
 app.use(bodyParser.urlencoded({extended: false}))
