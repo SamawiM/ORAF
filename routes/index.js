@@ -217,8 +217,9 @@ module.exports = function (app,User,mongoose,session) {
     		console.log("Domain is matched. Information is from Authentic email");
 			if(req.query.id==rand){
 				console.log("email is verified");
-					res.end("<h1>Email "+mailOptions.to+" is been Successfully verified");
+				//	res.end("<h1>Email "+mailOptions.to+" is been Successfully verified");
 					//res.render('login/register',{emailer: req.body.signupEmail})
+					res.render('login/index');
 			}else{
 				console.log("email is not verified");
 				res.end("<h1>Bad Request</h1>");
