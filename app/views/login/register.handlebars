@@ -37,12 +37,12 @@
                                 </div>
                                 <div class="form-check register-label col-sm-3">
                                     <label class="btn btn-default checked">
-                                    <input type="radio" name="genderRadio" id="gender" value="Male"/> Male
+                                    <input type="radio" name="genderRadio" id="gender" value="Male" required/> Male
                                     </label>
                                 </div>
                                 <div class="form-check register-label col-sm-3">
                                     <label class="btn btn-default checked">
-                                    <input type="radio" name="genderRadio" id="gender" value="Female"/> Female
+                                    <input type="radio" name="genderRadio" id="gender" value="Female" required/> Female
                                     </label>
                                 </div>
                             </div>
@@ -91,11 +91,11 @@
                         <form action="/register" class="register-form" method="post">
                             <div class="register-row form-row">
                                 <div class="register-label col-sm-4">
-                                    <label for="budget">Budget</label>
-                                    <span class="required-mark">*</span>
+                                    <label for="amount">Budget</label>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="budget" placeholder="Enter first name" required>
+                                    <div id="slider-range"></div>
+                                    <input type="text" id="amount" readonly>
                                 </div>
                             </div>
                             <div class="register-row form-row">
@@ -104,43 +104,105 @@
                                     <span class="required-mark">*</span>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="location" placeholder="Enter last name" required>
+                                    <select multiple required class="form-control" id="exampleSelect2">
+                                        <option>Avery Close</option>
+                                        <option>Colonial Arms</option>
+                                        <option>Champions Court</option>
+                                        <option>The College Inn</option>
+                                        <option>Centennial Ridge</option>
+                                        <option>Gorman Crossing</option>
+                                        <option>Gorman Place</option>
+                                        <option>Kings Court</option>
+                                        <option>Kensington Park</option>
+                                        <option>Mission Valley Garden</option>
+                                        <option>Pine Knoll</option>
+                                        <option>Parkwood Village</option>
+                                        <option>University Commons</option>
+                                        <option>Western Manor</option>
+                                        <option>Wolf Ridge</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="register-row form-row">
-                                <div class="register-label col-sm-4">
-                                    <label for="gender">Gender</label>
+                                <div class="register-label col-sm-4 register-tag">
+                                    <label for="diet">Dietary Habits</label>
                                     <span class="required-mark">*</span>
                                 </div>
                                 <div class="form-check register-label col-sm-3">
                                     <label class="btn btn-default checked">
-                                    <input type="radio" name="genderRadio" id="gender" value="Male"/> Male
+                                    <input type="radio" name="dietRadio" id="diet" value="Vegetarian" required/> Vegetarian
                                     </label>
                                 </div>
                                 <div class="form-check register-label col-sm-3">
                                     <label class="btn btn-default checked">
-                                    <input type="radio" name="genderRadio" id="gender" value="Female"/> Female
+                                    <input type="radio" name="dietRadio" id="diet" value="Non-Vegetarian" required/> Non-Vegetarian
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="register-row form-row ">
+                                <div class="register-label col-sm-4 register-tag">
+                                    <label for="smoking">Smoking Habits</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="form-check register-label col-sm-3">
+                                    <label class="btn btn-default checked">
+                                    <input type="radio" name="smokingRadio" id="smoking" value="Smoker" required/> Smoker
+                                    </label>
+                                </div>
+                                <div class="form-check register-label col-sm-3">
+                                    <label class="btn btn-default checked">
+                                    <input type="radio" name="smokingRadio" id="smoking" value="Non-Smoker" required/> Non-Smoker
                                     </label>
                                 </div>
                             </div>
                             <div class="register-row form-row">
-                                <div class="register-label col-sm-4">
-                                    <label for="email">Email Address</label>
+                                <div class="register-label col-sm-4 register-tag">
+                                    <label for="alcohol">Alcoholic Habits</label>
+                                    <span class="required-mark">*</span>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="text" readonly class="form-control" name="email" value= {{userid.email}}>
+                                <div class="form-check register-label col-sm-3">
+                                    <label class="btn btn-default checked">
+                                    <input type="radio" name="alcoholRadio" id="alcohol" value="Alcoholic" required/> Alcoholic
+                                    </label>
+                                </div>
+                                <div class="form-check register-label col-sm-3">
+                                    <label class="btn btn-default checked">
+                                    <input type="radio" name="alcoholRadio" id="alcohol" value="Non-Alcoholic" required/> Non-Alcoholic
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="register-row form-row">
+                                <div class="register-label col-sm-4 register-tag">
+                                    <label for="share">Room Sharing</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="form-check register-label col-sm-3">
+                                    <label class="btn btn-default checked">
+                                    <input type="radio" name="shareRadio" id="share" value="Yes" required/> Yes
+                                    </label>
+                                </div>
+                                <div class="form-check register-label col-sm-3">
+                                    <label class="btn btn-default checked">
+                                    <input type="radio" name="shareRadio" id="share" value="No" required/> No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="register-row form-row">
+                                <div class="register-label col-sm-4 register-tag">
+                                    <label for="earlyDate">Earliest</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="register-label col-sm-6">
+                                    <input id="datepicker1" size="30" class="datepicker form-control" required name="earlydate" readonly="readonly" data-date-format="mm/dd/yyyy" value="" />
                                 </div>
                             </div>
                             <div class="register-row form-row last-field">
-                                <div class="register-label col-sm-4">
-                                    <label for="phoneNumber">Phone Number</label>
+                                <div class="register-label col-sm-4 register-tag">
+                                    <label for="lateDate">Latest</label>
                                     <span class="required-mark">*</span>
                                 </div>
-                                <div class="register-label country-code col-sm-1">
-                                    <span>+1</span>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" placeholder="Enter phone number" oninput="validatePhone(this)" maxlength="10" required>
+                                <div class="register-label col-sm-6">
+                                    <input id="datepicker2" size="30" class="datepicker form-control" required name="latedate" readonly="readonly" data-date-format="mm/dd/yyyy" value="" />
                                 </div>
                             </div>
                             <div class="required-message">

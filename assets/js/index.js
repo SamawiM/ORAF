@@ -53,13 +53,6 @@ $(function(){
     });
     $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
       " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-
-    $("#nextSubmit").on("submit",function(){
-        console.log("In JS");
-        var collapseOne = $("#collapseOne");
-        var collapseTwo = $("#collapseTwo");
-        console.log("First ",collapseOne," Second ",collapseTwo);
-    });
 });
 
 function validatePhone(phoneNumber) {
