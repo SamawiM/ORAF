@@ -122,9 +122,8 @@
 
 #loginContainer {
     height: 100%;
-    padding-top: 75px;
     padding-bottom: 75px;
-    padding-left: 0px;
+    padding-left: 60px;
     padding-right: 50px;
     margin-top: 50px;
 }
