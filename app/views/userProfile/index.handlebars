@@ -1,5 +1,6 @@
 
-<div class="container user-profile" >
+<body class="bgbodyUserprofile">
+<div class="container user-profile trans" >
  <div class="col-sm-4">
   <img src="../images/profile.png" class="img-thumbnail" alt="Cinque Terre" height="250" width=100%>
    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style = "width:100%">
@@ -137,17 +138,6 @@
     <div class="tag"><span>#</span> Non-Vegeterian</div>
     <input class="dietary_habit" type="hidden" name="dietary_habit" value="{{usersession.dietary_habit}}">
   </div>
-
-  {{!-- <div class="input-group">
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-secondary active">
-        <input type="radio" name="dietary_habit" autocomplete="off" checked value={{usersession.dietary_habit}} />Vegetarian
-      </label>
-      <label class="btn btn-secondary">
-        <input type="radio" name="dietary_habit" autocomplete="off" />Non-vegetarian  
-      </label>
-    </div>
-  </div>  --}}
 </div> 
 
 <div class="col-lg-8">
@@ -158,17 +148,6 @@
     <div class="tag"><span>#</span> Non-Smoker</div>
     <input class="smoking-habit" type="hidden" name="smoking_habit" value="{{usersession.smoking_habit}}">
   </div>
-
-  {{!-- <div class="input-group">
-  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="smoking_habit" autocomplete="off" checked value={{usersession.smoking_habit}} />Smoker
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="smoking_habit" autocomplete="off" />Non-Smoker  
-  </label>
-  </div>
-  </div>  --}}
 </div> 
 
 <div class="col-lg-8">
@@ -179,16 +158,6 @@
     <div class="tag"><span>#</span> Non-Alcoholic</div>
     <input class="alcoholic-habit" type="hidden" name="alcoholic_habit" value="{{usersession.alcoholic_habit}}">
   </div>  
-  {{!-- <div class="input-group">
-  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="alcoholic_habit" autocomplete="off" checked value={{usersession.alcoholic_habit}}  />Alcoholic
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="alcoholic_habit" autocomplete="off" />Non-Alcoholic 
-  </label>
-  </div>
-  </div>  --}}
 </div>
 
 
@@ -200,17 +169,6 @@
     <div class="tag"><span>#</span> No</div>
     <input class="room-sharing" type="hidden" name="room_sharing" value="{{usersession.room_sharing}}">
   </div>
-
-  {{!-- <div class="input-group">
-  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="room_sharing" autocomplete="off" checked value={{usersession.room_sharing}} />YES
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="room_sharing" autocomplete="off" />NO  
-  </label>
-  </div>
-  </div>  --}}
  </div> 
 
  <div class="col-lg-8">
@@ -226,20 +184,6 @@
    <input id="datepicker2" size="30" class="datepicker form-control" required name="latedate" readonly="readonly" data-date-format="mm/dd/yyyy" value={{usersession.latest_move_in_date}} />
    </div> 
  </div> 
-
-{{!--   <div class="col-lg-8">
-  <label for="exampleFormControlInput1">Status</label>
-  <div class="input-group">
-  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="status" id="option1" autocomplete="off" checked value={{usersession.status}} />FOUND
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="status" id="option2" autocomplete="off" />NOT FOUND  
-  </label>
-  </div>
-  </div>  
- </div>  --}}
 
  <div class="col-lg-8">
   <label for="exampleFormControlInput1"></label><br>
@@ -302,6 +246,6 @@
 </div>
 
 </div>
-
+</body>
 ​
 

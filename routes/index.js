@@ -147,11 +147,11 @@ module.exports = function (app,User,mongoose,session) {
 			errors.push({text: 'Please enter valid NCSU username'});
 
 		}
-		if(!req.body.signupPassword)
+		if(!req.body.password)
 		{
 			errors.push({text: "Please enter a valid password"});
 		}
-		if(req.body.signupPassword!=req.body.confirmPassword)
+		if(req.body.password!=req.body.confirmPassword)
 		{
 			errors.push({text: 'Passwords don\'t match'})
 		}
@@ -168,14 +168,14 @@ module.exports = function (app,User,mongoose,session) {
 			res.render('login/index',{
 				errors: errors,
 				email: req.body.signupEmail,
-				password: req.body.signupPassword
+				password: req.body.password
 			});
 		}
 		else{
 			console.log('success signup')
 			const newUser={
 				email: req.body.signupEmail,
-				password: req.body.signupPassword
+				password: req.body.password
 			}
 			new User(newUser).save((err,docs)=>{
 				if(err)
@@ -186,7 +186,7 @@ module.exports = function (app,User,mongoose,session) {
 			//smtp logic
 			rand=Math.floor((Math.random()*100)+54);
 			host=req.get('host');
-			link="http://"+req.get('host')+"/verify?id="+rand;
+			link="https://"+req.get('host')+"/verify?id="+rand;
 			mailOptions={
 				to: req.body.signupEmail+"@ncsu.edu",
 				subject: "Please confirm your email account",
@@ -241,7 +241,7 @@ module.exports = function (app,User,mongoose,session) {
 	
 	app.get('/verify',(req,res)=>{
 		console.log(req.protocol+":/"+req.get('host'));
-		if((req.protocol+"://"+req.get('host'))==("http://"+host)){
+		if(("https://"+req.get('host'))==("https://"+host)){
     		console.log("Domain is matched. Information is from Authentic email");
 			if(req.query.id==rand){
 				console.log("email is verified");

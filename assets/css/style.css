@@ -125,10 +125,6 @@ html {
     height: 100%;
 }
 
-body {
-    min-height: 100%;
-}
-
 .container {
     display:block;
     overflow:auto;
@@ -156,7 +152,7 @@ body {
 
 div.user-profile {
     padding-bottom: 20px;
-    padding-top: 140px;
+    padding-top: 70px;
     margin: 0 auto; 
 }   
 
@@ -178,4 +174,48 @@ div.search-section {
 
 .last-field{
     margin-bottom: 15px;
+}
+
+#amount{
+    border:0;
+    color:#337ab7;
+    font-weight:bold;
+}
+
+.register-tag{
+    padding-top: 12px;
+}
+
+.bgbody{
+    /* The image used */
+    padding-top: 40px;
+    background-image: url("../images/bg.jpg");
+    /* Full height */
+    height: 200%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.bgbodyUserprofile{
+    /* The image used */
+    padding-top: 140px;
+    background-image: url("../images/bgIndex.jpeg");
+    /* Full height */
+    height: 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+}
+.trans{
+
+    background-color: #ffffff;
+    opacity: 0.9;
+    filter: alpha(opacity=60);
+}
+html {
+    height: 100%;
 }
