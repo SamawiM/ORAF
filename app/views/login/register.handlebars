@@ -87,11 +87,12 @@
                 </h5>
                 </div>
                 <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                    <div class="card-block">
-                        <form action="/register" class="register-form" method="post">
+                    <div class="card-block tagging-section">
+                        <form action="/register" class="register-form tagging" method="post">
                             <div class="register-row form-row">
-                                <div class="register-label col-sm-4">
+                                <div class="register-label col-sm-5">
                                     <label for="amount">Budget</label>
+                                    <span class="required-mark">*</span>
                                 </div>
                                 <div class="col-sm-6">
                                     <div id="slider-range"></div>
@@ -99,7 +100,7 @@
                                 </div>
                             </div>
                             <div class="register-row form-row">
-                                <div class="register-label col-sm-4">
+                                <div class="register-label col-sm-5">
                                     <label for="location">Location</label>
                                     <span class="required-mark">*</span>
                                 </div>
@@ -124,72 +125,60 @@
                                 </div>
                             </div>
                             <div class="register-row form-row">
-                                <div class="register-label col-sm-4 register-tag">
+                                <div class="register-label col-sm-5 register-tag">
                                     <label for="diet">Dietary Habits</label>
                                     <span class="required-mark">*</span>
                                 </div>
-                                <div class="form-check register-label col-sm-3">
-                                    <label class="btn btn-default checked">
-                                    <input type="radio" name="dietRadio" id="diet" value="Vegetarian" required/> Vegetarian
-                                    </label>
-                                </div>
-                                <div class="form-check register-label col-sm-3">
-                                    <label class="btn btn-default checked">
-                                    <input type="radio" name="dietRadio" id="diet" value="Non-Vegetarian" required/> Non-Vegetarian
-                                    </label>
+                                <div class="col-sm-6">
+                                    <div class="diet">
+                                        <div class="tag"><span>#</span> Vegeterian</div>
+                                        <div class="tag"><span>#</span> Non-Vegeterian</div>
+                                        <input class="dietary_habit" type="hidden" name="dietary_habit" value="">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="register-row form-row ">
-                                <div class="register-label col-sm-4 register-tag">
+                            <div class="register-row form-row">
+                                <div class="register-label col-sm-5 register-tag">
                                     <label for="smoking">Smoking Habits</label>
                                     <span class="required-mark">*</span>
                                 </div>
-                                <div class="form-check register-label col-sm-3">
-                                    <label class="btn btn-default checked">
-                                    <input type="radio" name="smokingRadio" id="smoking" value="Smoker" required/> Smoker
-                                    </label>
-                                </div>
-                                <div class="form-check register-label col-sm-3">
-                                    <label class="btn btn-default checked">
-                                    <input type="radio" name="smokingRadio" id="smoking" value="Non-Smoker" required/> Non-Smoker
-                                    </label>
+                                <div class="col-sm-6">
+                                    <div class="smoking">
+                                        <div class="tag"><span>#</span> Smoker</div>
+                                        <div class="tag"><span>#</span> Non-Smoker</div>
+                                        <input class="smoking-habit" type="hidden" name="smoking_habit" value="">
+                                    </div>
                                 </div>
                             </div>
                             <div class="register-row form-row">
-                                <div class="register-label col-sm-4 register-tag">
+                                <div class="register-label col-sm-5 register-tag">
                                     <label for="alcohol">Alcoholic Habits</label>
                                     <span class="required-mark">*</span>
                                 </div>
-                                <div class="form-check register-label col-sm-3">
-                                    <label class="btn btn-default checked">
-                                    <input type="radio" name="alcoholRadio" id="alcohol" value="Alcoholic" required/> Alcoholic
-                                    </label>
-                                </div>
-                                <div class="form-check register-label col-sm-3">
-                                    <label class="btn btn-default checked">
-                                    <input type="radio" name="alcoholRadio" id="alcohol" value="Non-Alcoholic" required/> Non-Alcoholic
-                                    </label>
+                                <div class="col-sm-6">
+                                    <div class="alcohol">
+                                        <div class="tag"><span>#</span> Alcoholic</div>
+                                        <div class="tag"><span>#</span> Non-Alcoholic</div>
+                                        <input class="alcoholic-habit" type="hidden" name="alcoholic_habit" value="{{usersession.alcoholic_habit}}">
+                                    </div>
                                 </div>
                             </div>
                             <div class="register-row form-row">
-                                <div class="register-label col-sm-4 register-tag">
+                                <div class="register-label col-sm-5 register-tag">
                                     <label for="share">Room Sharing</label>
                                     <span class="required-mark">*</span>
                                 </div>
-                                <div class="form-check register-label col-sm-3">
-                                    <label class="btn btn-default checked">
-                                    <input type="radio" name="shareRadio" id="share" value="Yes" required/> Yes
-                                    </label>
-                                </div>
-                                <div class="form-check register-label col-sm-3">
-                                    <label class="btn btn-default checked">
-                                    <input type="radio" name="shareRadio" id="share" value="No" required/> No
-                                    </label>
+                                <div class="col-sm-6">
+                                    <div class="sharing">
+                                        <div class="tag"><span>#</span> Yes</div>
+                                        <div class="tag"><span>#</span> No</div>
+                                        <input class="room-sharing" type="hidden" name="room_sharing" value="{{usersession.room_sharing}}">
+                                    </div>
                                 </div>
                             </div>
                             <div class="register-row form-row">
-                                <div class="register-label col-sm-4 register-tag">
-                                    <label for="earlyDate">Earliest</label>
+                                <div class="register-label col-sm-5 register-tag">
+                                    <label for="earlyDate">Earliest Move-In Date</label>
                                     <span class="required-mark">*</span>
                                 </div>
                                 <div class="register-label col-sm-6">
@@ -197,8 +186,8 @@
                                 </div>
                             </div>
                             <div class="register-row form-row last-field">
-                                <div class="register-label col-sm-4 register-tag">
-                                    <label for="lateDate">Latest</label>
+                                <div class="register-label col-sm-5 register-tag">
+                                    <label for="lateDate">Latest Move-In Date</label>
                                     <span class="required-mark">*</span>
                                 </div>
                                 <div class="register-label col-sm-6">

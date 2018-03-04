@@ -13,7 +13,7 @@ const port=5050;
 const constant = require('./constants');
 
 app.listen(process.env.PORT,()=>{
-  console.log('Server started on port'+ port);
+  console.log('Server started on port'+ process.env.PORT);
 });
 
 //Handlebars Middleware
