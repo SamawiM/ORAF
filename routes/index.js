@@ -200,7 +200,10 @@ module.exports = function (app,User,mongoose,session) {
 				res.end("error"); 
 			}else{
 				console.log("Message sent:"+res.message);
-				res.end("sent");
+				let emailMessage = [];
+				emailMessage.push({text:'Your email has been verified successfully! Please log into your account to use our services.'});
+				res.render('login/index',{emailMessage: emailMessage});
+				//res.end("sent");
 			}
 		});
 	}});
@@ -249,6 +252,7 @@ module.exports = function (app,User,mongoose,session) {
 				console.log("email is verified");
 				//	res.end("<h1>Email "+mailOptions.to+" is been Successfully verified");
 					//res.render('login/register',{emailer: req.body.signupEmail})
+					let message = [];
 					message.push({text:'Your email has been verified successfully! Please log into your account to use our services.'});
 					res.render('login/index',{message: message});
 			}else{

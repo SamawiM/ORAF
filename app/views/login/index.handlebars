@@ -9,10 +9,12 @@
 <body class="bgbody">
 <div id="loginContainer" class="container-fluid">
   <div class="login-form row align-items-center">
-      {{#if message}}
-	         	<div class='message'>{{ message }}</div>
-	    {{/if}}
       <div class="login-tab col-md-4 offset-md-4 border border-primary rounded trans">
+        {{#if message}}
+            <div class="user-message user-message-top">
+              Your Account has been verified successfully. Please log in to use our services.
+            </div>
+        {{/if}}
         <ul class="tab-header nav nav-tabs" id="loginTab" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>
@@ -47,6 +49,11 @@
               <div class="text-center">
                 <button type="submit" class="sbmt-btn btn btn-primary">Login</button>
               </div>
+              {{#if emailMessage}}
+                <div class="user-message user-message-bottom">
+                   Account Activation link has been sent to your email address. Please verify your email address by following instructions given in email.
+                </div>
+              {{/if}}
             </form>
           </div>
           <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
