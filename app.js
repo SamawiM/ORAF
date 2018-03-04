@@ -12,7 +12,7 @@ const connection = connect();
 const port=5050;
 const constant = require('./constants');
 
-app.listen(port,()=>{
+app.listen(process.env.PORT,()=>{
   console.log('Server started on port'+ port);
 });
 
@@ -20,6 +20,7 @@ app.listen(port,()=>{
 app.set('views', './app/views/');
 app.engine('handlebars', exphbs({defaultLayout: 'main', layoutsDir:'app/views/layouts', partialsDir:'app/views/partials'}));
 app.set('view engine', 'handlebars');
+//Demo of deploying via heroku
 
 //Body parser middleware
 app.use(bodyParser.urlencoded({extended: false}))
@@ -30,7 +31,7 @@ mongoose.Promise= global.Promise;
 
 // Connect to mongoDB
 function connect () {
-  mongoose.connect('mongodb://localhost/user-dev').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
+  mongoose.connect('mongodb://asundar2:Qwerty123@ds155268.mlab.com:55268/users-dev').then(()=> console.log('MongoDB connected')).catch(err=>console.log(err));
 }
 
 module.exports = {
@@ -44,7 +45,12 @@ module.exports = {
 
 require('./app/models/users');
 const User=mongoose.model('users');
+User.find({email: 'asundar2',password: 'Qwerty@123'},(err,docs)=>{
+  if(err)
+   console.log("error")
+  console.log(docs) 
 
+})
 
 
 require('./models/request');
