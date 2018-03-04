@@ -193,6 +193,7 @@ module.exports = function (app,User,mongoose,session) {
 				html: "Hello,<br> Please click and verify<br><a href="+link+">Click here to verify</a>"
 			}
 			console.log(mailOptions);
+			console.log("Test print: ",link);
 			smtpTransport.sendMail(mailOptions,(error,response)=>{
 			if(error){
 				console.log(error);

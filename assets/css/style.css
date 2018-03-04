@@ -121,8 +121,7 @@
 }
 
 #loginContainer {
-    height: inherit;
-    width: inherit;
+    height: 100%;
     padding-top: 75px;
     padding-bottom: 75px;
     padding-left: 0px;
@@ -161,8 +160,8 @@ html {
 }
 
 div.user-profile {
-    padding-bottom: 20px;
-    padding-top: 70px;
+    padding-bottom:20px;
+    padding-top: 20px;
     margin: 0 auto; 
 }   
 
@@ -178,7 +177,6 @@ div.user-profile {
 
 div.search-section {
     padding-bottom: 20px;
-    padding-top: 140px;
     margin: 0 auto; 
 }
 
@@ -228,4 +226,8 @@ div.search-section {
 }
 html {
     height: 100%;
+}
+.search-history{
+    width: 65%;
+    border: 3px solid black;
 }
