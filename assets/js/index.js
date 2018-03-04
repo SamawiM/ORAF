@@ -46,6 +46,7 @@ $(function(){
       range: true,
       min: 100,
       max: 1000,
+      step: 10,
       values: [ 150, 350 ],
       slide: function( event, ui ) {
         $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );

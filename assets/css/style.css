@@ -11,6 +11,7 @@
     margin: 5px 5px 0 0;
     font-size: 0.8em;
 }
+
 .tagging-section .tagging .tag.active {
     background-color: #bb5d08;
     color:  white;
@@ -40,12 +41,13 @@
     text-align: center;
     width: 10px;
 }
-.tagging-section form {
+#pref {
 	border: 1px solid #d4cccc;
     padding: 20px;
     border-radius: 5px;
     float: left;
 }
+
 .card-deck .card-title {
     margin: .76rem;
     text-align: center;

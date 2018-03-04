@@ -228,6 +228,7 @@ module.exports = function (app,User,mongoose,session) {
 					errors: errors
 				});
 				console.log('Signin failure');
+				console.log('From route');
 			}
 		});
 	});
