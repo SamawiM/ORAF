@@ -136,6 +136,13 @@ module.exports = function (app,User,mongoose,session) {
 	app.post('/',(req,res)=>{
 		console.log();
 		let errors=[];
+		User.find({email: req.body.signupEmail},(err,docs)=>{
+			if(docs.length>0)
+			 {
+				 errors.push({text: 'Account already exists. Please sign in'});
+			 }
+			
+		})
 		if(!req.body.signupEmail){
 			errors.push({text: 'Please enter valid NCSU username'});
 
