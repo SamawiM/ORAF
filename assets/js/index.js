@@ -96,3 +96,46 @@ function navigate(){
     
     return false;
 }
+
+function validatePrefs(){
+
+    var isValid = true;
+
+    var diet = document.getElementById("diet");
+    var dietErrors = document.getElementById("dietErrors");
+    if(diet.getElementsByClassName("active").length == 0){
+        dietErrors.innerHTML="Please select one option.";
+        isValid = false
+    }else{
+        dietErrors.innerHTML="";
+    }
+
+    var smoking = document.getElementById("smoking");
+    var smokingErrors = document.getElementById("smokingErrors");
+    if(smoking.getElementsByClassName("active").length == 0){
+        smokingErrors.innerHTML="Please select one option.";
+        isValid = false
+    }else{
+        smokingErrors.innerHTML="";
+    }
+
+    var alcohol = document.getElementById("alcohol");
+    var alcoholErrors = document.getElementById("alcoholErrors");
+    if(alcohol.getElementsByClassName("active").length == 0){
+        alcoholErrors.innerHTML="Please select one option.";
+        isValid = false
+    }else{
+        alcoholErrors.innerHTML="";
+    }
+
+    var sharing = document.getElementById("sharing");
+    var sharingErrors = document.getElementById("sharingErrors");
+    if(sharing.getElementsByClassName("active").length == 0){
+        sharingErrors.innerHTML="Please select one option.";
+        isValid = false
+    }else{
+        sharingErrors.innerHTML="";
+    }
+
+    return false;
+}

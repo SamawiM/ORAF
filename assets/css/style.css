@@ -109,6 +109,13 @@
     margin-bottom: 10px;
 }
 
+.error-message{
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 13px;
+    color: red;
+}
+
 .input-email {
     padding-right: 5px;
 }
@@ -133,7 +140,8 @@ html {
 }
 
 #accordion {
-    margin-top: 100px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .register-form {
