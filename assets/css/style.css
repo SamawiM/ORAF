@@ -188,7 +188,7 @@ div.search-section {
 
 .bgbody{
     /* The image used */
-    padding-top: 140px;
+    padding-top: 40px;
     background-image: url("../images/bg.jpg");
     /* Full height */
     height: 200%; 
@@ -213,7 +213,7 @@ div.search-section {
 .trans{
 
     background-color: #ffffff;
-    opacity: 0.8;
+    opacity: 0.9;
     filter: alpha(opacity=60);
 }
 html {
