@@ -249,7 +249,8 @@ module.exports = function (app,User,mongoose,session) {
 				console.log("email is verified");
 				//	res.end("<h1>Email "+mailOptions.to+" is been Successfully verified");
 					//res.render('login/register',{emailer: req.body.signupEmail})
-					res.render('login/index');
+					message.push({text:'Your email has been verified successfully! Please log into your account to use our services.'});
+					res.render('login/index',{message: message});
 			}else{
 				console.log("email is not verified");
 				res.end("<h1>Bad Request</h1>");

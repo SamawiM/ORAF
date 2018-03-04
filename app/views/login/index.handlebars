@@ -9,6 +9,9 @@
 <body class="bgbody">
 <div id="loginContainer" class="container-fluid">
   <div class="login-form row align-items-center">
+      {{#if message}}
+	         	<div class='message'>{{ message }}</div>
+	    {{/if}}
       <div class="login-tab col-md-4 offset-md-4 border border-primary rounded trans">
         <ul class="tab-header nav nav-tabs" id="loginTab" role="tablist">
           <li class="nav-item">
