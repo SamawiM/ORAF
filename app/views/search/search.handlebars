@@ -1,6 +1,6 @@
 <body class="bgbodyUserprofile">
 <div class="container tagging-section search-section trans">
-	<p><b>You previously searched for:{{usersession.last_search}}</b></p>
+	<div class="search-history"><b>You previously searched for:{{usersession.last_search}}</b></div>
 	<div class="row">
 		<div class="col-sm-4">
 			<form action="" method="post" id="search-preference">
@@ -42,7 +42,7 @@
 				</div>
 
 				<div>
-					<label for="amount">Earloiest Move-in Date : </label>
+					<label for="amount">Earliest Move-in Date : </label>
 					<input id="datepicker" size="30" name="earliest_move_in_date" class="datepicker" readonly="readonly" data-date-format="mm/dd/yyyy">
 					<label for="amount">Latest Move-in Date : </label>
 					<input id="datepicker2" size="30" name="latest_move_in_date" class="datepicker" readonly="readonly" data-date-format="mm/dd/yyyy">
@@ -51,9 +51,7 @@
 					<label for="exampleFormControlInput1">Locality</label>
  					<div class="input-group">
 						 <div style="overflow:hidden;">
-                            <select class="selectpicker" multiple data-container="body" data-style="btn-primary" name="location" title="Select the location">
-							<option value={{usersession.location}} selected>{{usersession.location}}</option>
-                            <option>None</option>
+                            <select multiple required class="form-control" name="location" title="Select the location">
 					        <option>Avery Close</option>
 					        <option>Colonial Arms</option>
 					        <option>Champions Court</option>
@@ -90,7 +88,6 @@
 				<div class="card">
 				    <img class="card-img-top" src="../images/user.jpg" alt="Card image cap">
 				    <div class="card-block">
-				      <!--<h6 class="card-title"> {{first_name}}</h6>-->
 					  <input class="card-title" type="submit" name="viewprofile" value="{{email}}" />
 			    	</div>
 				    <div class="card-footer">

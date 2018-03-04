@@ -197,6 +197,7 @@ if(errors.length>0){
  });
 
  app.post('/',(req,res)=>{
+   console.log("testing..");
  console.log(req.body.email);
  console.log(req.body.password);
   User.find({email: req.body.email,password: req.body.password}, function (err, docs) {
