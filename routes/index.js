@@ -266,54 +266,66 @@ module.exports = function (app,User,mongoose,session) {
 	//Register user
 	app.get('/register', login.register);
 	app.post('/register',(req,res)=>{
-		// let errors=[];
-		// if(!req.body.firstName){
-		// 	errors.push({text: 'Please enter valid firstname'});
-		// }
-		// if(!req.body.lastName)
-		// {
-		// 	errors.push({text: "Please enter a valid lastname"});
-		// }
-		// if(!req.body.genderRadio)
-		// {
-		// 	errors.push({text: "Please select a valid gender"});
-		// }
-		// if(!req.body.phoneNumber)
-		// {
-		// 	errors.push({text: "Please enter a valid phone number"})
-		// }
+		let errors=[];
+		if(!req.body.firstName){
+			errors.push({text: 'Please enter valid firstname'});
+		}
+		if(!req.body.lastName)
+		{
+			errors.push({text: "Please enter a valid lastname"});
+		}
+		if(!req.body.genderRadio)
+		{
+			errors.push({text: "Please select a valid gender"});
+		}
+		if(!req.body.phoneNumber)
+		{
+			errors.push({text: "Please enter a valid phone number"})
+		}
 
 	
-		// if(errors.length>0){
-		// 	res.render('userProfile/register',{
-		// 		errors: errors
-		// 	});
-		// }
-		// else{
+		if(errors.length>0){
+			res.render('userProfile/register',{
+				errors: errors
+			});
+		}
+		else{
 
 			console.log("Form Body: ",req.body);
-			// console.log('registration successful signup')
-			// hasloggedin=true;
-			// const newUser={
-			// 	first_name: req.body.firstName,
-			// 	last_name: req.body.lastName,
-			// 	gender: req.body.genderRadio,
-			// 	phone_no: req.body.phoneNumber
-			// }
-			// console.log("ACCOUNT SESSSSSION:"+req.session.user)
-			// User.update({email: req.session.user[0].email},newUser,function(err,docs){
-			// 	if(err)
-			// 	 throw err;
-			// })
-			// //emailsess=req.session.user[0].email;
-			// User.find({email: emailsess},(err,docs)=>{
-			// 	 if(err)
-			// 		throw err;
-			// 		console.log("AMULYA VAROTE 12334566:"+docs[0])
-			// 		res.render('userProfile/index',{usersession: docs[0],hasloggedin: hasloggedin})
-			// })
+			console.log('registration successful signup')
+			hasloggedin=true;
+			var minAmt = req.body.amount.split("-")[0].substr(1,3);
+			var maxAmt = req.body.amount.split("-")[1].substr(2,3);
+			const newUser={
+				first_name: req.body.firstName,
+				last_name: req.body.lastName,
+				gender: req.body.genderRadio,
+				phone_no: req.body.phoneNumber,
+				min_budget: minAmt,
+				max_budget: maxAmt,
+				location: req.body.locations,
+				room_sharing: req.body.room_sharing,
+				dietary_habit: req.body.dietary_habit,
+				smoking_habit: req.body.smoking_habit,
+				alcoholic_habit: req.body.alcoholic_habit,
+				earliest_move_in_date: req.body.earlydate,
+				latest_move_in_date: req.body.latedate,
+			}
+			console.log("New User: ",newUser);
+			console.log("ACCOUNT SESSSSSION:"+req.session.user)
+			User.update({email: req.session.user[0].email},newUser,function(err,docs){
+				if(err)
+				 throw err;
+			})
+			emailsess=req.session.user[0].email;
+			User.find({email: emailsess},(err,docs)=>{
+				 if(err)
+					throw err;
+					console.log("AMULYA VAROTE 12334566:"+docs[0])
+					res.render('userProfile/index',{usersession: docs[0],hasloggedin: hasloggedin})
+			})
 		
-		//}
+		}
 	});
 	
 	

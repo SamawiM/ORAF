@@ -33,7 +33,7 @@ const users= new Schema({
     required:false
   },
   location:{
-    type: String,
+    type: [String],
     required: false
   },
   /*location:[{
@@ -78,8 +78,8 @@ const users= new Schema({
     default: constants.AVAILABLE
   },
   last_search:{
-  type: String,
-  required: false
+    type: String,
+    required: false
   }
 });
 mongoose.model('users',users);
