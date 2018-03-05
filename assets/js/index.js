@@ -56,18 +56,62 @@ $(function(){
       " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 });
 
-function validatePhone(phoneNumber) {
+function validateProfile(){
+    var isValid = true;
+    
+    var firstName = document.getElementById("firstName");
+    var firstNameErrors = document.getElementById("firstNameErrors");
+    if(firstName.value.length == 0){
+        isValid = false;
+        firstNameErrors.innerHTML="Please enter your first name.";
+    }else{
+        firstNameErrors.innerHTML="";
+    }
+
+    var lastName = document.getElementById("lastName");
+    var lastNameErrors = document.getElementById("lastNameErrors");
+    if(lastName.value.length == 0){
+        isValid = false;
+        lastNameErrors.innerHTML="Please enter your last name.";
+    }else{
+        lastNameErrors.innerHTML="";
+    }
+    
+    var maleRadio = document.getElementById("gender_male");
+    var femaleRadio = document.getElementById("gender_female");
+    var genderErrors = document.getElementById("genderErrors");
+    if(!maleRadio.checked && !femaleRadio.checked){
+        isValid = false;
+        genderErrors.innerHTML="Please enter your last name.";
+    }else{
+        genderErrors.innerHTML="";
+    }
+
+    if(!validatePhone()){
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function validatePhone() {
+    var isValidPhone = true;
+    var phoneNumber = document.getElementById("phoneNumber");
+    var phoneNumberErrors = document.getElementById("phoneNumberErrors");
     var numbers = "[0-9]";
     var phoneNo = phoneNumber.value;
     if(phoneNo.length < 10){
-        phoneNumber.setCustomValidity('Phone Number must be of 10 digits.');
+        isValidPhone = false;
+        phoneNumberErrors.innerHTML="Phone Number must be of 10 digits.";
     }else{
         if(!phoneNumber.value.match(numbers)){
-            phoneNumber.setCustomValidity('Only numbers are allowed in this field.');
+            isValidPhone = false
+            phoneNumberErrors.innerHTML="Only numbers are allowed in this field.";
         }else{
-            phoneNumber.setCustomValidity('');
+            phoneNumberErrors.innerHTML="";
         }
     }
+    return isValidPhone;
 }
 
 function validatePassword(passwordField) {
@@ -80,27 +124,33 @@ function validatePassword(passwordField) {
     }
 }
 
-function navigate(){
+function navigate(submit){
     var cardOne = document.getElementById("collapseOne");
     var cardTwo = document.getElementById("collapseTwo");
-    console.log("In JS");
-    if(cardOne.classList.contains("show"))
-        $('#collapseOne').collapse('hide');
-    else
+    if(submit.id == "nextSubmit"){
+        if(validateProfile()){
+            $('#collapseOne').collapse('hide');
+            $('#collapseTwo').collapse('show');
+        }
+    }else{
+        console.log("Trying to do collapse");
         $('#collapseOne').collapse('show');
-
-    if(cardTwo.classList.contains("show"))
         $('#collapseTwo').collapse('hide');
-    else
-        $('#collapseTwo').collapse('show');
-    
-    return false;
+    }
 }
 
 function validatePrefs(){
 
     var isValid = true;
-
+    var prefForm = document.getElementById("parentForm");
+    var locationErrors = document.getElementById("locationErrors");
+    if(prefForm.elements["locations"].selectedIndex == -1){
+        locationErrors.innerHTML="Please select at least one location preference.";
+        isValid = false
+    }else{
+        locationErrors.innerHTML="";
+    }
+    
     var diet = document.getElementById("diet");
     var dietErrors = document.getElementById("dietErrors");
     if(diet.getElementsByClassName("active").length == 0){
@@ -155,5 +205,5 @@ function validatePrefs(){
         lateDateErrors.innerHTML="";
     }
 
-    return false;
+    return isValid;
 }
