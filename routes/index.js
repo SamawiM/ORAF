@@ -222,9 +222,8 @@ module.exports = function (app,User,mongoose,session) {
 					//res.render('login/signinsuccess',{answer: docs[0]});
 				if(docs[0].dietary_habit)
 				 var updatedCharacteristics=true
-				 
 					if(!docs[0].first_name)
-					res.render('login/register',{emailer: req.body.signupEmail,userid: req.session.user[0] })
+					res.render('login/register',{emailer: req.body.loginEmail+"@ncsu.edu",userid: req.session.user[0] })
 					else
 					{
 						emailsess=req.session.user[0].email;
