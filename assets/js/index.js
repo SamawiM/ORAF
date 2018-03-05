@@ -137,5 +137,23 @@ function validatePrefs(){
         sharingErrors.innerHTML="";
     }
 
+    var earlyDate = $("#datepicker1").datepicker("getDate");
+    var earlyDateErrors = document.getElementById("earlyDateErrors");
+    if(earlyDate == null){
+        earlyDateErrors.innerHTML="Please select move-in date.";
+        isValid = false;
+    }else{
+        earlyDateErrors.innerHTML="";
+    }
+
+    var lateDate = $("#datepicker2").datepicker("getDate");
+    var lateDateErrors = document.getElementById("lateDateErrors");
+    if(lateDate == null){
+        lateDateErrors.innerHTML="Please select move-in date.";
+        isValid = false;
+    }else{
+        lateDateErrors.innerHTML="";
+    }
+
     return false;
 }
