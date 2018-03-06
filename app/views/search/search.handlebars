@@ -82,19 +82,13 @@
 	        {{/if}}
 			<form action="/processprofile" method="post">
 			<div class="card-deck">
-				{{results}}
 				{{#each results}}
-				
 				<div class="card">
 				    <img class="card-img-top" src="../images/user.jpg" alt="Card image cap">
 				    <div class="card-block">
-					  <input class="card-title" type="submit" name="viewprofile" value="{{email}}" />
+					  <input class="btn-primary btn center-block" type="submit" name="viewprofile" data-toggle="modal"  value="{{email}}" />
 			    	</div>
-				    <div class="card-footer">
-				      <small class="text-muted">Last updated 3 mins ago</small>
-				    </div>
-					</div>
-					
+				</div>
 			    {{/each}}
 			</div>
 			</form>

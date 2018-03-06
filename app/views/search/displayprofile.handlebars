@@ -1,11 +1,28 @@
-<p>bleh</p>
-<p>bleh</p>
-<p>bleh</p>
-<div class="container display-profile">
-  <div class="col-sm-4">
-<p><b>User email:{{useris.email}}</b></p>
-<p>Firstname:{{useris.first_name}}</p>
-<p>Lastname:{{useris.last_name}}<p>
-<p>Gender: {{useris.gender}}</p>
-</div>
-</div>
+
+<body class="bgbodyUserprofile">
+  <div class="container profile-container">
+    <div class="row">
+      <div class="offset-lg-4 col-lg-4 col-sm-6 col-12 main-section text-center trans">
+          <div class="row">
+              <div class="col-lg-12 col-sm-12 col-12 profile-header"></div>
+          </div>
+          <div class="row user-detail">
+              <div class="col-lg-12 col-sm-12 col-12">
+                  <img src="../images/user.jpg" class="rounded-circle img-thumbnail">
+                  <div class="cor-capt-profile">
+                  <p>User email:{{useris.email}}@ncsu.edu</p>
+                  <p>Firstname:{{useris.first_name}}</p>
+                  <p>Lastname:{{useris.last_name}}<p>
+                  <p>Gender: {{useris.gender}}</p>
+                  </div>
+                  <hr>
+                  <a href="#" class="btn btn-info btn-lg">Connect</a>
+                  <hr>
+              </div>
+          </div>
+          <div class="row user-social-detail">    
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
