@@ -23,8 +23,11 @@
                   </form>
               </div>
           </div>
-          <div class="row user-social-detail">    
-          </div>
+           {{#if connectmessage}}
+            <div class="user-message user-message-top">
+              Your connection email has been sent successfully with your contact details! If the person is interested then he will contact you!!
+            </div>
+           {{/if}}
       </div>
     </div>
   </div>

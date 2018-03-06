@@ -201,7 +201,7 @@ module.exports = function (app,User,mongoose,session) {
 			}else{
 				console.log("Message sent:"+res.message);
 				let emailMessage = [];
-				// emailMessage.push({text:'Your email has been verified successfully! Please log into your account to use our services.'});
+				emailMessage.push({text:'Your email has been verified successfully! Please log into your account to use our services.'});
 				res.render('login/index',{emailMessage: emailMessage});
 				//res.end("sent");
 			}
@@ -414,7 +414,8 @@ module.exports = function (app,User,mongoose,session) {
 				 res.render('userProfile/index',{flag: hasupdatedCharacteristics,flagger: updatedchar,hasloggedin: hasloggedin,usersession: resp[0]});
 			 })
 
-			}	})
+			}	
+		})
 		
 	})
 
@@ -433,15 +434,14 @@ module.exports = function (app,User,mongoose,session) {
 				subject: "Connect Request on Roommate Finder",
 				html: "Hello,<br>"+req.session.user[0].last_name+"\t"+req.session.user[0].first_name+"wants to connect with you to become a roommate!!<br><a>Please contact this person!!<br>This is the email id of the user:"+req.session.user[0].email+"@ncsu.edu"+"</a>"
 			 }
-			//  console.log(mailOptions);
-			//  console.log("current user : " + req.session.user[0].email);	
-			//  console.log("Test print: ",link);
 			 smtpTransport.sendMail(mailOptions,(error,response)=>{
 			 if(error){
 				console.log(error);
 				res.end("error"); 
 			 }else{
-				console.log("Message sent:"+res.message);
+				let connectmessage = [];
+				connectmessage.push({text:'Your connection email has been sent successfully with your contact details! If the person is interested then he will contact you!!'});
+				res.render('search/displayprofile',{connectmessage: connectmessage});
 			}
 		})
 	})
