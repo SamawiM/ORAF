@@ -201,7 +201,7 @@ module.exports = function (app,User,mongoose,session) {
 			}else{
 				console.log("Message sent:"+res.message);
 				let emailMessage = [];
-				emailMessage.push({text:'Your email has been verified successfully! Please log into your account to use our services.'});
+				// emailMessage.push({text:'Your email has been verified successfully! Please log into your account to use our services.'});
 				res.render('login/index',{emailMessage: emailMessage});
 				//res.end("sent");
 			}
@@ -418,7 +418,35 @@ module.exports = function (app,User,mongoose,session) {
 		
 	})
 
+	app.post('/connect',(req,res)=>{
+		console.log("hello!!!!");
+		console.log("testing"+req.body.connectprofile);
+		User.find({email: req.body.connectprofile},(err,docs)=>{
+			if(err)
+			 throw err;
+			 console.log("Amulya is"+docs[0]);
+			 rand=Math.floor((Math.random()*100)+54);
+			 host=req.get('host');
+			 link="https://"+req.get('host')+"/verify?id="+rand;
+			 mailOptions={
+				to: req.body.connectprofile+"@ncsu.edu",
+				subject: "Connect Request on Roommate Finder",
+				html: "Hello,<br>"+req.session.user[0].last_name+"\t"+req.session.user[0].first_name+"wants to connect with you to become a roommate!!<br><a>Please contact this person!!<br>This is the email id of the user:"+req.session.user[0].email+"@ncsu.edu"+"</a>"
+			 }
+			//  console.log(mailOptions);
+			//  console.log("current user : " + req.session.user[0].email);	
+			//  console.log("Test print: ",link);
+			 smtpTransport.sendMail(mailOptions,(error,response)=>{
+			 if(error){
+				console.log(error);
+				res.end("error"); 
+			 }else{
+				console.log("Message sent:"+res.message);
+			}
+		})
+	})
 
+	})
 
 	//Logout
 	app.get('/logout', function (req, res) {
