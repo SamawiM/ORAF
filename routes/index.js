@@ -223,7 +223,7 @@ module.exports = function (app,User,mongoose,session) {
 				if(docs[0].dietary_habit)
 				 var updatedCharacteristics=true
 					if(!docs[0].first_name)
-					res.render('login/register',{emailer: req.body.loginEmail+"@ncsu.edu",userid: req.session.user[0] })
+					res.render('login/register',{emailer: req.body.loginEmail,userid: req.session.user[0] })
 					else
 					{
 						emailsess=req.session.user[0].email;
@@ -297,6 +297,7 @@ module.exports = function (app,User,mongoose,session) {
 			var minAmt = req.body.amount.split("-")[0].substr(1,3);
 			var maxAmt = req.body.amount.split("-")[1].substr(2,3);
 			const newUser={
+				email: req.session.user[0].email,
 				first_name: req.body.firstName,
 				last_name: req.body.lastName,
 				gender: req.body.genderRadio,
@@ -316,15 +317,8 @@ module.exports = function (app,User,mongoose,session) {
 			User.update({email: req.session.user[0].email},newUser,function(err,docs){
 				if(err)
 				 throw err;
-			})
-			emailsess=req.session.user[0].email;
-			User.find({email: emailsess},(err,docs)=>{
-				 if(err)
-					throw err;
-					console.log("AMULYA VAROTE 12334566:"+docs[0])
-					res.render('userProfile/index',{usersession: docs[0],hasloggedin: hasloggedin})
-			})
-		
+			});
+			res.render('userProfile/index',{usersession: newUser,hasloggedin: hasloggedin});
 		}
 	});
 	
