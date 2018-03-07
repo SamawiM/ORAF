@@ -89,11 +89,8 @@ module.exports = function (app,User,mongoose,session) {
 			 throw err
 			req.session.user=docs;
 			var currUser = req.session.user[0];
-			var query = { email: { $ne: currUser.email}, status: {$ne: "NotAvailable"} , room_sharing: currUser.room_sharing, location: {$in: currUser.location} , };
+			var query = { email: { $ne: currUser.email}, status: {$ne: "NotAvailable"} , room_sharing: currUser.room_sharing, min_budget : {$lte : currUser.max_budget}, max_budget : {$gte : currUser.min_budget}, location: {$in: currUser.location} , };
 			var results = User.find(query, function (errors, docs){
-				console.log("Query: ",query);
-				req.session.user[0].location
-				console.log("Result: ",docs);
 				if(docs) {
 					if(docs.length == 0) {
 						let message = [];
