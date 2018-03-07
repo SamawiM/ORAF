@@ -88,7 +88,11 @@ module.exports = function (app,User,mongoose,session) {
 			if(err)
 			 throw err
 			req.session.user=docs;
-			var results = User.find({ location: req.session.user[0].location, email: { $ne: req.session.user[0].email} }, function (errors, docs){
+			var query = {location: {$in: req.session.user[0].location}, email: { $ne: req.session.user[0].email}};
+			var results = User.find(query, function (errors, docs){
+				console.log("Query: ",query);
+				req.session.user[0].location
+				console.log("Result: ",docs);
 				if(docs) {
 					if(docs.length == 0) {
 						let message = [];
