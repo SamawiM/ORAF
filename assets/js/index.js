@@ -207,3 +207,12 @@ function validatePrefs(){
 
     return isValid;
 }
+
+function sendRequest(){
+    User.find({email: "avarote"},(err,docs)=>{
+        if(err)
+         throw err;
+         console.log("Arpita is"+docs[0])
+    })
+  //  window.confirm("Send Request?");
+}

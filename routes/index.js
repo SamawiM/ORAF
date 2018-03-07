@@ -440,8 +440,8 @@ module.exports = function (app,User,mongoose,session) {
 				res.end("error"); 
 			 }else{
 				let connectmessage = [];
-				connectmessage.push({text:'Your connection email has been sent successfully with your contact details! If the person is interested then he will contact you!!'});
-				res.render('search/displayprofile',{connectmessage: connectmessage});
+				connectmessage.push({text:'Your connection email has been sent successfully with your contact details! The person will contact you if interested!!'});
+				res.render('search/search',{connectmessage: connectmessage});
 			}
 		})
 	})
