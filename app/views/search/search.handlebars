@@ -11,42 +11,40 @@
 			
 	          </h4>
 	          <fieldset class="form-actions tagging mb-3">
-	          	<div class="smoking">
-	          		<div class="tag"><span>#</span> Smoker</div>
-	          		<div class="tag"><span>#</span> Non-Smoker</div>
-	          		<input class="smoking-habit" type="hidden" name="smoking_habit" value="">
-	          	</div>
 	          	<div class="diet">
 	          		<div class="tag"><span>#</span> Vegeterian</div>
 	          		<div class="tag"><span>#</span> Non-Vegeterian</div>
 	          		<input class="dietary-habit" type="hidden" name="dietary_habit" value="">
 	          	</div>
+				<div class="smoking">
+	          		<div class="tag"><span>#</span> Smoker</div>
+	          		<div class="tag"><span>#</span> Non-Smoker</div>
+	          		<input class="smoking-habit" type="hidden" name="smoking_habit" value="">
+	          	</div>
+				<div id="alcohol" class="alcohol">
+					<div class="tag"><span>#</span> Alcoholic</div>
+					<div class="tag"><span>#</span> Non-Alcoholic</div>
+					<input class="alcoholic-habit" type="hidden" name="alcoholic_habit" value="">
+				</div>
 	          	<div class="gender">
 	          		<div class="tag"><span>#</span> Female</div>
 	          		<div class="tag"><span>#</span> Male</div>
 	          		<input type="hidden" name="gender" value="">
 	          	</div>
-
 	          	<div class="room">
-	          		<label for="room">Room Sharing : </label>
-	          		<input type="radio" name="room_sharing" value="yes" checked> Yes 
-	          		<input type="radio" name="room_sharing" value="no"> No
+	          		<div class="tag"><span>#</span> Yes</div>
+					<div class="tag"><span>#</span> No</div>
+					<input class="room-sharing" type="hidden" name="room_sharing" value="">
 	          	</div>
 	          	<div>
 			        <p>
 					  <label for="amount">Price range : </label>
-					  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+					  <input type="text" name="amount" id="amount" readonly>
 					</p>
 					 
 					<div id="slider-range"></div>
 				</div>
 
-				<div>
-					<label for="amount">Earliest Move-in Date : </label>
-					<input id="datepicker" size="30" name="earliest_move_in_date" class="datepicker" readonly="readonly" data-date-format="mm/dd/yyyy">
-					<label for="amount">Latest Move-in Date : </label>
-					<input id="datepicker2" size="30" name="latest_move_in_date" class="datepicker" readonly="readonly" data-date-format="mm/dd/yyyy">
-				</div>
 				<div>
 					<label for="exampleFormControlInput1">Locality</label>
  					<div class="input-group">
