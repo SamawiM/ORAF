@@ -1,6 +1,12 @@
 <body class="bgbodyUserprofile">
 <div class="container tagging-section search-section trans">
 	<div class="search-history"><b>You previously searched for : {{usersession.last_search}}</b></div>
+	{{#each errors}}
+  <div class="alert alert-danger">{{texterr}}</div>
+  {{else}}
+
+  {{/each}}
+
 	<div class="row">
 		<div class="col-sm-4">
 			<form action="" method="post" id="pref">

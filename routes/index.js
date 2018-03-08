@@ -21,8 +21,9 @@ module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
 
 	app.post('/search', (req, res)=>{
+		let errors=[]
 		console.log(req.body);
-		
+
 		var minAmt = parseInt(req.body.amount.split("-")[0].substr(1,3));
 		var maxAmt = parseInt(req.body.amount.split("-")[1].substr(2,3));
 		var query = { email: { $ne: req.session.user[0].email}, status: {$ne: "NotAvailable"}, min_budget : {$lte : minAmt}, max_budget : {$gte : maxAmt}};
@@ -67,6 +68,8 @@ module.exports = function (app,User,mongoose,session) {
 			 throw er;
 			 console.log("Previous search saved in DB");
 		})
+		if(!req.body.amount && !req.body.location && !req.body.room_sharing && !req.body.dietary_habit && !req.body.alcoholic_habit && !req.body.smoking_habit && !req.body.gender)
+		errors.push({texterr: 'Choose options to search'})
 		var results = User.find(query, function(errors, docs){
 	    	if(docs) {
 					if(docs.length == 0) {
@@ -104,7 +107,7 @@ module.exports = function (app,User,mongoose,session) {
 		User.find({email: req.body.viewprofile},(err,docs)=>{
 			if(err)
 			 throw err;
-			 console.log("Arpita is"+docs[0])
+			 
 			res.render('search/displayprofile',{useris: docs[0],hasloggedin: hasloggedin}); 
 		})
 	})
