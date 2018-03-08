@@ -3,6 +3,11 @@
   <div class="container profile-container">
     <div class="row">
       <div class="offset-lg-4 col-lg-4 col-sm-6 col-12 main-section text-center trans">
+        {{#each errors}}
+           <div class="alert alert-danger">{{text}}</div>
+        {{else}}
+
+        {{/each}}
           <div class="row">
               <div class="col-lg-12 col-sm-12 col-12"></div>
           </div>

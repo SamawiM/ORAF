@@ -446,8 +446,11 @@ module.exports = function (app,User,mongoose,session) {
 	})
 
 	app.post('/connect',(req,res)=>{
+		let errors=[]
 		console.log("hello!!!!");
 		console.log("testing"+req.body.connectprofile);
+		if(!req.body.connectprofile)
+		 errors.push({text: 'Connect with people'})
 		User.find({email: req.body.connectprofile},(err,docs)=>{
 			if(err)
 			 throw err;
