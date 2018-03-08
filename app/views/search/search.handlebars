@@ -78,11 +78,10 @@
 			{{#if message}}
 	         	<p class='message'>No results match your search criteria. Please search for other preferences.</p>
 	        {{/if}}
+			<form action="/processprofile" method="post">
 			<div class="card-deck">
 				{{#each results}}
 				<div class="card">
-				       
-						<form action="/connect" method="post">
 							<div class="row">
 								<div class="col-md-4">
 									Name
@@ -116,12 +115,13 @@
 								</div>
 							</div>
 							<br>
-							<button class="btn btn-primary center-block connect" type="submit" name="connectprofile" data-toggle="modal" value="{{email}}" >CONNECT</button>
-                        </form>
-                       
+							{{!-- <button class="btn btn-primary center-block connect" type="submit" name="connectprofile" data-toggle="modal" value="{{email}}" >View Profile</button> --}}
+							<input class="btn btn-primary center-block connect" type="submit" name="viewprofile" data-toggle="modal"  value="{{email}}"/>
+      
 				</div>
 			    {{/each}}
 			</div>
+			</form>
 			{{#if connectmessage}}
             <div class="user-message user-message-top">
               Your connection email has been sent successfully with your contact details! The person will contact you if interested!!

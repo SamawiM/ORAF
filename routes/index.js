@@ -96,6 +96,19 @@ module.exports = function (app,User,mongoose,session) {
 	    });
 		
 	});
+
+    app.get('search/displayprofile',search.displayprofile);
+	app.post('/processprofile',(req,res)=>{
+		console.log("hello")
+		console.log(req.body.viewprofile);
+		User.find({email: req.body.viewprofile},(err,docs)=>{
+			if(err)
+			 throw err;
+			 console.log("Arpita is"+docs[0])
+			res.render('search/displayprofile',{useris: docs[0],hasloggedin: hasloggedin}); 
+		})
+	})
+
 	app.get('/search', (req, res)=>{
 		User.find({email: emailsess},(err,docs)=>{
 			if(err)
@@ -451,7 +464,7 @@ module.exports = function (app,User,mongoose,session) {
 			 }else{
 				let connectmessage = [];
 				connectmessage.push({text:'Your connection email has been sent successfully with your contact details! The person will contact you if interested!!'});
-				res.render('search/search',{connectmessage: connectmessage});
+				res.render('search/connectprofile',{connectmessage: connectmessage});
 			}
 		})
 	})
