@@ -23,38 +23,51 @@ module.exports = function (app,User,mongoose,session) {
 	app.post('/search', (req, res)=>{
 		console.log(req.body);
 		
-		var ans="";
-		if(req.body.smoking_habit)
-		 ans=ans.concat(req.body.smoking_habit,",");
-		if(req.body.dietary_habit)
-		 ans=ans.concat(req.body.dietary_habit,",");
-		if(req.body.gender)
-		ans=ans.concat(req.body.gender,",");
-		if(req.body.room_sharing)
-		ans=ans.concat(req.body.room_sharing,",");
-		if(req.body.earliest_move_in_date)
-		ans=ans.concat(req.body.earliest_move_in_date,",");
-		if(req.body.latest_move_in_date)
-		ans=ans.concat(req.body.latest_move_in_date,","); 
-		if(req.body.location)
-		ans=ans.concat(req.body.location);
-		console.log("previous search results"+ans);
-		const user11={
-			last_search: ans
+		var minAmt = parseInt(req.body.amount.split("-")[0].substr(1,3));
+		var maxAmt = parseInt(req.body.amount.split("-")[1].substr(2,3));
+		var query = { email: { $ne: req.session.user[0].email}, status: {$ne: "NotAvailable"}, min_budget : {$lte : minAmt}, max_budget : {$gte : maxAmt}};
+		
+		var searchHistory="Min. Budget: "+minAmt+", Max. Budget: "+maxAmt;
+		if(req.body.location){
+			searchHistory=searchHistory.concat(", Location: ");
+			if (req.body.location instanceof Array) {
+				query.location = {$in: req.body.location};
+				searchHistory=searchHistory.concat("["+req.body.location+"]");
+			}else{
+				query.location = req.body.location;
+				searchHistory=searchHistory.concat(req.body.location);
+			}
 		}
-    User.update({email: emailsess},user11,(er,ds)=>{
+		if(req.body.room_sharing){
+			query.room_sharing = req.body.room_sharing;
+			searchHistory=searchHistory.concat(", Room Sharing: "+req.body.room_sharing);
+		}
+		if(req.body.dietary_habit){
+			query.dietary_habit = req.body.dietary_habit;
+			searchHistory=searchHistory.concat(", Dietary Habit: "+req.body.dietary_habit);
+		}
+		if(req.body.alcoholic_habit){
+			query.alcoholic_habit = req.body.alcoholic_habit;
+			searchHistory=searchHistory.concat(", Alcoholic Habit: "+req.body.alcoholic_habit);
+		}
+		if(req.body.smoking_habit){
+			query.smoking_habit = req.body.smoking_habit;
+			searchHistory=searchHistory.concat(", Smoking Habit: "+req.body.smoking_habit);
+		}
+		if(req.body.gender){
+			query.gender = req.body.gender;
+			searchHistory=searchHistory.concat(", Gender: "+req.body.gender);
+		}
+		console.log("previous search results"+searchHistory);
+		const user11={
+			last_search: searchHistory
+		}
+    	User.update({email: emailsess},user11,(er,ds)=>{
 			if(er)
 			 throw er;
 			 console.log("Previous search saved in DB");
 		})
-
-		var results = User.find({$or:[
-	        {location: req.body.location},
-	        {dietary_habit: req.body.dietary_habit},
-					{smoking_habit: req.body.smoking_habit},
-					{gender: req.body.gender}
-					
-	    ], $and: [{ email: { $ne: req.session.user[0].email}}]}, function(errors, docs){
+		var results = User.find(query, function(errors, docs){
 	    	if(docs) {
 					if(docs.length == 0) {
 						let message = [];
@@ -89,7 +102,7 @@ module.exports = function (app,User,mongoose,session) {
 			 throw err
 			req.session.user=docs;
 			var currUser = req.session.user[0];
-			var query = { email: { $ne: currUser.email}, status: {$ne: "NotAvailable"} , room_sharing: currUser.room_sharing, min_budget : {$lte : currUser.max_budget}, max_budget : {$gte : currUser.min_budget}, location: {$in: currUser.location} , };
+			var query = { email: { $ne: currUser.email}, status: {$ne: "NotAvailable"} , room_sharing: currUser.room_sharing, min_budget : {$lte : currUser.max_budget}, max_budget : {$gte : currUser.min_budget}, location: {$in: currUser.location} };
 			var results = User.find(query, function (errors, docs){
 				if(docs) {
 					if(docs.length == 0) {
@@ -285,8 +298,8 @@ module.exports = function (app,User,mongoose,session) {
 			console.log("Form Body: ",req.body);
 			console.log('registration successful signup')
 			hasloggedin=true;
-			var minAmt = req.body.amount.split("-")[0].substr(1,3);
-			var maxAmt = req.body.amount.split("-")[1].substr(2,3);
+			var minAmt = parseInt(req.body.amount.split("-")[0].substr(1,3));
+			var maxAmt = parseInt(req.body.amount.split("-")[1].substr(2,3));
 			const newUser={
 				email: req.session.user[0].email,
 				first_name: req.body.firstName,
