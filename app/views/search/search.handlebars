@@ -74,25 +74,51 @@
 				<input type="submit" name="Search" id="search" class="btn-primary btn center-block" value="Search">
 			</form>
 		   </div>
-		<div class="col-sm-8">
+		<div class="col-md-8">
 			{{#if message}}
 	         	<p class='message'>No results match your search criteria. Please search for other preferences.</p>
 	        {{/if}}
 			<div class="card-deck">
 				{{#each results}}
 				<div class="card">
-				       <div class="col-lg-12 col-sm-12 col-12">
+				       
 						<form action="/connect" method="post">
-						<div>
-						<p><b>Email : {{email}}@ncsu.edu</b></p>
-						<p><b>Name : {{first_name}} {{last_name}}</b></p>
-						<p><b>Gender : {{gender}}</b></p>
-						</div>
-						<hr>
-						{{!-- <button class="btn btn-primary center-block" type="submit" name="connectprofile" data-toggle="modal" value="{{useris.email}}" >CONNECT</button> --}}
-						<button class="btn btn-primary center-block" type="submit" name="connectprofile" data-toggle="modal" value="{{email}}" >CONNECT</button>
+							<div class="row">
+								<div class="col-md-4">
+									Name
+								</div>
+								<div class="col-md-8">
+									{{first_name}} {{last_name}}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									Email
+								</div>
+								<div class="col-md-8">
+									{{email}}@ncsu.edu
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									Gender
+								</div>
+								<div class="col-md-8">
+									{{gender}}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									Budget
+								</div>
+								<div class="col-md-8">
+									${{min_budget}} - ${{max_budget}}
+								</div>
+							</div>
+							<br>
+							<button class="btn btn-primary center-block connect" type="submit" name="connectprofile" data-toggle="modal" value="{{email}}" >CONNECT</button>
                         </form>
-                       </div>
+                       
 				</div>
 			    {{/each}}
 			</div>

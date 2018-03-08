@@ -307,3 +307,13 @@ padding: 0px 5px;
     margin-bottom: 10px;
     padding: 5px;
 }
+
+.card{
+    padding: 5px;
+    color: white;
+    background: #53c9f7;
+}
+
+.connect{
+    background-color: #3490b3;
+}
