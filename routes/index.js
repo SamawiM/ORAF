@@ -1,4 +1,5 @@
 var nodemailer=require("nodemailer");
+var bcrypt=require("bcrypt");
 var smtpTransport=nodemailer.createTransport({
 	service: "gmail",
 	auth:{
@@ -6,6 +7,7 @@ var smtpTransport=nodemailer.createTransport({
 		pass: "Macrohard**123"
 	}
 });
+
 var rand,mailOptions,host,link;
 var updatedchar=false;
 var hasupdatedCharacteristics=false;
@@ -192,16 +194,20 @@ module.exports = function (app,User,mongoose,session) {
 			});
 		}
 		else{
-			console.log('success signup')
-			const newUser={
-				email: req.body.signupEmail,
-				password: req.body.password
-			}
-			new User(newUser).save((err,docs)=>{
-				if(err)
-				throw err;
-				console.log("saved to db"); 
+			
+			bcrypt.hash(req.body.password, 5, function( err, bcryptedPassword) {
+				console.log('success signup')
+				const newUser={
+					email: req.body.signupEmail,
+					password: bcryptedPassword
+				}
+				new User(newUser).save((err,docs)=>{
+					if(err)
+					throw err;
+					console.log("saved to db"); 
+				});
 			});
+			
 		
 			//smtp logic
 			rand=Math.floor((Math.random()*100)+54);
