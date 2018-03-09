@@ -2,6 +2,11 @@
 <body class="bgbodyUserprofile">
 <div class="container user-profile trans" >
  <div class="col-sm-4">
+   {{#each errs}}
+  <div class="alert alert-danger">{{updater}}</div>
+   {{else}}
+
+  {{/each}}
   <img src="../images/profile.png" class="img-thumbnail" alt="Cinque Terre" height="250" width=100%>
    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style = "width:100%">
      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">BASIC DETAILS</a>

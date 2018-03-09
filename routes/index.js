@@ -21,8 +21,9 @@ module.exports = function (app,User,mongoose,session) {
 	app.get('/', login.index);
 
 	app.post('/search', (req, res)=>{
+		let errors=[]
 		console.log(req.body);
-		
+
 		var minAmt = parseInt(req.body.amount.split("-")[0].substr(1,3));
 		var maxAmt = parseInt(req.body.amount.split("-")[1].substr(2,3));
 		var query = { email: { $ne: req.session.user[0].email}, status: {$ne: "NotAvailable"}, min_budget : {$lte : minAmt}, max_budget : {$gte : maxAmt}};
@@ -67,6 +68,8 @@ module.exports = function (app,User,mongoose,session) {
 			 throw er;
 			 console.log("Previous search saved in DB");
 		})
+		if(!req.body.amount && !req.body.location && !req.body.room_sharing && !req.body.dietary_habit && !req.body.alcoholic_habit && !req.body.smoking_habit && !req.body.gender)
+		errors.push({texterr: 'Choose options to search'})
 		var results = User.find(query, function(errors, docs){
 	    	if(docs) {
 					if(docs.length == 0) {
@@ -96,6 +99,19 @@ module.exports = function (app,User,mongoose,session) {
 	    });
 		
 	});
+
+    app.get('search/displayprofile',search.displayprofile);
+	app.post('/processprofile',(req,res)=>{
+		console.log("hello")
+		console.log(req.body.viewprofile);
+		User.find({email: req.body.viewprofile},(err,docs)=>{
+			if(err)
+			 throw err;
+			 
+			res.render('search/displayprofile',{useris: docs[0],hasloggedin: hasloggedin}); 
+		})
+	})
+
 	app.get('/search', (req, res)=>{
 		User.find({email: emailsess},(err,docs)=>{
 			if(err)
@@ -430,8 +446,11 @@ module.exports = function (app,User,mongoose,session) {
 	})
 
 	app.post('/connect',(req,res)=>{
+		let errors=[]
 		console.log("hello!!!!");
 		console.log("testing"+req.body.connectprofile);
+		if(!req.body.connectprofile)
+		 errors.push({text: 'Connect with people'})
 		User.find({email: req.body.connectprofile},(err,docs)=>{
 			if(err)
 			 throw err;
@@ -451,7 +470,7 @@ module.exports = function (app,User,mongoose,session) {
 			 }else{
 				let connectmessage = [];
 				connectmessage.push({text:'Your connection email has been sent successfully with your contact details! The person will contact you if interested!!'});
-				res.render('search/search',{connectmessage: connectmessage});
+				res.render('search/connectprofile',{connectmessage: connectmessage});
 			}
 		})
 	})
