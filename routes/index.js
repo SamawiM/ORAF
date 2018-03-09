@@ -238,33 +238,44 @@ module.exports = function (app,User,mongoose,session) {
 		console.log(req.body.loginEmail)
 		//Check if the user has already set his characteristics
 		
-		User.find({email: req.body.loginEmail,password: req.body.loginPassword}, function (err, docs) {
+		User.find({email: req.body.loginEmail}, function (err, docs) {
 			if (docs.length){
-			 hasloggedin=true;
-			 console.log(hasloggedin)
-			 req.session.user=docs;
-			 console.log('session id is'+req.sessionID)
-			 console.log(docs[0].first_name);
-					//res.render('login/signinsuccess',{answer: docs[0]});
-				if(docs[0].dietary_habit)
-				 var updatedCharacteristics=true
-					if(!docs[0].first_name)
-					res.render('login/register',{emailer: req.body.loginEmail,userid: req.session.user[0] })
-					else
-					{
-						emailsess=req.session.user[0].email;
-					res.render('landing/landing',{usersession: req.session.user[0],flag: updatedCharacteristics,hasloggedin :hasloggedin})
 
-					console.log(req.session.user);
-					}
+			bcrypt.compare(req.body.loginPassword, docs[0].password, function(err, doesMatch){
+				if (doesMatch){
+					hasloggedin=true;
+					console.log(hasloggedin)
+					req.session.user=docs;
+					console.log('session id is'+req.sessionID)
+					console.log(docs[0].first_name);
+							//res.render('login/signinsuccess',{answer: docs[0]});
+						if(docs[0].dietary_habit)
+						var updatedCharacteristics=true
+							if(!docs[0].first_name)
+							res.render('login/register',{emailer: req.body.loginEmail,userid: req.session.user[0] })
+							else
+							{
+								emailsess=req.session.user[0].email;
+							res.render('landing/landing',{usersession: req.session.user[0],flag: updatedCharacteristics,hasloggedin :hasloggedin})
+
+							console.log(req.session.user);
+							}
+				}else{
+					let errors=[];
+					errors.push({text:'Invalid Password'});
+					res.render('login/index',{
+						errors: errors
+					});
+				}
+			});
+
+			 
 			} else {
 				let errors=[];
-				errors.push({text:'Invalid Credentials'});
+				errors.push({text:'Invalid Email'});
 				res.render('login/index',{
 					errors: errors
 				});
-				console.log('Signin failure');
-				console.log('From route');
 			}
 		});
 	});
