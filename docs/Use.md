@@ -47,17 +47,33 @@ To use the application please follow the following steps.
     
     ![Profile](/docs/screenshots/profile.jpeg?raw=true "Profile")
     
-    Profile can be updated any time user wants. After logging into the system user will be able to see update profile option on nav bar. Profile can be updated using that option. User can't update basic details like Name, Email, Gender and Phone Number. However, user will always be able to update his/her preferences and passwords.
+    Profile can be updated any time you want. After logging into the system you will be able to see update profile option on nav bar. Profile can be updated using that option. You can't update basic details like Name, Email, Gender and Phone Number. However, you will always be able to update your preferences and passwords.
 
     ![Update](/docs/screenshots/update.jpeg?raw=true "Update")
-    ![Reset Pwd](/docs/screenshots/resetpwd.jpeg?raw=true "Reset Pwd")  
+    ![Reset Pwd](/docs/screenshots/reset_pwd.jpeg?raw=true "Reset Pwd")  
 
 4. **Landing Page**
 
-    On subsequent logins user will be redirected to landing page. Here there is a option to search other users based on different cireteria.
+    On subsequent logins you will be redirected to landing page. Here there is a option to search other users based on different cireteria.
 
     ![Landing](/docs/screenshots/landing.jpeg?raw=true "Landing") 
 
 5. **Search**
+
+    When you are redirected on this page few user profiles are pre-fethched and displayed based on Budget, Location and Room Sharing preferences you set while registration as shown below.
+    
+    ![Default Search](/docs/screenshots/def_search.jpeg?raw=true "Default Search")
+
+    On left pane, there are different criteria shown, based on which you can search different profiles as per your choice.
+
+    ![Search Criteria](/docs/screenshots/search_cri.jpeg?raw=true "Search Criteria")
+
+    After selecting all or some of the criteria, click on search button and matching profiles will be displayed as shown below.
+
+    ![Search Result](/docs/screenshots/search_rlt.jpeg?raw=true "Search Result")
+
+    After getting results, you can view detailed decsription about user after clicking on button provided below each user profile. On clicking on button profile will be displayed as shown in following image.
+
+    ![Display Profile](/docs/screenshots/dis_prof.jpeg?raw=true "Display Profile")
 
 [<<< Previous](../README.md) | [Next >>>](/docs/Setup.md)
