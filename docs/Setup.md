@@ -37,6 +37,6 @@ This section contains information regarding how to set up and run this project. 
 
 6. **Start Web Application**
 
-
+    Run `node app.js` command to start our web application.
 
 [<<< Previous](/docs/Use.md)
