@@ -11,9 +11,11 @@ This section contains information regarding how to set up and run this project. 
 
 2. **Install MongoDB**
 
-    
+    Install latest version of MongoDB enterprise edition (3.6) . You can get documentation and resources required for MongoDB installation [here](https://docs.mongodb.com/manual/installation/). This guide contains information regarding MongoDB installation on all platforms.
 
 3. **Clone Repo**
+
+    Clone or fork our project [repo](https://github.com/Aishwarya2/RoommateFinder) on your local machine.
 
 4. **NPM Install**
 
