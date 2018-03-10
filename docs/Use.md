@@ -33,11 +33,11 @@ To use the application please follow the following steps.
 
     After completing sign up and email verification, you will be redirected to login page of our application. Now log into the system using credentials you provided earlier. After first time log in, one time registration page will appear. It will ask for some basic details as shown below.
 
-    ![Resistration](/docs/screenshots/resister_one.jpeg?raw=true "Resistration")
+    ![Resistration](/docs/screenshots/register_one.jpeg?raw=true "Resistration")
 
     Fill out required details then click on next. Other tab of preferences will open up as shown below.
 
-    ![Resistration](/docs/screenshots/resister_two.jpeg?raw=true "Resistration")
+    ![Resistration](/docs/screenshots/register_two.jpeg?raw=true "Resistration")
 
     Here also fill the required fields and then click on register. This will record your profile and set your preferences.
 
