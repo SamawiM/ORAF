@@ -52,6 +52,12 @@ To use the application please follow the following steps.
     ![Update](/docs/screenshots/update.jpeg?raw=true "Update")
     ![Reset Pwd](/docs/screenshots/resetpwd.jpeg?raw=true "Reset Pwd")  
 
-4. **Search**
+4. **Landing Page**
+
+    On subsequent logins user will be redirected to landing page. Here there is a option to search other users based on different cireteria.
+
+    ![Landing](/docs/screenshots/landing.jpeg?raw=true "Landing") 
+
+5. **Search**
 
 [<<< Previous](../README.md) | [Next >>>](/docs/Setup.md)
