@@ -3,7 +3,7 @@
 Use and Evaluate Application
 ----------------------------------
 
-To use the application please follow the following steps.
+This section explains how you can use our application and evaluate it. To use the application please follow the following steps.
 
 1. **Access Web App**
 
