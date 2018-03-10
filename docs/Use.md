@@ -50,6 +50,7 @@ To use the application please follow the following steps.
     Profile can be updated any time you want. After logging into the system you will be able to see update profile option on nav bar. Profile can be updated using that option. You can't update basic details like Name, Email, Gender and Phone Number. However, you will always be able to update your preferences and passwords.
 
     ![Update](/docs/screenshots/update.jpeg?raw=true "Update")
+    
     ![Reset Pwd](/docs/screenshots/reset_pwd.jpeg?raw=true "Reset Pwd")  
 
 4. **Landing Page**
