@@ -76,4 +76,10 @@ To use the application please follow the following steps.
 
     ![Display Profile](/docs/screenshots/dis_prof.jpeg?raw=true "Display Profile")
 
+    You can send request to user of your choice by clicking on Connect button provided under the user profile. When you click on this button, the intended user will receive email conveying your interest. Your email id will be shared with the user and if that user likes your profile you will hear back from that user.
+
+    ![Email Message](/docs/screenshots/email_msg.jpeg?raw=true "Email Message")
+
+    ![Email Sent](/docs/screenshots/email_sent.jpeg?raw=true "Email Sent")
+
 [<<< Previous](../README.md) | [Next >>>](/docs/Setup.md)
