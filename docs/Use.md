@@ -1,4 +1,4 @@
-[Roommate Finder](README.md) | [Setup and Run Application](/docs/Setup.md)
+[Roommate Finder](../README.md) | [Setup and Run Application](/docs/Setup.md)
 
 Use and Evaluate Application
 ----------------------------------
@@ -8,4 +8,4 @@ This README file contains information regarding application flow and how to use 
 ### [Use and Evaluate Application](/docs/Use.md)
 ### [Setup and Run Application](/docs/Setup.md)
 
-[<<< Previous](/docs/Use.md) | [Next >>>](/docs/Setup.md)
+[<<< Previous](../README.md) | [Next >>>](/docs/Setup.md)
