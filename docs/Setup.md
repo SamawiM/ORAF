@@ -19,7 +19,21 @@ This section contains information regarding how to set up and run this project. 
 
 4. **NPM Install**
 
+    Run `npm install` command from the directory where your clones our application. This will install all the required modules.
+
 5. **Start MongoDB Service**
+
+    Start MongoDB service on your local machine or on a hosted environment. Steps to start MongoDB service is given in above installation guide.
+
+6. **Change MongoDB Connection Details**
+
+    In `app.js` file change the mongodb connection to connect to your mongodb service instance.
+
+    ![Home Page](/docs/screenshots/mongo_conn.jpeg?raw=true "Home Page")
+
+7. **Change Other Parameters**
+
+    In `app.js` file change parametes, such as PORT parameter to start application on your desired port. In `/routes/index.js` filr change SMTP server connection details with your credentials.
 
 6. **Start Web Application**
 
