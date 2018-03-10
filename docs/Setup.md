@@ -7,7 +7,11 @@ This section contains information regarding how to set up and run this project. 
 
 1. **Install NodeJS**
 
+    Install latest version of NodeJS (8.10.0) . You can get installables for your host operating system on [this](https://nodejs.org/en/download/) link.
+
 2. **Install MongoDB**
+
+    
 
 3. **Clone Repo**
 
